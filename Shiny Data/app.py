@@ -3,22 +3,60 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 
-standard_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Standard_radar_chart_v2.csv")
-attacking_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Attacking_radar_chart_v2.csv")
-defending_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Defending_radar_chart_v2.csv")
+from sqlalchemy import create_engine
+import snowflake.connector
+
+import snowflake.connector
+
+SNOWFLAKE_USER = 'kbharaj3'
+SNOWFLAKE_PASSWORD = 'Snowfl@key0014'
+SNOWFLAKE_ACCOUNT = 'qx25653.ca-central-1.aws'
+SNOWFLAKE_WAREHOUSE = 'FOOTY_STORE'
+SNOWFLAKE_DATABASE = 'GEGENSTATS'
+SNOWFLAKE_SCHEMA = 'RADAR_CHARTS'
+
+conn = snowflake.connector.connect(
+    user=SNOWFLAKE_USER,
+    password=SNOWFLAKE_PASSWORD,
+    account=SNOWFLAKE_ACCOUNT,
+    warehouse=SNOWFLAKE_WAREHOUSE,
+    database=SNOWFLAKE_DATABASE,
+    schema=SNOWFLAKE_SCHEMA
+)
+
+cursor = conn.cursor()
+
+cursor.execute('SELECT * FROM STANDARD_RADAR')
+standad_chart_rows = cursor.fetchall()
+column_names = [desc[0] for desc in cursor.description]
+standard_chart_data = pd.DataFrame(standad_chart_rows, columns=column_names)
+
+cursor.execute('SELECT * FROM ATTACKING_RADAR')
+attacking_chart_rows = cursor.fetchall()
+column_names = [desc[0] for desc in cursor.description]
+attacking_chart_data = pd.DataFrame(attacking_chart_rows, columns=column_names)
+
+cursor.execute('SELECT * FROM DEFENDING_RADAR')
+defending_chart_rows = cursor.fetchall()
+column_names = [desc[0] for desc in cursor.description]
+defending_chart_data = pd.DataFrame(defending_chart_rows, columns=column_names)
+
+# standard_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Standard_radar_chart_v2.csv")
+# attacking_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Attacking_radar_chart_v2.csv")
+# defending_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Defending_radar_chart_v2.csv")
 
 def create_radar_chart(season, team_name, data, chart_name):
     team_data = data[data['TEAM_NAME'] == team_name]
-    average_data = data[data['TEAM_NAME'] == 'AVERAGE']
+    average_data = data[data['TEAM_NAME'] == 'Average_2223']
 
     team_data = team_data[team_data['SEASON'] == season]
     average_data = average_data[average_data['SEASON'] == season]
 
     # Prepare data for plotting
-    categories = team_data['Stats']
-    norm_values = team_data['Norm_Values']
-    average_norm_values = average_data['Norm_Values']
-    values = team_data['Values']
+    categories = team_data['VARIABLE']
+    norm_values = team_data['NORM_VALUE']
+    average_norm_values = average_data['NORM_VALUE']
+    values = team_data['VALUE']
 
     difference = [golden - average for golden, average in zip(norm_values, average_norm_values)]
 
@@ -64,18 +102,19 @@ def create_radar_chart(season, team_name, data, chart_name):
         dict(
             source='https://i.imgur.com/9yKFcv4.png',
             xref="paper", yref="paper",
-            x=0.296, y=1.01,
-            sizex=0.405, sizey=1.05,
+            xanchor="center", yanchor="middle",
+            x=0.5, y=0.484,
+            sizex=1.06, sizey=1.06,
             opacity=0.7,  # Adjust opacity as needed
             layer="below",
-            sizing="stretch"
+            sizing="contain"
         )
     )
 
     for i, (value, category) in enumerate(zip(values, categories)):
         angle = (i / float(len(categories))) * 2 * np.pi 
         x = 0.5 + (1.1) * np.cos(angle) / 4
-        y = 0.48 + (1.1) * np.sin(angle) / 1.65
+        y = 0.48 + (1.1) * np.sin(angle) / 2
 
         annotation_text = \
         f"<span style='font-size: 10px;'><b>{category}</b></span><br>" \
@@ -84,7 +123,7 @@ def create_radar_chart(season, team_name, data, chart_name):
         fig.add_annotation(
             x=x,
             y=y,
-            xref="paper",
+            xref="x domain",
             yref="paper",
             text=annotation_text,  # Bold category name and value
             showarrow=False,
@@ -92,13 +131,17 @@ def create_radar_chart(season, team_name, data, chart_name):
             align="center",
             xanchor='center',
             yanchor='middle',
+            # sizing="contain",
+            bordercolor="rgba(0, 0, 0, 0)",
         )
+
+
 
     # Update layout
     fig.update_layout(
-        autosize=True,
-        width=355,  # Set the width
-        height=300,  # Set the height
+        # autosize=False,
+        # width=355*1,  # Set the width
+        # height=400,  # Set the height
         polar=dict(
             bgcolor='rgba(0,0,0,0)',
             radialaxis=dict(
@@ -138,20 +181,23 @@ def create_radar_chart(season, team_name, data, chart_name):
 
 st.title('Team Radar Charts')
 team_name = st.selectbox('Select a Team', list(sorted(np.delete(standard_chart_data['TEAM_NAME'].unique(), 
-                                                         np.where(standard_chart_data['TEAM_NAME'].unique() == 'AVERAGE')))))
+                                                         np.where(standard_chart_data['TEAM_NAME'].unique() == 'Average_2223')))))
 season = st.selectbox('Select a Season', (standard_chart_data['SEASON'].unique()))
 
-col1, col2 = st.columns(2)
+# col1, col2 = st.columns(2)
 
-with col1:
+st.sidebar.caption("Note: Expand the plot for the best viewing experience.")
+
+# with col1:
     # st.header('Standard Radar Chart')
-    fig_standard = create_radar_chart(season, team_name, standard_chart_data, "Standard Radar Chart")
-    st.plotly_chart(fig_standard, use_container_width=False)
+fig_standard = create_radar_chart(season, team_name, standard_chart_data, "Standard Radar Chart") 
+st.plotly_chart(fig_standard, use_container_width=True)
 
-with col2:
+
+# with col2:
     # st.header('Attacking Radar Chart')
-    fig_attacking = create_radar_chart(season, team_name, attacking_chart_data, "Attacking Radar Chart") # Assuming the same data is used
-    st.plotly_chart(fig_attacking, use_container_width=False)
+fig_attacking = create_radar_chart(season, team_name, attacking_chart_data, "Attacking Radar Chart") # Assuming the same data is used
+st.plotly_chart(fig_attacking, use_container_width=True)
 
 # with col3:
 #     # st.header('Defending Radar Chart')
@@ -159,6 +205,9 @@ with col2:
 #     st.plotly_chart(fig_defending, use_container_width=False)
 
 # # Call your function with the selected team
+    
+fig_defending = create_radar_chart(season, team_name, defending_chart_data, "Defending Radar Chart")
+st.plotly_chart(fig_defending, use_container_width=True)
 
 
 
