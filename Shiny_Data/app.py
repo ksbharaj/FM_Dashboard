@@ -69,6 +69,16 @@ standard_rows = cursor.fetchall()
 column_names = [desc[0] for desc in cursor.description]
 team_standard = pd.DataFrame(standard_rows, columns=column_names)
 
+cursor.execute('SELECT * FROM TEAM_ATTACKING_STATS')
+attacking_rows = cursor.fetchall()
+column_names = [desc[0] for desc in cursor.description]
+team_attacking = pd.DataFrame(attacking_rows, columns=column_names)
+
+cursor.execute('SELECT * FROM TEAM_DEFENDING_STATS')
+defending_rows = cursor.fetchall()
+column_names = [desc[0] for desc in cursor.description]
+team_defending = pd.DataFrame(defending_rows, columns=column_names)
+
 team_logos = \
 [["18bb7c10", "https://i.imgur.com/SURo5sj.png"], ["8602292d", "https://i.imgur.com/M4mwH1X.png"],
  ["4ba7cbea", "https://i.imgur.com/0F6UIO4.png"], ["cd051869", "https://i.imgur.com/MOhGOQ4.png"],
@@ -90,9 +100,17 @@ team_misc['AERIAL DUELS WON RATIO (%)'] = team_misc['AERIALS_WON']*100/(team_mis
                                                                 team_misc['AERIALS_LOST'])
 team_misc['AERIAL DUELS ATTEMPTED PER GAME'] = (team_misc['AERIALS_WON'] + 
                                            team_misc['AERIALS_LOST'])/team_misc['MATCHES_PLAYED']
-# standard_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Standard_radar_chart_v2.csv")
-# attacking_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Attacking_radar_chart_v2.csv")
-# defending_chart_data = pd.read_csv(r"C:\Users\ksbha\Documents\Python Scripts\Data Engineering Scraping project\Shiny Data\Defending_radar_chart_v2.csv")
+
+
+team_goal_output = team_standard.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'XG_AGAINST']], 
+                                       on=['TEAM_FBREF_ID', 'SEASON'], how='left')
+team_goal_output = team_goal_output.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'NPXG']], 
+                                          on=['TEAM_FBREF_ID', 'SEASON'], how='left')
+team_goal_output['EXPECTED GOALS AGAINST PER GAME'] = team_goal_output['XG_AGAINST']/team_goal_output['MATCHES_PLAYED']
+team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'] = team_goal_output['NPXG']/team_goal_output['MATCHES_PLAYED']
+team_goal_output = team_goal_output.merge(team_names, on='TEAM_FBREF_ID', how='left')
+team_goal_output = team_goal_output.merge(team_logos, on='TEAM_FBREF_ID', how='left')
+
 
 def create_radar_chart(season, team_name, data, chart_name):
     team_data = data[data['TEAM_NAME'] == team_name]
@@ -239,21 +257,27 @@ def create_radar_chart(season, team_name, data, chart_name):
     return fig
 
 
-x_min = (team_misc['AERIAL DUELS WON RATIO (%)'].min() // 5)*5
-x_max = (team_misc['AERIAL DUELS WON RATIO (%)'].max()//5)*5 + 5
-y_min = (team_misc['AERIAL DUELS ATTEMPTED PER GAME'].min()//5)*5
-y_max = (team_misc['AERIAL DUELS ATTEMPTED PER GAME'].max()//5)*5 + 5
+x_min_aerial = (team_misc['AERIAL DUELS WON RATIO (%)'].min()*0.95)
+x_max_aerial = (team_misc['AERIAL DUELS WON RATIO (%)'].max()*1.05)
+y_min_aerial = (team_misc['AERIAL DUELS ATTEMPTED PER GAME'].min()*0.95)
+y_max_aerial = (team_misc['AERIAL DUELS ATTEMPTED PER GAME'].max()*1.05)
 
-def create_aerial_duels_chart(team_misc, x_min, x_max, y_min, y_max):
+x_min_goal_output = (team_goal_output['EXPECTED GOALS AGAINST PER GAME'].min()*0.925)
+x_max_goal_output = (team_goal_output['EXPECTED GOALS AGAINST PER GAME'].max()*1.075)
+y_min_goal_output = (team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'].min()*0.85)
+y_max_goal_output = (team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'].max()*1.07)
+
+def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis_label, img_size, x_min, x_max, y_min, y_max, bottom_left_label, 
+                                 bottom_right_label, top_left_label, top_right_label, bl_color, br_color, tl_color, tr_color):
     fig = go.Figure()
-    mean_aerials_won_ratio = team_misc["AERIAL DUELS WON RATIO (%)"].mean()
-    mean_aerials_attempted_per_game = team_misc["AERIAL DUELS ATTEMPTED PER GAME"].mean()
+    x_axis_mean_val = df[x_axis_label].mean()
+    y_axis_mean_val = df[y_axis_label].mean()
 
     # Add the scatter plot points
-    for index, row in team_misc.iterrows():
+    for index, row in df.iterrows():
         fig.add_trace(go.Scatter(
-            x=[row["AERIAL DUELS WON RATIO (%)"]],
-            y=[row["AERIAL DUELS ATTEMPTED PER GAME"]],
+            x=[row[x_axis_label]],
+            y=[row[y_axis_label]],
             mode='markers',
             text=row["TEAM_NAME"],
             marker=dict(
@@ -267,8 +291,8 @@ def create_aerial_duels_chart(team_misc, x_min, x_max, y_min, y_max):
         fig.add_layout_image(
             dict(
                 source=row["LOGO_URL"],
-                x=row["AERIAL DUELS WON RATIO (%)"],
-                y=row["AERIAL DUELS ATTEMPTED PER GAME"],
+                x=row[x_axis_label],
+                y=row[y_axis_label],
                 xref="x",
                 yref="y",
                 sizex=5,  # Adjust the size of the image here
@@ -278,16 +302,30 @@ def create_aerial_duels_chart(team_misc, x_min, x_max, y_min, y_max):
             )
         )
 
+        if row['TEAM_NAME'] == team_name:
+            # Highlight the selected team
+            fig.add_shape(
+                type="circle",
+                xref="x",
+                yref="y",
+                x0=row[x_axis_label] - img_size/1.75,  # Adjust size and position as needed
+                y0=row[y_axis_label] - img_size/1.75,
+                x1=row[x_axis_label] + img_size/1.75,
+                y1=row[y_axis_label] + img_size/1.75,
+                line_color="red",  # Choose a distinctive color
+                line_width=3,
+            )
+
     # Update axes and layout as necessary
     # ...
         
-    fig.update_xaxes(range=[x_min, x_max], title="AERIAL DUELS WON RATIO (%)")
-    fig.update_yaxes(range=[y_min, y_max], title="AERIAL DUELS ATTEMPTED PER GAME")
+    fig.update_xaxes(range=[x_min, x_max], title=x_axis_label)
+    fig.update_yaxes(range=[y_min, y_max], title=y_axis_label)
 
     fig.add_shape(
         type='line',
-        x0=mean_aerials_won_ratio, y0=fig.layout.yaxis.range[0],  # start of the line
-        x1=mean_aerials_won_ratio, y1=fig.layout.yaxis.range[1],  # end of the line
+        x0=x_axis_mean_val, y0=fig.layout.yaxis.range[0],  # start of the line
+        x1=x_axis_mean_val, y1=fig.layout.yaxis.range[1],  # end of the line
         line=dict(color='White', width=3),
         layer='below'
     )
@@ -295,15 +333,15 @@ def create_aerial_duels_chart(team_misc, x_min, x_max, y_min, y_max):
     # Add a horizontal line at the mean aerials attempted per game
     fig.add_shape(
         type='line',
-        x0=fig.layout.xaxis.range[0], y0=mean_aerials_attempted_per_game,  # start of the line
-        x1=fig.layout.xaxis.range[1], y1=mean_aerials_attempted_per_game,  # end of the line
+        x0=fig.layout.xaxis.range[0], y0=y_axis_mean_val,  # start of the line
+        x1=fig.layout.xaxis.range[1], y1=y_axis_mean_val,  # end of the line
         line=dict(color='White', width=3),
         layer='below'
     )
 
     fig.update_layout(
-        width=600,
-        height=600,
+        width=700,
+        height=700,
         showlegend=False,
         paper_bgcolor='rgb(70, 70, 70)',
         plot_bgcolor='rgb(70, 70, 70)',
@@ -312,26 +350,27 @@ def create_aerial_duels_chart(team_misc, x_min, x_max, y_min, y_max):
                 size=15,                     # Specify the font size
                 color="white"                # Specify the font color
             ),
+        hoverlabel=dict(
+                bgcolor="rgba(20, 20, 20, 0.8)",
+                font_family="Roboto, sans-serif"),
         title={
-            'text': 'AERIAL DATA',
+            'text': f'{chart_name}',
             'y':0.95,  # Sets the y position of the title (1 is the top of the figure)
             'x':0.5,  # Centers the title horizontally (0.5 is the center of the figure)
             'xanchor': 'center',  # Ensures the title is centered at the x position
             'yanchor': 'top'  # Ensures the title is at the top of the y position
         },
-        hoverlabel=dict(
-                bgcolor="rgba(20, 20, 20, 0.8)",
-                font_family="Roboto, sans-serif"),
+        margin=dict(l=10, r=30, t=10, b=10),
         images= [dict(
             source= row["LOGO_URL"],
             xref="x",
             yref="y",
-            x= row["AERIAL DUELS WON RATIO (%)"],
-            y= row["AERIAL DUELS ATTEMPTED PER GAME"],
-            sizex=0.75,  # The size of the image in x axis units
-            sizey=0.75,  # The size of the image in y axis units
+            x= row[x_axis_label],
+            y= row[y_axis_label],
+            sizex=img_size,  # The size of the image in x axis units
+            sizey=img_size,  # The size of the image in y axis units
             sizing="contain",
-            layer="above") for index, row in team_misc.iterrows()]
+            layer="above") for index, row in df.iterrows()]
     )
 
     fig.update_xaxes(
@@ -350,37 +389,36 @@ def create_aerial_duels_chart(team_misc, x_min, x_max, y_min, y_max):
         tickfont=dict(color='white')
     )
 
-    fig.add_annotation(text="Fewer Duels<br>Poor Dueling",
+    fig.add_annotation(text=bottom_left_label,
                     xref="paper", yref="paper",
                     x=0, y=0,  # Bottom left corner
                     showarrow=False,
-                    font=dict(size=12, color="red", family="Roboto, sans-serif"),
+                    font=dict(size=14, color=bl_color, family="Roboto, sans-serif"),
                     align="left")
 
-    fig.add_annotation(text="Lots of Duels<br>Poor Dueling",
+    fig.add_annotation(text=top_left_label,
                     xref="paper", yref="paper",
                     x=0, y=1,  # Top left corner
                     showarrow=False,
-                    font=dict(size=12, color="orange", family="Roboto, sans-serif"),
+                    font=dict(size=14, color=tl_color, family="Roboto, sans-serif"),
                     align="left")
 
-    fig.add_annotation(text="Lots of Duels<br>Strong Dueling",
+    fig.add_annotation(text=top_right_label,
                     xref="paper", yref="paper",
                     x=1, y=1,  # Top right corner
                     showarrow=False,
-                    font=dict(size=12, color="green", family="Roboto, sans-serif"),
+                    font=dict(size=14, color=tr_color, family="Roboto, sans-serif"),
                     align="right")
 
-    fig.add_annotation(text="Fewer Duels<br>Strong Dueling",
+    fig.add_annotation(text=bottom_right_label,
                     xref="paper", yref="paper",
                     x=1, y=0,  # Bottom right corner
                     showarrow=False,
-                    font=dict(size=12, color="orange", family="Roboto, sans-serif"),
+                    font=dict(size=14, color=br_color, family="Roboto, sans-serif"),
                     align="right")
 
-
-
     return fig
+
 
 st.title('Team Analytics')
 team_name = st.selectbox('Select a Team', list(sorted(np.delete(standard_chart_data['TEAM_NAME'].unique(), 
@@ -406,9 +444,20 @@ with tabs[0]:
 
 # Future Content Tab
 with tabs[1]:
-    fig_team_aerial_duels = create_aerial_duels_chart(team_misc, x_min, x_max, y_min, y_max)
-    st.plotly_chart(fig_team_aerial_duels, use_container_width=True)
+    fig_team_aerial_duels = create_FM_team_scatter_chart(team_misc, 'AERIAL', team_name, 'AERIAL DUELS WON RATIO (%)', 'AERIAL DUELS ATTEMPTED PER GAME', 
+                                                         0.75, x_min_aerial, x_max_aerial, y_min_aerial, y_max_aerial, 
+                                                         "Fewer Duels<br>Poor Dueling", "Fewer Duels<br>Strong Dueling",
+                                                         "Lots of Duels<br>Poor Dueling", "Lots of Duels<br>Strong Dueling", "red", 
+                                                         "orange", "orange", "green")
+    st.plotly_chart(fig_team_aerial_duels, use_container_width=False)
 
-st.sidebar.caption("Note: Expand the plot for the best viewing experience.")
+    fig_team_aerial_duels = create_FM_team_scatter_chart(team_goal_output, 'GOAL OUTPUT', team_name, 'EXPECTED GOALS AGAINST PER GAME', 'NON PENALTY EXPECTED GOALS PER GAME', 
+                                                         0.065, x_min_goal_output, x_max_goal_output, y_min_goal_output, y_max_goal_output, 
+                                                         "Low non-penalty expected goals<br>Strong Defending", "Low non-penalty expected goals<br>Poor Defending",
+                                                         "High non-penalty expected goals<br>Strong Defending", "High non-penalty expected goals<br>Poor Defending", 
+                                                         "orange", "red", "green", "orange")
+    st.plotly_chart(fig_team_aerial_duels, use_container_width=False)
+
+# st.sidebar.caption("Note: Expand the plot for the best viewing experience.")
 
 
