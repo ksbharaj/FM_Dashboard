@@ -41,7 +41,7 @@ defending_chart_rows = cursor.fetchall()
 column_names = [desc[0] for desc in cursor.description]
 defending_chart_data = pd.DataFrame(defending_chart_rows, columns=column_names)
 
-SNOWFLAKE_SCHEMA = 'FBREF_TEAMSTATS'
+SNOWFLAKE_SCHEMA = 'TABLES'
 
 conn = snowflake.connector.connect(
     user=SNOWFLAKE_USER,
@@ -355,12 +355,12 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
                 font_family="Roboto, sans-serif"),
         title={
             'text': f'{chart_name}',
-            'y':0.95,  # Sets the y position of the title (1 is the top of the figure)
+            'y':0.98,  # Sets the y position of the title (1 is the top of the figure)
             'x':0.5,  # Centers the title horizontally (0.5 is the center of the figure)
             'xanchor': 'center',  # Ensures the title is centered at the x position
             'yanchor': 'top'  # Ensures the title is at the top of the y position
         },
-        margin=dict(l=10, r=30, t=10, b=10),
+        margin=dict(l=10, r=30, t=50, b=10),
         images= [dict(
             source= row["LOGO_URL"],
             xref="x",
