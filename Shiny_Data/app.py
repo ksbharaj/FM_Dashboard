@@ -6,8 +6,21 @@ import plotly.graph_objects as go
 from sqlalchemy import create_engine
 import snowflake.connector
 
+import io
+import urllib
+
 import snowflake.connector
 
+from plottable import ColDef, Table
+import matplotlib.colors as mcolors
+from plottable.cmap import centered_cmap
+from plottable.plots import image
+import matplotlib.pyplot as plt
+
+import warnings
+warnings.filterwarnings("ignore")
+
+# Snowflake details
 SNOWFLAKE_USER = 'kbharaj3'
 SNOWFLAKE_PASSWORD = 'Snowfl@key0014'
 SNOWFLAKE_ACCOUNT = 'qx25653.ca-central-1.aws'
@@ -24,6 +37,7 @@ conn = snowflake.connector.connect(
     schema=SNOWFLAKE_SCHEMA
 )
 
+# Import data from Snowflake
 cursor = conn.cursor()
 
 cursor.execute('SELECT * FROM STANDARD_RADAR')
@@ -79,23 +93,9 @@ defending_rows = cursor.fetchall()
 column_names = [desc[0] for desc in cursor.description]
 team_defending = pd.DataFrame(defending_rows, columns=column_names)
 
-team_logos = \
-[["18bb7c10", "https://i.imgur.com/SURo5sj.png"], ["8602292d", "https://i.imgur.com/M4mwH1X.png"],
- ["4ba7cbea", "https://i.imgur.com/0F6UIO4.png"], ["cd051869", "https://i.imgur.com/MOhGOQ4.png"],
- ["d07537b9", "https://i.imgur.com/EMCwD3X.png"], ["cff3d9bb", "https://i.imgur.com/6F7h3UR.png"],
- ["47c64c55", "https://i.imgur.com/LPhzr0K.png"], ["d3fd31cc", "https://i.imgur.com/Dgei0uj.png"],
- ["fd962109", "https://i.imgur.com/2zggSrF.png"], ["5bfb9659", "https://i.imgur.com/2tipH85.png"],
- ["a2d435b3", "https://i.imgur.com/ldOUO84.png"], ["822bd0ba", "https://i.imgur.com/fs7VK9G.png"],
- ["b8fd03ef", "https://i.imgur.com/FF8z7uZ.png"], ["19538871", "https://i.imgur.com/z47emBQ.png"],
- ["b2b47a98", "https://i.imgur.com/3kOLokZ.png"], ["e4a775cb", "https://i.imgur.com/z4Tl9Zu.png"],
- ["33c895d4", "https://i.imgur.com/35GrgJC.png"], ["361ca564", "https://i.imgur.com/fJ7rUWW.png"],
- ["7c21e445", "https://i.imgur.com/9BQHJRl.png"], ["8cec06e1", "https://i.imgur.com/6azSF88.png"]
- ]
-
-team_logos = pd.DataFrame(team_logos, columns=['TEAM_FBREF_ID', 'LOGO_URL'])
+# Create a Miscellaneous DataFrame
 team_misc = team_misc.merge(team_names, on='TEAM_FBREF_ID', how='left')
 team_misc = team_misc.merge(team_standard, on=['TEAM_FBREF_ID', 'SEASON'], how='left')
-team_misc = team_misc.merge(team_logos, on=['TEAM_FBREF_ID'], how='left')
 team_misc['AERIAL DUELS WON RATIO (%)'] = team_misc['AERIALS_WON']*100/(team_misc['AERIALS_WON'] + 
                                                                 team_misc['AERIALS_LOST'])
 team_misc['AERIAL DUELS ATTEMPTED PER GAME'] = (team_misc['AERIALS_WON'] + 
@@ -109,9 +109,74 @@ team_goal_output = team_goal_output.merge(team_attacking[['TEAM_FBREF_ID', 'SEAS
 team_goal_output['EXPECTED GOALS AGAINST PER GAME'] = team_goal_output['XG_AGAINST']/team_goal_output['MATCHES_PLAYED']
 team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'] = team_goal_output['NPXG']/team_goal_output['MATCHES_PLAYED']
 team_goal_output = team_goal_output.merge(team_names, on='TEAM_FBREF_ID', how='left')
-team_goal_output = team_goal_output.merge(team_logos, on='TEAM_FBREF_ID', how='left')
+
+df_table = team_goal_output[['TEAM_FBREF_ID', 'SEASON', 'TEAM_PTS', 'TEAM_XPTS','TEAM_NAME','TEAM_LOGO_URL']].copy()
+df_table = df_table.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'GOALS_SCORED', 'XG']], on=['TEAM_FBREF_ID', 'SEASON'])
+df_table = df_table.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'GOALS_CONCEDED', 'XG_AGAINST']], on=['TEAM_FBREF_ID', 'SEASON'])
+df_table["GOAL_DIFFERENCE"] = df_table["GOALS_SCORED"] - df_table["GOALS_CONCEDED"]
+PTS_table = df_table[['TEAM_NAME','TEAM_PTS', 'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED']].sort_values(['TEAM_PTS',
+                     'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'], ascending=False).reset_index(drop=True).reset_index()
+PTS_table.rename(columns={'index':'POS_NUM'}, inplace=True)
+PTS_table.POS_NUM += 1
+
+def ordinal(n):
+    return "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
+
+PTS_table['POS'] = PTS_table['POS_NUM'].apply(ordinal)
+
+XPTS_table = df_table[['TEAM_NAME','TEAM_XPTS', 'GOAL_DIFFERENCE','GOALS_SCORED'
+          ,'GOALS_CONCEDED']].sort_values(['TEAM_XPTS', 'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'],
+                                          ascending=False).reset_index(drop=True).reset_index()
+
+XPTS_table.rename(columns={'index':'XPTS POS_NUM'}, inplace=True)
+XPTS_table['XPTS POS_NUM'] += 1
+
+XPTS_table['XPTS POS'] = XPTS_table['XPTS POS_NUM'].apply(ordinal)
+
+PTS_XPTS_table = XPTS_table.merge(PTS_table, how='left', on=['TEAM_NAME','GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'])
+
+PTS_XPTS_table = PTS_XPTS_table[['TEAM_NAME','XPTS POS','XPTS POS_NUM','POS','POS_NUM']]
+
+df_table = df_table.merge(PTS_XPTS_table, how='left', on='TEAM_NAME')
+
+df_table.rename(columns={'TEAM_LOGO_URL':'TEAM_LOGO'}, inplace=True)
+
+fin_table = df_table[['POS','POS_NUM','TEAM_LOGO','XPTS POS','XPTS POS_NUM','TEAM_NAME','XG','GOALS_SCORED','XG_AGAINST',
+          'GOALS_CONCEDED','TEAM_PTS','TEAM_XPTS']].sort_values('XPTS POS_NUM')
+fin_table['POS_NUM_DIFF'] = fin_table.apply(lambda row: 'https://i.imgur.com/AACUEGy.png' if row['POS_NUM'] == row['XPTS POS_NUM'] else \
+                                            'https://i.imgur.com/5sTTYXm.png' if row['POS_NUM'] < row['XPTS POS_NUM'] else 'https://i.imgur.com/dGsmsnm.png', axis=1)
+fin_table['XG_DIFF'] = fin_table['GOALS_SCORED']-fin_table['XG']
+fin_table['XGA_DIFF'] = fin_table['GOALS_CONCEDED']-fin_table['XG_AGAINST']
+fin_table['XPTS_DIFF'] = fin_table['TEAM_PTS']-fin_table['TEAM_XPTS']
+fin_table = fin_table[['POS','XPTS POS','POS_NUM_DIFF','TEAM_LOGO','TEAM_NAME','XG','XG_DIFF',
+          'XG_AGAINST','XGA_DIFF','TEAM_XPTS','XPTS_DIFF']]
+fin_table['XG_DIFF'] = fin_table['XG_DIFF'].astype(int)
+fin_table['XGA_DIFF'] = fin_table['XGA_DIFF'].astype(int)
+fin_table['XPTS_DIFF'] = fin_table['XPTS_DIFF'].astype(int)
+
+fin_table = fin_table.set_index(['POS'])
+
+team_name_cols = ['TEAM_LOGO','TEAM_NAME']
+xG_cols = ['XG','XG_DIFF']
+xGA_cols = ['XG_AGAINST','XGA_DIFF']
+xPTS_cols = ['TEAM_XPTS','XPTS_DIFF']
+
+fin_table['TEAM_LOGO'] = fin_table['TEAM_LOGO'].apply(lambda x: (io.BytesIO(urllib.request.urlopen(x).read())))
+fin_table['POS_NUM_DIFF'] = fin_table['POS_NUM_DIFF'].apply(lambda x: (io.BytesIO(urllib.request.urlopen(x).read())))
+
+colors_pos = [(1, 0, 0), (0, 0.6, 0)]  # Red to Green
+colors_neg = [(0, 0.6, 0), (1, 0, 0)]  # Green to Red
+n_bins = 2 # Discretizes the interpolation into bins
+cmap_name = 'custom_red_green'
+cm_pos = mcolors.LinearSegmentedColormap.from_list(cmap_name, colors_pos, N=n_bins)
+cm_neg = mcolors.LinearSegmentedColormap.from_list(cmap_name, colors_neg, N=n_bins)
 
 
+def plus_sign_formatter(value):
+    return f"+{value:.0f}" if value > 0 else f"{value:.0f}"
+
+
+# Function to create the radar charts
 def create_radar_chart(season, team_name, data, chart_name):
     team_data = data[data['TEAM_NAME'] == team_name]
     average_data = data[data['TEAM_NAME'] == 'Average_2223']
@@ -267,6 +332,7 @@ x_max_goal_output = (team_goal_output['EXPECTED GOALS AGAINST PER GAME'].max()*1
 y_min_goal_output = (team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'].min()*0.85)
 y_max_goal_output = (team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'].max()*1.07)
 
+# Function to create the scatter charts
 def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis_label, img_size, x_min, x_max, y_min, y_max, bottom_left_label, 
                                  bottom_right_label, top_left_label, top_right_label, bl_color, br_color, tl_color, tr_color):
     fig = go.Figure()
@@ -290,7 +356,7 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
         # Add team logo as a layout_image
         fig.add_layout_image(
             dict(
-                source=row["LOGO_URL"],
+                source=row["TEAM_LOGO_URL"],
                 x=row[x_axis_label],
                 y=row[y_axis_label],
                 xref="x",
@@ -362,7 +428,7 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
         },
         margin=dict(l=10, r=30, t=50, b=10),
         images= [dict(
-            source= row["LOGO_URL"],
+            source= row["TEAM_LOGO_URL"],
             xref="x",
             yref="y",
             x= row[x_axis_label],
@@ -420,12 +486,67 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
     return fig
 
 
+# Function to create the xG Table
+def create_xG_table(df, team_name, season):
+
+    col_defs = (
+    [
+        ColDef(name="POS", title="", group="POS",textprops={"ha": "center", "weight": "bold"}, width=0.3),
+        ColDef(name="XPTS POS", title="", group="XPTS POS", textprops={"ha": "center", "weight": "bold"}, width=0.3),
+        ColDef(name="POS_NUM_DIFF", title="", group="NAME",textprops={"ha": "center"}, width=0.06,plot_fn=image),
+        ColDef(name="TEAM_LOGO", title="", group="NAME",textprops={"ha": "center"}, width=0.2, plot_fn=image),
+        ColDef(name="TEAM_NAME", title="",group="NAME",textprops={"ha": "left"}, width=0.8),
+        ColDef(name="XG", title="", group="XG",textprops={"ha": "center"}, formatter="{:.1f}", width=0.3),
+        ColDef(name="XG_DIFF", title="", group="XG", textprops={"ha": "center","fontsize": 14,"fontweight": "bold","bbox": {"boxstyle": "circle,pad=0.1"}}, 
+               formatter=plus_sign_formatter, width=0.2, cmap=centered_cmap(df["XG_DIFF"], cmap=cm_pos, center=0)),
+        ColDef(name="XG_AGAINST", title="", group="XGA",textprops={"ha": "center",}, formatter="{:.1f}", width=0.3),
+        ColDef(name="XGA_DIFF", title="", group="XGA",textprops={"ha": "center","fontsize": 14,"fontweight": "bold","bbox": {"boxstyle": "circle,pad=0.1"}}, 
+               width=0.2, formatter=plus_sign_formatter,cmap=centered_cmap(df["XG_DIFF"], cmap=cm_neg, center=0)),
+        ColDef(name="TEAM_XPTS", title="", group="XPTS",textprops={"ha": "center"}, formatter="{:.1f}", width=0.3),
+        ColDef(name="XPTS_DIFF", title="", group="XPTS",textprops={"ha": "center","fontsize": 14,"fontweight": "bold","bbox": {"boxstyle": "circle,pad=0.1"}}, 
+               width=0.2, formatter=plus_sign_formatter,cmap=centered_cmap(df["XG_DIFF"], cmap=cm_pos, center=0)),
+    ]
+)
+    
+    plt.rcParams["font.family"] = ["Roboto"]
+    plt.rcParams["savefig.bbox"] = "tight"
+    plt.rcParams["text.color"] = "#e0e8df"
+
+    fig, ax = plt.subplots(figsize=(9, 9))
+
+    ax.set_title('XG TABLE', fontsize=15, fontweight='bold', color='gold', loc='left',pad=15)
+
+    subtitle_y_position = 1.005  # Adjust this value as needed
+    ax.text(0.0, subtitle_y_position, 'Premier Division, 2223 Season', fontsize=11, color='lightgray', 
+            transform=ax.transAxes)
+
+    fig.set_facecolor("#464646")
+    ax.set_facecolor("#464646")
+
+    fig.subplots_adjust(top=0.85, bottom=0.1, left=0.1, right=0.9)
+
+    table = Table(
+        df,
+        column_definitions=col_defs,
+        row_dividers=True,
+        footer_divider=True,
+        ax=ax,
+        textprops={"fontsize": 12},
+        row_divider_kw={"linewidth": 1, "linestyle": (0, (1, 5))},
+        col_label_divider={"linewidth": 1, "linestyle": (0, (1, 5))},
+    )
+
+    table.autoset_fontcolors(colnames=["XG_DIFF", "XGA_DIFF", "XPTS_DIFF"])
+
+    fig.subplots_adjust(top=0.85, bottom=0.1, left=0.1, right=0.9)
+    return fig
+
+
+# Creation of the Streamit App
 st.title('Team Analytics')
 team_name = st.selectbox('Select a Team', list(sorted(np.delete(standard_chart_data['TEAM_NAME'].unique(), 
                                                          np.where(standard_chart_data['TEAM_NAME'].unique() == 'Average_2223')))))
 season = st.selectbox('Select a Season', (standard_chart_data['SEASON'].unique()))
-
-# col1, col2 = st.columns(2)
 
 tabs = st.tabs(["Radar Charts", "General"])
 
@@ -457,6 +578,9 @@ with tabs[1]:
                                                          "High non-penalty expected goals<br>Strong Defending", "High non-penalty expected goals<br>Poor Defending", 
                                                          "orange", "red", "green", "orange")
     st.plotly_chart(fig_team_aerial_duels, use_container_width=False)
+
+    fig_xG_table = create_xG_table(fin_table, team_name, season)
+    st.pyplot(fig_xG_table, use_container_width=True)
 
 # st.sidebar.caption("Note: Expand the plot for the best viewing experience.")
 
