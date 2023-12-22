@@ -93,83 +93,35 @@ defending_rows = cursor.fetchall()
 column_names = [desc[0] for desc in cursor.description]
 team_defending = pd.DataFrame(defending_rows, columns=column_names)
 
+cursor.execute('SELECT * FROM COMPETITIONS')
+competition_rows = cursor.fetchall()
+column_names = [desc[0] for desc in cursor.description]
+df_competitions = pd.DataFrame(competition_rows, columns=column_names)
+
 # Create a Miscellaneous DataFrame
+team_misc = team_misc.merge(df_competitions[['COMPETITION','COMPETITION_ACRONYM','SEASON']], on=['COMPETITION','SEASON'], how='left')
 team_misc = team_misc.merge(team_names, on='TEAM_FBREF_ID', how='left')
-team_misc = team_misc.merge(team_standard, on=['TEAM_FBREF_ID', 'SEASON'], how='left')
-team_misc['AERIAL DUELS WON RATIO (%)'] = team_misc['AERIALS_WON']*100/(team_misc['AERIALS_WON'] + 
-                                                                team_misc['AERIALS_LOST'])
-team_misc['AERIAL DUELS ATTEMPTED PER GAME'] = (team_misc['AERIALS_WON'] + 
-                                           team_misc['AERIALS_LOST'])/team_misc['MATCHES_PLAYED']
+team_misc = team_misc.merge(team_standard, on=['TEAM_FBREF_ID', 'SEASON', 'COMPETITION'], how='left')
+team_misc['AERIAL DUELS WON RATIO (%)'] = team_misc['AERIALS_WON']*100/(team_misc['AERIALS_WON'] + team_misc['AERIALS_LOST'])
+team_misc['AERIAL DUELS ATTEMPTED PER GAME'] = (team_misc['AERIALS_WON'] + team_misc['AERIALS_LOST'])/team_misc['MATCHES_PLAYED']
 
 
-team_goal_output = team_standard.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'XG_AGAINST']], 
-                                       on=['TEAM_FBREF_ID', 'SEASON'], how='left')
-team_goal_output = team_goal_output.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'NPXG']], 
-                                          on=['TEAM_FBREF_ID', 'SEASON'], how='left')
+team_goal_output = team_standard.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION', 'XG_AGAINST']], 
+                                       on=['TEAM_FBREF_ID', 'SEASON', 'COMPETITION'], how='left')
+team_goal_output = team_goal_output.merge(df_competitions[['COMPETITION','COMPETITION_ACRONYM','SEASON']], 
+                                      on=['COMPETITION','SEASON'], how='left')
+team_goal_output = team_goal_output.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION','NPXG']], 
+                                          on=['TEAM_FBREF_ID', 'SEASON', 'COMPETITION'], how='left')
 team_goal_output['EXPECTED GOALS AGAINST PER GAME'] = team_goal_output['XG_AGAINST']/team_goal_output['MATCHES_PLAYED']
 team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'] = team_goal_output['NPXG']/team_goal_output['MATCHES_PLAYED']
 team_goal_output = team_goal_output.merge(team_names, on='TEAM_FBREF_ID', how='left')
 
-df_table = team_goal_output[['TEAM_FBREF_ID', 'SEASON', 'TEAM_PTS', 'TEAM_XPTS','TEAM_NAME','TEAM_LOGO_URL']].copy()
-df_table = df_table.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'GOALS_SCORED', 'XG']], on=['TEAM_FBREF_ID', 'SEASON'])
-df_table = df_table.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'GOALS_CONCEDED', 'XG_AGAINST']], on=['TEAM_FBREF_ID', 'SEASON'])
+df_table = team_goal_output[['TEAM_FBREF_ID', 'SEASON', 'TEAM_PTS', 'COMPETITION','COMPETITION_ACRONYM','TEAM_XPTS','TEAM_NAME','TEAM_LOGO_URL']].copy()
+df_table = df_table.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION','GOALS_SCORED', 'XG']], 
+                          on=['TEAM_FBREF_ID', 'SEASON','COMPETITION'])
+df_table = df_table.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'GOALS_CONCEDED', 'COMPETITION','XG_AGAINST']], 
+                          on=['TEAM_FBREF_ID', 'SEASON','COMPETITION'])
 df_table["GOAL_DIFFERENCE"] = df_table["GOALS_SCORED"] - df_table["GOALS_CONCEDED"]
-PTS_table = df_table[['TEAM_NAME','TEAM_PTS', 'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED']].sort_values(['TEAM_PTS',
-                     'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'], ascending=False).reset_index(drop=True).reset_index()
-PTS_table.rename(columns={'index':'POS_NUM'}, inplace=True)
-PTS_table.POS_NUM += 1
-
-def ordinal(n):
-    return "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
-
-PTS_table['POS'] = PTS_table['POS_NUM'].apply(ordinal)
-
-XPTS_table = df_table[['TEAM_NAME','TEAM_XPTS', 'GOAL_DIFFERENCE','GOALS_SCORED'
-          ,'GOALS_CONCEDED']].sort_values(['TEAM_XPTS', 'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'],
-                                          ascending=False).reset_index(drop=True).reset_index()
-
-XPTS_table.rename(columns={'index':'XPTS POS_NUM'}, inplace=True)
-XPTS_table['XPTS POS_NUM'] += 1
-
-XPTS_table['XPTS POS'] = XPTS_table['XPTS POS_NUM'].apply(ordinal)
-
-PTS_XPTS_table = XPTS_table.merge(PTS_table, how='left', on=['TEAM_NAME','GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'])
-
-PTS_XPTS_table = PTS_XPTS_table[['TEAM_NAME','XPTS POS','XPTS POS_NUM','POS','POS_NUM']]
-
-df_table = df_table.merge(PTS_XPTS_table, how='left', on='TEAM_NAME')
-
-df_table.rename(columns={'TEAM_LOGO_URL':'TEAM_LOGO'}, inplace=True)
-
-fin_table = df_table[['POS','POS_NUM','TEAM_LOGO','XPTS POS','XPTS POS_NUM','TEAM_NAME','XG','GOALS_SCORED','XG_AGAINST',
-          'GOALS_CONCEDED','TEAM_PTS','TEAM_XPTS']].sort_values('XPTS POS_NUM')
-fin_table['POS_NUM_DIFF'] = fin_table.apply(lambda row: 'https://i.imgur.com/AACUEGy.png' if row['POS_NUM'] == row['XPTS POS_NUM'] else \
-                                            'https://i.imgur.com/5sTTYXm.png' if row['POS_NUM'] < row['XPTS POS_NUM'] else 'https://i.imgur.com/dGsmsnm.png', axis=1)
-fin_table['XG_DIFF'] = fin_table['GOALS_SCORED']-fin_table['XG']
-fin_table['XGA_DIFF'] = fin_table['GOALS_CONCEDED']-fin_table['XG_AGAINST']
-fin_table['XPTS_DIFF'] = fin_table['TEAM_PTS']-fin_table['TEAM_XPTS']
-fin_table = fin_table[['POS','XPTS POS','POS_NUM_DIFF','TEAM_LOGO','TEAM_NAME','XG','XG_DIFF',
-          'XG_AGAINST','XGA_DIFF','TEAM_XPTS','XPTS_DIFF']]
-fin_table['XG_DIFF'] = fin_table['XG_DIFF'].astype(int)
-fin_table['XGA_DIFF'] = fin_table['XGA_DIFF'].astype(int)
-fin_table['XPTS_DIFF'] = fin_table['XPTS_DIFF'].astype(int)
-
-fin_table = fin_table.set_index(['POS'])
-
-team_name_cols = ['TEAM_LOGO','TEAM_NAME']
-xG_cols = ['XG','XG_DIFF']
-xGA_cols = ['XG_AGAINST','XGA_DIFF']
-xPTS_cols = ['TEAM_XPTS','XPTS_DIFF']
-
-fin_table['TEAM_LOGO'] = fin_table['TEAM_LOGO'].apply(lambda x: (io.BytesIO(urllib.request.urlopen(x).read())))
-fin_table['POS_NUM_DIFF'] = fin_table['POS_NUM_DIFF'].apply(lambda x: (io.BytesIO(urllib.request.urlopen(x).read())))
-
-colors_pos = [(1, 0, 0), (0, 0.6, 0)]  # Red to Green
-colors_neg = [(0, 0.6, 0), (1, 0, 0)]  # Green to Red
-n_bins = 2 # Discretizes the interpolation into bins
-cmap_name = 'custom_red_green'
-cm_pos = mcolors.LinearSegmentedColormap.from_list(cmap_name, colors_pos, N=n_bins)
-cm_neg = mcolors.LinearSegmentedColormap.from_list(cmap_name, colors_neg, N=n_bins)
 
 
 def plus_sign_formatter(value):
@@ -177,12 +129,13 @@ def plus_sign_formatter(value):
 
 
 # Function to create the radar charts
-def create_radar_chart(season, team_name, data, chart_name):
+def create_radar_chart(season, team_name, data, competition, chart_name):
     team_data = data[data['TEAM_NAME'] == team_name]
-    average_data = data[data['TEAM_NAME'] == 'Average_2223']
+    team_data = team_data[team_data['COMPETITION_ACRONYM'] == competition]
+    average_data = data[data['TEAM_NAME'] == competition+'_'+str(season)+"_Average"]
 
     team_data = team_data[team_data['SEASON'] == season]
-    average_data = average_data[average_data['SEASON'] == season]
+    # average_data = average_data[average_data['SEASON'] == season]
 
     # Prepare data for plotting
     categories = team_data['VARIABLE']
@@ -327,10 +280,15 @@ x_max_aerial = (team_misc['AERIAL DUELS WON RATIO (%)'].max()*1.05)
 y_min_aerial = (team_misc['AERIAL DUELS ATTEMPTED PER GAME'].min()*0.95)
 y_max_aerial = (team_misc['AERIAL DUELS ATTEMPTED PER GAME'].max()*1.05)
 
-x_min_goal_output = (team_goal_output['EXPECTED GOALS AGAINST PER GAME'].min()*0.925)
-x_max_goal_output = (team_goal_output['EXPECTED GOALS AGAINST PER GAME'].max()*1.075)
-y_min_goal_output = (team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'].min()*0.85)
-y_max_goal_output = (team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'].max()*1.07)
+# x_min_goal_output = (team_goal_output['EXPECTED GOALS AGAINST PER GAME'].min()*0.925)
+# x_max_goal_output = (team_goal_output['EXPECTED GOALS AGAINST PER GAME'].max()*1.075)
+# y_min_goal_output = (team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'].min()*0.85)
+# y_max_goal_output = (team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'].max()*1.07)
+
+x_min_goal_output = 0.45
+x_max_goal_output = 2.60
+y_min_goal_output = 0.5
+y_max_goal_output = 2.40
 
 # Function to create the scatter charts
 def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis_label, img_size, x_min, x_max, y_min, y_max, bottom_left_label, 
@@ -487,10 +445,72 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
 
 
 # Function to create the xG Table
-def create_xG_table(df, team_name, season):
+def create_xG_table(df_sel, season, competition):
+
+    df_filtered = df_sel[df_sel['COMPETITION_ACRONYM'] == competition]
+    df_filtered = df_filtered[df_filtered['SEASON'] == season]
+
+    PTS_table = df_filtered[['TEAM_NAME','TEAM_PTS', 'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED']].sort_values(['TEAM_PTS', 
+                    'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'], ascending=False).reset_index(drop=True).reset_index()
+    PTS_table.rename(columns={'index':'POS_NUM'}, inplace=True)
+    PTS_table.POS_NUM += 1
+
+    def ordinal(n):
+        return "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
+
+    PTS_table['POS'] = PTS_table['POS_NUM'].apply(ordinal)
+
+    XPTS_table = df_filtered[['TEAM_NAME','TEAM_XPTS', 'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED']].sort_values([
+        'TEAM_XPTS', 'GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'],
+                                            ascending=False).reset_index(drop=True).reset_index()
+
+    XPTS_table.rename(columns={'index':'XPTS POS_NUM'}, inplace=True)
+    XPTS_table['XPTS POS_NUM'] += 1
+
+    XPTS_table['XPTS POS'] = XPTS_table['XPTS POS_NUM'].apply(ordinal)
+
+    PTS_XPTS_table = XPTS_table.merge(PTS_table, how='left', on=['TEAM_NAME','GOAL_DIFFERENCE','GOALS_SCORED','GOALS_CONCEDED'])
+
+    PTS_XPTS_table = PTS_XPTS_table[['TEAM_NAME','XPTS POS','XPTS POS_NUM','POS','POS_NUM']]
+
+    df_filtered = df_filtered.merge(PTS_XPTS_table, how='left', on='TEAM_NAME')
+
+    df_filtered.rename(columns={'TEAM_LOGO_URL':'TEAM_LOGO'}, inplace=True)
+
+    fin_table = df_filtered[['POS','POS_NUM','TEAM_LOGO','XPTS POS','XPTS POS_NUM','TEAM_NAME','XG','GOALS_SCORED','XG_AGAINST',
+            'GOALS_CONCEDED','TEAM_PTS','TEAM_XPTS']].sort_values('XPTS POS_NUM')
+    fin_table['POS_NUM_DIFF'] = fin_table.apply(lambda row: 'https://i.imgur.com/AACUEGy.png' if row['POS_NUM'] == row['XPTS POS_NUM'] else \
+                                                'https://i.imgur.com/5sTTYXm.png' if row['POS_NUM'] < row['XPTS POS_NUM'] else 'https://i.imgur.com/dGsmsnm.png', axis=1)
+    fin_table['XG_DIFF'] = fin_table['GOALS_SCORED']-fin_table['XG']
+    fin_table['XGA_DIFF'] = fin_table['GOALS_CONCEDED']-fin_table['XG_AGAINST']
+    fin_table['XPTS_DIFF'] = fin_table['TEAM_PTS']-fin_table['TEAM_XPTS']
+    fin_table = fin_table[['POS','XPTS POS','POS_NUM_DIFF','TEAM_LOGO','TEAM_NAME','XG','XG_DIFF',
+            'XG_AGAINST','XGA_DIFF','TEAM_XPTS','XPTS_DIFF']]
+    fin_table['XG_DIFF'] = fin_table['XG_DIFF'].astype(int)
+    fin_table['XGA_DIFF'] = fin_table['XGA_DIFF'].astype(int)
+    fin_table['XPTS_DIFF'] = fin_table['XPTS_DIFF'].astype(int)
+
+    fin_table = fin_table.set_index(['POS'])
+
+    team_name_cols = ['TEAM_LOGO','TEAM_NAME']
+    xG_cols = ['XG','XG_DIFF']
+    xGA_cols = ['XG_AGAINST','XGA_DIFF']
+    xPTS_cols = ['TEAM_XPTS','XPTS_DIFF']
+
+    fin_table['TEAM_LOGO'] = fin_table['TEAM_LOGO'].apply(lambda x: (io.BytesIO(urllib.request.urlopen(x).read())))
+    fin_table['POS_NUM_DIFF'] = fin_table['POS_NUM_DIFF'].apply(lambda x: (io.BytesIO(urllib.request.urlopen(x).read())))
+
+    df = fin_table.copy()
+
+    colors_pos = [(1, 0, 0), (0, 0.6, 0)]  # Red to Green
+    colors_neg = [(0, 0.6, 0), (1, 0, 0)]  # Green to Red
+    n_bins = 2 # Discretizes the interpolation into bins
+    cmap_name = 'custom_red_green'
+    cm_pos = mcolors.LinearSegmentedColormap.from_list(cmap_name, colors_pos, N=n_bins)
+    cm_neg = mcolors.LinearSegmentedColormap.from_list(cmap_name, colors_neg, N=n_bins)
 
     col_defs = (
-    [
+        [
         ColDef(name="POS", title="", group="POS",textprops={"ha": "center", "weight": "bold"}, width=0.3),
         ColDef(name="XPTS POS", title="", group="XPTS POS", textprops={"ha": "center", "weight": "bold"}, width=0.3),
         ColDef(name="POS_NUM_DIFF", title="", group="NAME",textprops={"ha": "center"}, width=0.06,plot_fn=image),
@@ -505,8 +525,8 @@ def create_xG_table(df, team_name, season):
         ColDef(name="TEAM_XPTS", title="", group="XPTS",textprops={"ha": "center"}, formatter="{:.1f}", width=0.3),
         ColDef(name="XPTS_DIFF", title="", group="XPTS",textprops={"ha": "center","fontsize": 14,"fontweight": "bold","bbox": {"boxstyle": "circle,pad=0.1"}}, 
                width=0.2, formatter=plus_sign_formatter,cmap=centered_cmap(df["XG_DIFF"], cmap=cm_pos, center=0)),
-    ]
-)
+        ]
+    )
     
     plt.rcParams["font.family"] = ["Roboto"]
     plt.rcParams["savefig.bbox"] = "tight"
@@ -544,43 +564,52 @@ def create_xG_table(df, team_name, season):
 
 # Creation of the Streamit App
 st.title('Team Analytics')
-team_name = st.selectbox('Select a Team', list(sorted(np.delete(standard_chart_data['TEAM_NAME'].unique(), 
-                                                         np.where(standard_chart_data['TEAM_NAME'].unique() == 'Average_2223')))))
-season = st.selectbox('Select a Season', (standard_chart_data['SEASON'].unique()))
 
-tabs = st.tabs(["Radar Charts", "General"])
+competition =  st.selectbox('Select a Competition', (standard_chart_data['COMPETITION_ACRONYM'].unique()))
+filtered_comp = standard_chart_data[standard_chart_data['COMPETITION_ACRONYM'] == competition]
+season = st.selectbox('Select a Season', (filtered_comp['SEASON'].unique()))
+filtered_standard = filtered_comp[filtered_comp['SEASON'] == season]
+
+team_name = st.selectbox('Select a Team', list(sorted([name for name in filtered_standard['TEAM_NAME'].unique() if "Average" not in name])))
+
+tabs = st.tabs(["Radar Charts", "General Charts"])
 
 with tabs[0]:
     # Standard Radar Chart
-    fig_standard = create_radar_chart(season, team_name, standard_chart_data, "Standard Radar Chart") 
+    fig_standard = create_radar_chart(season, team_name, standard_chart_data,competition, "Standard Radar Chart") 
     st.plotly_chart(fig_standard, use_container_width=True)
 
     # Attacking Radar Chart
-    fig_attacking = create_radar_chart(season, team_name, attacking_chart_data, "Attacking Radar Chart")
+    fig_attacking = create_radar_chart(season, team_name, attacking_chart_data,competition, "Attacking Radar Chart")
     st.plotly_chart(fig_attacking, use_container_width=True)
 
     # Defending Radar Chart
-    fig_defending = create_radar_chart(season, team_name, defending_chart_data, "Defending Radar Chart")
+    fig_defending = create_radar_chart(season, team_name, defending_chart_data,competition, "Defending Radar Chart")
     st.plotly_chart(fig_defending, use_container_width=True)
 
 # Future Content Tab
 with tabs[1]:
-    fig_team_aerial_duels = create_FM_team_scatter_chart(team_misc, 'AERIAL', team_name, 'AERIAL DUELS WON RATIO (%)', 'AERIAL DUELS ATTEMPTED PER GAME', 
-                                                         0.75, x_min_aerial, x_max_aerial, y_min_aerial, y_max_aerial, 
+    filtered_misc = team_misc[team_misc['SEASON'] == season]
+    filtered_misc = filtered_misc[filtered_misc['COMPETITION_ACRONYM'] == competition]
+    fig_team_aerial_duels = create_FM_team_scatter_chart(filtered_misc, 'AERIAL', team_name, 'AERIAL DUELS WON RATIO (%)', 'AERIAL DUELS ATTEMPTED PER GAME', 
+                                                         1.15, x_min_aerial, x_max_aerial, y_min_aerial, y_max_aerial, 
                                                          "Fewer Duels<br>Poor Dueling", "Fewer Duels<br>Strong Dueling",
                                                          "Lots of Duels<br>Poor Dueling", "Lots of Duels<br>Strong Dueling", "red", 
                                                          "orange", "orange", "green")
     st.plotly_chart(fig_team_aerial_duels, use_container_width=False)
 
-    fig_team_aerial_duels = create_FM_team_scatter_chart(team_goal_output, 'GOAL OUTPUT', team_name, 'EXPECTED GOALS AGAINST PER GAME', 'NON PENALTY EXPECTED GOALS PER GAME', 
-                                                         0.065, x_min_goal_output, x_max_goal_output, y_min_goal_output, y_max_goal_output, 
+    filtered_goal_output = team_goal_output[team_goal_output['SEASON'] == season]
+    filtered_goal_output = filtered_goal_output[filtered_goal_output['COMPETITION_ACRONYM'] == competition]
+    fig_team_aerial_duels = create_FM_team_scatter_chart(filtered_goal_output, 'GOAL OUTPUT', team_name, 'EXPECTED GOALS AGAINST PER GAME', 'NON PENALTY EXPECTED GOALS PER GAME', 
+                                                         0.095, x_min_goal_output, x_max_goal_output, y_min_goal_output, y_max_goal_output, 
                                                          "Low non-penalty expected goals<br>Strong Defending", "Low non-penalty expected goals<br>Poor Defending",
                                                          "High non-penalty expected goals<br>Strong Defending", "High non-penalty expected goals<br>Poor Defending", 
                                                          "orange", "red", "green", "orange")
     st.plotly_chart(fig_team_aerial_duels, use_container_width=False)
 
-    fig_xG_table = create_xG_table(fin_table, team_name, season)
+    fig_xG_table = create_xG_table(df_table, season, competition)
     st.pyplot(fig_xG_table, use_container_width=True)
+
 
 # st.sidebar.caption("Note: Expand the plot for the best viewing experience.")
 
