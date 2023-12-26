@@ -37,6 +37,8 @@ RUN pip install git+https://github.com/ksbharaj/ScraperFC.git@main
 # Set the environment variable for GCP credentials
 ENV GOOGLE_APPLICATION_CREDENTIALS=/airflow/gcp-key.json
 
+ENV AIRFLOW__CORE__ENABLE_XCOM_PICKLING=True
+
 # Copy the GCP service account key file into the Docker container
 COPY steel-cursor-408518-814d35f4b647.json /airflow/gcp-key.json
 
