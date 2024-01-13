@@ -16,14 +16,13 @@ default_args = {
     'email_on_failure': False,  # Consider notifying on failure
     'email_on_retry': False,
     'retries': 0,
-    'retry_delay': timedelta(minutes=5),
+    'retry_delay': timedelta(minutes=500),
 }
 
 dag = DAG(
     dag_id='combined_scraper_dag',  # Pythonic naming convention for variables
     default_args=default_args,
-    description='DAG for scraping Understat and FBRef data and uploading to Snowflake',
-    schedule_interval='@daily',
+    schedule_interval='@monthly',
     catchup=False,
 )
 

@@ -129,7 +129,7 @@ def plus_sign_formatter(value):
 
 
 # Function to create the radar charts
-def create_radar_chart(season, team_name, data, competition, chart_name):
+def create_radar_chart(season, team_name, data, competition, chart_name, chart_width=1000, chart_height=820):
     team_data = data[data['TEAM_NAME'] == team_name]
     team_data = team_data[team_data['COMPETITION_ACRONYM'] == competition]
     average_data = data[data['TEAM_NAME'] == competition+'_'+str(season)+"_Average"]
@@ -208,7 +208,7 @@ def create_radar_chart(season, team_name, data, competition, chart_name):
 
     for i, (value, category) in enumerate(zip(values, categories)):
         angle = (i / float(len(categories))) * 2 * np.pi 
-        x = 0.5 + (1.1) * np.cos(angle) / 4
+        x = 0.5 + (1.1) * np.cos(angle) / 3.5
         y = 0.48 + (1.1) * np.sin(angle) / 2
 
         annotation_text = \
@@ -222,7 +222,7 @@ def create_radar_chart(season, team_name, data, competition, chart_name):
             yref="paper",
             text=annotation_text,  # Bold category name and value
             showarrow=False,
-            font=dict(size=10, color='white'),
+            font=dict(size=12, color='white'),
             align="center",
             xanchor='center',
             yanchor='middle',
@@ -234,9 +234,9 @@ def create_radar_chart(season, team_name, data, competition, chart_name):
 
     # Update layout
     fig.update_layout(
-        # autosize=False,
-        # width=355*1,  # Set the width
-        # height=400,  # Set the height
+        autosize=False,
+        width=chart_width,  # Set the width
+        height=chart_height,  # Set the height
         polar=dict(
             bgcolor='rgba(0,0,0,0)',
             radialaxis=dict(
@@ -267,7 +267,7 @@ def create_radar_chart(season, team_name, data, competition, chart_name):
             bordercolor="rgba(20, 20, 20, 0.8)",),
         font=dict(
             family="Roboto, sans-serif",  # Specify the font family
-            size=15,                     # Specify the font size
+            size=50,                     # Specify the font size
             color="white"                # Specify the font color
         )
     )
@@ -563,29 +563,49 @@ def create_xG_table(df_sel, season, competition):
 
 
 # Creation of the Streamit App
+st.set_page_config(layout="centered")
+css='''
+    <style>
+        section.main > div {max-width:100rem}
+    </style>
+    '''
+st.markdown(css, unsafe_allow_html=True)
 st.title('Team Analytics')
 
-competition =  st.selectbox('Select a Competition', (standard_chart_data['COMPETITION_ACRONYM'].unique()))
-filtered_comp = standard_chart_data[standard_chart_data['COMPETITION_ACRONYM'] == competition]
-season = st.selectbox('Select a Season', (filtered_comp['SEASON'].unique()))
-filtered_standard = filtered_comp[filtered_comp['SEASON'] == season]
+col1, col2, col3 = st.columns([1, 6, 1])
 
-team_name = st.selectbox('Select a Team', list(sorted([name for name in filtered_standard['TEAM_NAME'].unique() if "Average" not in name])))
+with col1:
+    st.image(io.BytesIO(urllib.request.urlopen("https://i.imgur.com/qEwoaGU.png").read()), use_column_width=True)
+
+with col2:
+    competition =  st.selectbox('Select a Competition', (standard_chart_data['COMPETITION_ACRONYM'].unique()))
+    filtered_comp = standard_chart_data[standard_chart_data['COMPETITION_ACRONYM'] == competition]
+    season = st.selectbox('Select a Season', (filtered_comp['SEASON'].unique()))
+    filtered_standard = filtered_comp[filtered_comp['SEASON'] == season]
+    team_name = st.selectbox('Select a Team', list(sorted([name for name in filtered_standard['TEAM_NAME'].unique() if "Average" not in name])))
+
+with col3:
+    st.image(io.BytesIO(urllib.request.urlopen(str(team_names[team_names['TEAM_NAME'] == team_name].TEAM_LOGO_URL.iloc[0])).read()), use_column_width=False)
+
 
 tabs = st.tabs(["Radar Charts", "General Charts"])
 
 with tabs[0]:
-    # Standard Radar Chart
-    fig_standard = create_radar_chart(season, team_name, standard_chart_data,competition, "Standard Radar Chart") 
-    st.plotly_chart(fig_standard, use_container_width=True)
+    # Create a two-column layout
+    col1, col2 = st.columns([2, 1])  # Adjust the ratio if needed
 
-    # Attacking Radar Chart
-    fig_attacking = create_radar_chart(season, team_name, attacking_chart_data,competition, "Attacking Radar Chart")
-    st.plotly_chart(fig_attacking, use_container_width=True)
+    # Use the first column for the Standard Radar Chart
+    with col1:
+        fig_standard = create_radar_chart(season, team_name, standard_chart_data, competition, "Standard Radar Chart") 
+        st.plotly_chart(fig_standard, use_container_width=False)  # Set to True to use the full width of the column
 
-    # Defending Radar Chart
-    fig_defending = create_radar_chart(season, team_name, defending_chart_data,competition, "Defending Radar Chart")
-    st.plotly_chart(fig_defending, use_container_width=True)
+    # Use the second column for the Attacking and Defending Radar Charts
+    with col2:
+        fig_attacking = create_radar_chart(season, team_name, attacking_chart_data, competition, "Attacking Radar Chart", 500, 400)
+        st.plotly_chart(fig_attacking, use_container_width=False)  # Set to True to use the full width of the column
+
+        fig_defending = create_radar_chart(season, team_name, defending_chart_data, competition, "Defending Radar Chart", 500, 400)
+        st.plotly_chart(fig_defending, use_container_width=False)  # Set to True to use the full width of the column
 
 # Future Content Tab
 with tabs[1]:
