@@ -28,6 +28,7 @@ def upsert_to_snowflake(table_name, primary_keys, source_task_id, db_table, **kw
         primary_keys = [primary_keys]
 
     temp_table_name = f"{table_name}_TEMP"
+    cur.execute(f"CREATE TEMPORARY TABLE {temp_table_name} LIKE {table_name}")
     success, nchunks, nrows, _ = write_pandas(conn, dataframe, temp_table_name, auto_create_table=True)
 
     on_condition = ' AND '.join([f"{table_name}.{pk} = {temp_table_name}.{pk}" for pk in primary_keys])

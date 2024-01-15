@@ -7,7 +7,7 @@ from soccerdata_py import soccerdata_FBRef
 from transformation_py import (transform_team_standard_stats, transform_team_attacking_stats, transform_matches,
                                transform_team_defending_stats, transform_team_misc_stats, transform_stadiums)
 from snowflake_uploader_py import upsert_to_snowflake
-from radar_chart_teams_py import defending_radar_chart, attacking_radar_chart, standard_radar_chart
+from radar_chart_teams_py import defending_radar_chart, attacking_radar_chart, standard_radar_chart, prepare_XPTS_table
 
 default_args = {
     'owner': 'airflow',
@@ -179,6 +179,13 @@ team_defending_radar_chart = PythonOperator(
     dag=dag,
 )
 
+team_prepare_XPTS_table = PythonOperator(
+    task_id='team_prepare_XPTS_table',
+    python_callable=prepare_XPTS_table,
+    provide_context=True,
+    dag=dag,
+)
+
 upload_team_standard_radar_chart = PythonOperator(
     task_id='upload_team_standard_radar_chart',
     python_callable=upsert_to_snowflake,
@@ -218,6 +225,18 @@ upload_team_defending_radar_chart = PythonOperator(
     dag=dag,
 )
 
+upload_XPTS_table = PythonOperator(
+    task_id='upload_XPTS_table',
+    python_callable=upsert_to_snowflake,
+    op_kwargs={
+        'table_name': 'XPTS_TABLE',
+        'primary_keys': ['SEASON','COMPETITION_ACRONYM'],
+        'source_task_id': 'team_prepare_XPTS_table',
+        'db_table': 'RADAR_CHARTS'
+    },
+    provide_context=True,
+    dag=dag,
+)
 
 # Set dependencies
 scrape_understat >> transform_team_standard_stats
@@ -247,6 +266,12 @@ upload_team_attacking_stats >> team_attacking_radar_chart
 
 upload_team_standard_stats >> team_defending_radar_chart
 upload_team_defending_stats >> team_defending_radar_chart
+
+upload_team_standard_stats >> team_prepare_XPTS_table
+upload_team_attacking_stats >> team_prepare_XPTS_table
+upload_team_defending_stats >> team_prepare_XPTS_table
+
+team_prepare_XPTS_table >> upload_XPTS_table
 
 team_standard_radar_chart >> upload_team_standard_radar_chart
 team_attacking_radar_chart >> upload_team_attacking_radar_chart
