@@ -31,8 +31,8 @@ SNOWFLAKE_WAREHOUSE = 'FOOTY_STORE'
 SNOWFLAKE_DATABASE = 'GEGENSTATS'
 SNOWFLAKE_SCHEMA = 'RADAR_CHARTS'
 
-if os.getenv('DEPLOYED_ENVIRONMENT'):
-    SNOWFLAKE_PASSWORD = os.getenv('SNOWFLAKE_PASSWORD')
+if 'STREAMLIT_SHARING_MODE' in os.environ:
+    SNOWFLAKE_PASSWORD = st.secrets["snowflake"]["password"]
 else:
     local_secrets = toml.load('local_secrets.toml')
     SNOWFLAKE_PASSWORD = local_secrets['SNOWFLAKE_PASSWORD']
