@@ -30,12 +30,13 @@ SNOWFLAKE_ACCOUNT = 'qx25653.ca-central-1.aws'
 SNOWFLAKE_WAREHOUSE = 'FOOTY_STORE'
 SNOWFLAKE_DATABASE = 'GEGENSTATS'
 SNOWFLAKE_SCHEMA = 'RADAR_CHARTS'
+SNOWFLAKE_PASSWORD = st.secrets["snowflake"]["password"]
 
-if 'STREAMLIT_SHARING_MODE' in os.environ:
-    SNOWFLAKE_PASSWORD = st.secrets["snowflake"]["password"]
-else:
-    local_secrets = toml.load('local_secrets.toml')
-    SNOWFLAKE_PASSWORD = local_secrets['SNOWFLAKE_PASSWORD']
+# if 'STREAMLIT_SHARING_MODE' in os.environ:
+#     SNOWFLAKE_PASSWORD = st.secrets["snowflake"]["password"]
+# else:
+#     local_secrets = toml.load('local_secrets.toml')
+#     SNOWFLAKE_PASSWORD = local_secrets['SNOWFLAKE_PASSWORD']
 
 
 conn = snowflake.connector.connect(
