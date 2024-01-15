@@ -31,7 +31,7 @@ SNOWFLAKE_WAREHOUSE = 'FOOTY_STORE'
 SNOWFLAKE_DATABASE = 'GEGENSTATS'
 SNOWFLAKE_SCHEMA = 'RADAR_CHARTS'
 
-if os.getenv('GITHUB_ACTIONS'):  # Running in GitHub Actions
+if os.getenv('DEPLOYED_ENVIRONMENT'):
     SNOWFLAKE_PASSWORD = os.getenv('SNOWFLAKE_PASSWORD')
 else:
     local_secrets = toml.load('local_secrets.toml')
