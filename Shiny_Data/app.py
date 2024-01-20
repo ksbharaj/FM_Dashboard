@@ -124,10 +124,11 @@ def create_radar_chart(season, team_name, data, competition, chart_name, chart_w
     # Prepare data for plotting
     categories = team_data['VARIABLE']
     norm_values = team_data['NORM_VALUE']
+    average_values = average_data['VALUE']
     average_norm_values = average_data['NORM_VALUE']
     values = team_data['VALUE']
 
-    difference = [golden - average for golden, average in zip(norm_values, average_norm_values)]
+    difference = [golden - average for golden, average in zip(values, average_values)]
 
     difference_messages = []
     for diff in difference:
