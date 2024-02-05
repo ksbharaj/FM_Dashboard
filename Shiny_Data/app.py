@@ -597,6 +597,7 @@ st.title('Team Analytics')
 
 
 with st.sidebar:
+    st.write(f"Kindly maximize your browser window for the best viewing experience.")
     # Image at the top of the sidebar
     st.image(io.BytesIO(urllib.request.urlopen("https://i.imgur.com/qEwoaGU.png").read()), use_column_width=True)
 
@@ -629,7 +630,7 @@ with st.sidebar:
     st.image(io.BytesIO(urllib.request.urlopen(team_logo_url).read()), use_column_width=True)
 
     # Display team name
-    st.write(f"Kindly maximize your browser window for the best viewing experience.")
+    
 
 tabs = st.tabs(["Radar Charts", "General Charts", "Defending Charts"])
 
