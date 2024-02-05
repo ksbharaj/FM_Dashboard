@@ -13,9 +13,10 @@ def master_extractor(kwargs_input):
     ti = kwargs_input
     understat_table = ti.xcom_pull(task_ids='scrape_understat')
     (fbref_team_standard, fbref_team_shooting, fbref_team_passing, fbref_team_possession, fbref_team_misc,
-     fbref_team_defense, fbref_schedule) = ti.xcom_pull(task_ids='scrape_fbref')
+     fbref_team_defense, fbref_schedule, fbref_team_passing_oppo, fbref_keeper) = ti.xcom_pull(task_ids='scrape_fbref')
     return (understat_table, fbref_team_standard, fbref_team_shooting, fbref_team_passing,
-            fbref_team_possession, fbref_team_misc, fbref_team_defense, fbref_schedule)
+            fbref_team_possession, fbref_team_misc, fbref_team_defense, fbref_schedule, fbref_team_passing_oppo,
+            fbref_keeper)
 
 def teams_extractor(fbref_team_standard):
     team_names = fbref_team_standard.reset_index()[['TEAM_NAME', 'url']]
@@ -27,7 +28,7 @@ def teams_extractor(fbref_team_standard):
     return team_names
 
 def transform_team_standard_stats(**kwargs):
-    understat_table, fbref_team_standard, _, _, _, _, _, _ = master_extractor(kwargs['ti'])
+    understat_table, fbref_team_standard, _, _, _, _, _, _, _, _ = master_extractor(kwargs['ti'])
 
     understat_table = pickle.loads(understat_table)
     fbref_team_standard = pickle.loads(fbref_team_standard)
@@ -48,7 +49,7 @@ def transform_team_standard_stats(**kwargs):
 
 def transform_team_attacking_stats(**kwargs):
     (understat_table, fbref_team_standard, fbref_team_shooting, fbref_team_passing, fbref_team_possession,
-     fbref_team_misc, _, _) = master_extractor(kwargs['ti'])
+     fbref_team_misc, _, _, _, _) = master_extractor(kwargs['ti'])
 
     understat_table = pickle.loads(understat_table)
     fbref_team_standard = pickle.loads(fbref_team_standard)
@@ -93,12 +94,14 @@ def transform_team_attacking_stats(**kwargs):
 
 def transform_team_defending_stats(**kwargs):
     (understat_table, fbref_team_standard, _, _, _,
-     fbref_team_misc, fbref_team_defense, _) = master_extractor(kwargs['ti'])
+     fbref_team_misc, fbref_team_defense, _, fbref_team_passing_oppo, fbref_keeper) = master_extractor(kwargs['ti'])
 
     understat_table = pickle.loads(understat_table)
     fbref_team_standard = pickle.loads(fbref_team_standard)
     fbref_team_defense = pickle.loads(fbref_team_defense)
     fbref_team_misc = pickle.loads(fbref_team_misc)
+    fbref_team_passing_oppo = pickle.loads(fbref_team_passing_oppo)
+    fbref_keeper = pickle.loads(fbref_keeper)
 
     team_names = teams_extractor(fbref_team_standard)
 
@@ -116,6 +119,13 @@ def transform_team_defending_stats(**kwargs):
     team_blocks_shots = fbref_team_defense['Blocks'].Sh
     team_blocks_pass = fbref_team_defense['Blocks'].Pass
     team_clearances = fbref_team_defense.Clr
+    team_recoveries = fbref_team_misc['Performance']['Recov']
+    team_aerials_won = fbref_team_misc['Aerial Duels'].Won
+    teams_poss_won = team_interceptions + team_tackles_won + team_recoveries + team_blocks_shots + \
+                     team_blocks_pass + team_aerials_won
+    team_OPPDA = understat_table['OPPDA']
+    team_final_3rd_passes_against = fbref_team_passing_oppo['1/3']
+    team_cleansheets = fbref_keeper['Performance']['CS']
 
     team_defending_stats['GOALS_CONCEDED'] = team_goals_conceded
     team_defending_stats['XG_AGAINST'] = understat_table['XG_AGAINST']
@@ -128,6 +138,10 @@ def transform_team_defending_stats(**kwargs):
     team_defending_stats['BLOCKED_PASSES'] = team_blocks_pass
     team_defending_stats['CLEARANCES'] = team_clearances
     team_defending_stats['PPDA'] = understat_table['PPDA']
+    team_defending_stats['OPP_PPDA'] = team_OPPDA
+    team_defending_stats['POSS_WON'] = teams_poss_won
+    team_defending_stats['FINAL_3RD_PASSES_AGAINST'] = team_final_3rd_passes_against
+    team_defending_stats['CLEAN_SHEETS'] = team_cleansheets
 
     team_defending_stats.reset_index(inplace=True)
     team_defending_stats.drop(columns=['TEAM_NAME'], inplace=True)
@@ -136,7 +150,7 @@ def transform_team_defending_stats(**kwargs):
 
 def transform_team_misc_stats(**kwargs):
     (understat_table, fbref_team_standard, _, _, _,
-     fbref_team_misc, fbref_team_defense, _) = master_extractor(kwargs['ti'])
+     fbref_team_misc, fbref_team_defense, _, _, _) = master_extractor(kwargs['ti'])
 
     understat_table = pickle.loads(understat_table)
     fbref_team_standard = pickle.loads(fbref_team_standard)
@@ -161,7 +175,7 @@ def transform_team_misc_stats(**kwargs):
     return team_misc_stats
 
 def transform_stadiums(**kwargs):
-    (_, fbref_team_standard, _, _, _, _, _, fbref_schedule) = master_extractor(kwargs['ti'])
+    (_, fbref_team_standard, _, _, _, _, _, fbref_schedule, _, _) = master_extractor(kwargs['ti'])
 
     fbref_schedule = pickle.loads(fbref_schedule)
     fbref_team_standard = pickle.loads(fbref_team_standard)
@@ -176,7 +190,7 @@ def transform_stadiums(**kwargs):
     return df_stadiums
 
 def transform_matches(**kwargs):
-    (_, fbref_team_standard, _, _, _, _, _, fbref_schedule) = master_extractor(kwargs['ti'])
+    (_, fbref_team_standard, _, _, _, _, _, fbref_schedule, _, _) = master_extractor(kwargs['ti'])
 
     fbref_schedule = pickle.loads(fbref_schedule)
     fbref_team_standard = pickle.loads(fbref_team_standard)

@@ -15,11 +15,14 @@ import urllib
 
 # import snowflake.connector
 
-from plottable import ColDef, Table
-import matplotlib.colors as mcolors
-from plottable.cmap import centered_cmap
+# from plottable import ColDef, Table
+# import matplotlib.colors as mcolors
+# from plottable.cmap import centered_cmap
 from plottable.plots import image
 import matplotlib.pyplot as plt
+from mplsoccer import Pitch, VerticalPitch
+import matplotlib.patches as patches
+import math
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -57,10 +60,34 @@ def fetch_data(cursor, query):
 ## Import data from Snowflake
 cursor = conn.cursor()
 
-standard_chart_data = fetch_data(cursor, 'SELECT * FROM STANDARD_RADAR')
-attacking_chart_data = fetch_data(cursor, 'SELECT * FROM ATTACKING_RADAR')
-defending_chart_data = fetch_data(cursor, 'SELECT * FROM DEFENDING_RADAR')
+standard_radar_chart_data = fetch_data(cursor, 'SELECT * FROM STANDARD_RADAR')
+attacking_radar_chart_data = fetch_data(cursor, 'SELECT * FROM ATTACKING_RADAR')
+defending_radar_chart_data = fetch_data(cursor, 'SELECT * FROM DEFENDING_RADAR')
 xpts_table_images = fetch_data(cursor, 'SELECT * FROM XPTS_TABLE')
+team_defending_chart = fetch_data(cursor, 'SELECT * FROM GEGENSTATS.RADAR_CHARTS.TEAM_DEFENDING_CHART')
+team_goal_output = fetch_data(cursor, 'SELECT * FROM GEGENSTATS.RADAR_CHARTS.TEAM_GOAL_OUTPUT')
+pressing_intensity_chart = fetch_data(cursor, 'SELECT * FROM GEGENSTATS.RADAR_CHARTS.PRESSING_INTENSITY_CHART')
+set_piece_efficiency_chart = fetch_data(cursor, 'SELECT * FROM GEGENSTATS.RADAR_CHARTS.SET_PIECE_EFFICIENCY_CHART')
+section_counts_percentage = fetch_data(cursor, 'SELECT * FROM  GEGENSTATS.RADAR_CHARTS.TEAM_DEFENSIVE_ACTIONS')
+def_set_piece_final = fetch_data(cursor, 'SELECT * FROM  GEGENSTATS.RADAR_CHARTS.TEAM_DEF_SET_PIECE_FIRST_CONTACTS')
+
+
+team_defending_chart.rename(columns={'BLOCKS_PER_GAME':'BLOCKS PER GAME', 'CLEARANCES_PER_GAME':'CLEARANCES PER GAME',
+                                    'SHOTS_FACED_PER_GAME':'SHOTS FACED PER GAME', 'OPPOSITION_CONVERSION_RATE':'OPPOSITION CONVERSION RATE (%)',
+                                    'CONCEDED_PER_GAME':'CONCEDED PER GAME', 'TACKLES_ATTEMPTED_PER_GAME':'TACKLES ATTEMPTED PER GAME',
+                                    'TACKLES_WON_RATIO':'TACKLES WON RATIO (%)'}, inplace=True)
+
+team_goal_output.rename(columns={'EXPECTED_GOALS_AGAINST_PER_GAME':'EXPECTED GOALS AGAINST PER GAME',
+                                'NON_PENALTY_EXPECTED_GOALS_PER_GAME':'NON PENALTY EXPECTED GOALS PER GAME'}, inplace=True)
+
+pressing_intensity_chart.rename(columns={'AVERAGE_DEFENSIVE_ACTION_FROM_DEFENDERS':'AVERAGE DEFENSIVE ACTION FROM DEFENDERS (YARDS)',
+                                         'OPPOSITION_PASSES_PER_DEFENSIVE_ACTION':'OPPOSITION PASSES PER DEFENSIVE ACTION'}, inplace=True)
+
+set_piece_efficiency_chart.rename(columns={'OPPOSITION_XG_FROM_SET_PIECE_CROSSES_PER_GAME':'OPPOSITION XG FROM SET PIECE CROSSES PER GAME',
+                                            'OPPOSITION_CROSSES_FROM_SET_PIECE_PER_GAME':'OPPOSITION CROSSES FROM SET PIECE PER GAME'}, inplace=True)
+
+
+
 
 SNOWFLAKE_SCHEMA = 'TABLES'
 
@@ -80,8 +107,9 @@ team_misc = fetch_data(cursor, 'SELECT * FROM TEAM_MISC_STATS')
 team_standard = fetch_data(cursor, 'SELECT * FROM TEAM_STANDARD_STATS')
 team_attacking = fetch_data(cursor, 'SELECT * FROM TEAM_ATTACKING_STATS')
 team_defending = fetch_data(cursor, 'SELECT * FROM TEAM_DEFENDING_STATS')
-df_competitions = fetch_data(cursor, 'SELECT * FROM COMPETITIONS')
+df_competitions = fetch_data(cursor, 'SELECT COMPETITION, COMPETITION_ACRONYM, SEASON FROM COMPETITIONS')
 df_seasons = fetch_data(cursor, 'SELECT * FROM SEASONS')
+
 
 # Create a Miscellaneous DataFrame
 team_misc = team_misc.merge(df_competitions[['COMPETITION','COMPETITION_ACRONYM','SEASON']], on=['COMPETITION','SEASON'], how='left')
@@ -91,22 +119,17 @@ team_misc['AERIAL DUELS WON RATIO (%)'] = team_misc['AERIALS_WON']*100/(team_mis
 team_misc['AERIAL DUELS ATTEMPTED PER GAME'] = (team_misc['AERIALS_WON'] + team_misc['AERIALS_LOST'])/team_misc['MATCHES_PLAYED']
 
 
-team_goal_output = team_standard.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION', 'XG_AGAINST']], 
-                                       on=['TEAM_FBREF_ID', 'SEASON', 'COMPETITION'], how='left')
-team_goal_output = team_goal_output.merge(df_competitions[['COMPETITION','COMPETITION_ACRONYM','SEASON']], 
-                                      on=['COMPETITION','SEASON'], how='left')
-team_goal_output = team_goal_output.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION','NPXG']], 
-                                          on=['TEAM_FBREF_ID', 'SEASON', 'COMPETITION'], how='left')
-team_goal_output['EXPECTED GOALS AGAINST PER GAME'] = team_goal_output['XG_AGAINST']/team_goal_output['MATCHES_PLAYED']
-team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'] = team_goal_output['NPXG']/team_goal_output['MATCHES_PLAYED']
-team_goal_output = team_goal_output.merge(team_names, on='TEAM_FBREF_ID', how='left')
+# team_goal_output = team_standard.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION', 'XG_AGAINST']], 
+#                                        on=['TEAM_FBREF_ID', 'SEASON', 'COMPETITION'], how='left')
+# team_goal_output = team_goal_output.merge(df_competitions[['COMPETITION','COMPETITION_ACRONYM','SEASON']], 
+#                                       on=['COMPETITION','SEASON'], how='left')
+# team_goal_output = team_goal_output.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION','NPXG']], 
+#                                           on=['TEAM_FBREF_ID', 'SEASON', 'COMPETITION'], how='left')
+# team_goal_output['EXPECTED GOALS AGAINST PER GAME'] = team_goal_output['XG_AGAINST']/team_goal_output['MATCHES_PLAYED']
+# team_goal_output['NON PENALTY EXPECTED GOALS PER GAME'] = team_goal_output['NPXG']/team_goal_output['MATCHES_PLAYED']
+# team_goal_output = team_goal_output.merge(team_names, on='TEAM_FBREF_ID', how='left')
 
-# df_table = team_goal_output[['TEAM_FBREF_ID', 'SEASON', 'TEAM_PTS', 'COMPETITION','COMPETITION_ACRONYM','TEAM_XPTS','TEAM_NAME','TEAM_LOGO_URL']].copy()
-# df_table = df_table.merge(team_attacking[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION','GOALS_SCORED', 'XG']], 
-#                           on=['TEAM_FBREF_ID', 'SEASON','COMPETITION'])
-# df_table = df_table.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'GOALS_CONCEDED', 'COMPETITION','XG_AGAINST']], 
-#                           on=['TEAM_FBREF_ID', 'SEASON','COMPETITION'])
-# df_table["GOAL_DIFFERENCE"] = df_table["GOALS_SCORED"] - df_table["GOALS_CONCEDED"]
+
 
 
 def plus_sign_formatter(value):
@@ -420,6 +443,147 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
 
     return fig
 
+# team_defending['BLOCKS'] = team_defending['BLOCKED_SHOTS'] + team_defending['BLOCKED_PASSES']
+
+# team_defending_chart = team_standard.merge(team_defending[['TEAM_FBREF_ID', 'SEASON', 'COMPETITION', 'BLOCKS', 'CLEARANCES','GOALS_CONCEDED',
+#                                                             'SHOTS_FACED', 'TACKLES', 'TACKLES_WON']], on=['TEAM_FBREF_ID', 'SEASON', 
+#                                                                                                            'COMPETITION'], how='left')
+
+# team_defending_chart = team_defending_chart.merge(df_competitions[['COMPETITION','COMPETITION_ACRONYM','SEASON']], 
+#                                       on=['COMPETITION','SEASON'], how='left')
+
+# team_defending_chart = team_defending_chart.merge(team_names, on='TEAM_FBREF_ID', how='left')
+
+# team_defending_chart['BLOCKS PER GAME'] = team_defending_chart['BLOCKS']/team_defending_chart['MATCHES_PLAYED']
+# team_defending_chart['CLEARANCES PER GAME'] = team_defending_chart['CLEARANCES']/team_defending_chart['MATCHES_PLAYED']
+# team_defending_chart['SHOTS FACED PER GAME'] = team_defending_chart['SHOTS_FACED']/team_defending_chart['MATCHES_PLAYED']
+# team_defending_chart['OPPOSITION CONVERSION RATE (%)'] = (team_defending_chart['GOALS_CONCEDED']/team_defending_chart['SHOTS_FACED'])*100
+# team_defending_chart['CONCEDED PER GAME'] = team_defending_chart['GOALS_CONCEDED']/team_defending_chart['MATCHES_PLAYED']
+# team_defending_chart['TACKLES ATTEMPTED PER GAME'] = team_defending_chart['TACKLES']/team_defending_chart['MATCHES_PLAYED']
+# team_defending_chart['TACKLES WON RATIO (%)'] = (team_defending_chart['TACKLES_WON']/team_defending_chart['TACKLES'])*100
+
+
+def plot_defensive_actions(section_counts_percentage_filt):
+    sections = ["(0.0, 17.5]", "(17.5, 35.0]", "(35.0, 52.5]", "(52.5, 70.0]", "(70.0, 87.5]", "(87.5, 105.0]"]
+    percentages = (section_counts_percentage_filt[['SECTION_1', 'SECTION_2', 'SECTION_3', 'SECTION_4', 'SECTION_5', 'SECTION_6']].iloc[0].values)
+
+    max_val = math.ceil(max(percentages) / 5) * 5
+
+    def get_green_color(percentage):
+        green_intensity = int((percentage / max_val) * 255)
+        return f'#00{green_intensity:02x}00'
+
+    pitch = Pitch(pitch_color='#2B2B2B', line_color='white', goal_type='box', pitch_type='uefa', linewidth=1)
+    fig, ax = pitch.draw(figsize=(12, 7))
+
+    fig.patch.set_facecolor('#2B2B2B')
+
+    gap_width = 0.3
+
+    for i, percentage in enumerate(percentages):
+        start_pos = float(sections[i].split(', ')[0][1:])
+        end_pos = float(sections[i].split(', ')[1][:-1])
+
+        if i != 0:  # not the first bar
+            start_pos += gap_width
+
+        section_width = end_pos - start_pos
+        if i != len(percentages) - 1:  # not the last bar
+            section_width -= gap_width
+
+        color = get_green_color(percentage)
+
+        rect = patches.Rectangle((start_pos, 0), section_width, 68,
+                                 linewidth=1, edgecolor='black', facecolor=color, alpha=0.6, zorder=2)
+        ax.add_patch(rect)
+
+        ax.text(start_pos + section_width / 2, 8, str(int(percentage)) + '%', fontproperties='Roboto',
+                va='center', ha='center', color='white', fontsize=20, zorder=3)
+
+    scale_height = 3  # Reduced height of the scale rectangles by half
+    scale_y_position = -10  # Position of the scale rectangles (negative to be below the pitch)
+    scale_length = 105 / 2.5  # Half the pitch length for scale
+    scale_start = (105 - scale_length) / 2.25  # Centering the scale
+
+    for i in range(0, max_val + 1, 5):
+        start_pos = scale_start + (i / max_val) * scale_length
+        section_width = scale_length / (max_val / 5)
+
+        color = get_green_color(i)
+
+        rect = patches.Rectangle((start_pos, scale_y_position), section_width, scale_height,
+                                 linewidth=1, edgecolor='black', facecolor=color, alpha=0.6, zorder=2)
+        ax.add_patch(rect)
+
+        if i == 0 or i == ((max_val)):
+            ax.text(start_pos + (section_width / 2), scale_y_position - (0.5*scale_height),
+                    f'{i}%',
+                    color='white',
+                    fontsize=14,
+                    ha='center', va='top',
+                    zorder=3)
+
+    ax.set_ylim(bottom=-10)
+
+    plt.title('DEFENSIVE ACTIONS', color='gold', fontsize=20, fontname='Roboto', loc='left')
+
+    
+
+    return fig
+
+
+def create_set_piece_first_contacts_plot(def_set_piece_chart):
+    pitch = VerticalPitch(pitch_color='#2B2B2B', line_color='white', goal_type='box', pitch_type='uefa', linewidth=1, half=True)
+    fig, ax = pitch.draw(figsize=(8, 12))
+
+    # Define the coordinates for the rectangles
+    rect_coords = [
+        [(13.84, 105), (13.84, 88.5), (30.09, 88.5), (30.09, 105)],  # Rect1
+        [(30.59, 105), (30.59, 88.5), (37.41, 88.5), (37.41, 105)],  # Rect2
+        [(37.91, 105), (37.91, 88.5), (54.16, 88.5), (54.16, 105)]  # Rect3
+    ]
+
+    # Example percentages for each rectangle (use your actual values here)
+    percentages = [def_set_piece_chart.loc['Near post'].values[0], def_set_piece_chart.loc['Central'].values[0], 
+                   def_set_piece_chart.loc['Far post'].values[0]]
+
+    # Function to calculate green color based on percentage
+    def get_green_color(percentage, max_percentage=100):  # Assuming 100 is the max percentage
+        green_intensity = int((percentage / max_percentage) * 255)
+        return f'#00{green_intensity:02x}00'
+
+    # Create the rectangular patches
+    for i, coords in enumerate(rect_coords):
+        polygon = patches.Polygon(coords, closed=True, color="#00b200", zorder=2,  alpha=0.75)
+        ax.add_patch(polygon)
+
+        # Add text label in the center of each rectangle
+        rect_center_x = (coords[0][0] + coords[2][0]) / 2 
+        rect_center_y = (coords[0][1] + coords[2][1]) / 2
+        ax.text(rect_center_x, rect_center_y, f'{int(percentages[i])}%',fontproperties='Roboto',
+                va='center', ha='center', color='white', fontsize=18, zorder=3)
+
+    # Set figure and axis background color
+    fig.patch.set_facecolor('#2B2B2B')
+    ax.patch.set_facecolor('#2B2B2B')
+
+    arrow_start = (0, 107)  # Adjust these values as needed for your plot
+    arrow_end = (18.84, 107)    # Adjust these values as needed for your plot
+
+    # Draw the arrow
+    ax.add_patch(patches.FancyArrow(
+        arrow_start[0], arrow_start[1],  # x, y start point
+        arrow_end[0] - arrow_start[0], arrow_end[1] - arrow_start[1],  # dx, dy length
+        width=0.3,  # Width of the full arrow tail
+        length_includes_head=False,  # The head is included in the calculation of the arrow's length
+        head_width=1,  # Width of the arrow head
+        head_length=1.5,  # Length of the arrow head
+        color='lightgrey'  # Light grey color
+    ))
+
+    plt.title('SET PIECE FIRST CONTACTS - OWN BOX', color='gold', fontsize=20, fontname='Roboto', loc='left')
+
+    return fig
 
 # Creation of the Streamit App
 st.set_page_config(layout="centered")
@@ -432,46 +596,42 @@ st.markdown(css, unsafe_allow_html=True)
 st.title('Team Analytics')
 
 
-col1, col2, col3 = st.columns([1, 6, 1])
-
-with col1:
+with st.sidebar:
+    # Image at the top of the sidebar
     st.image(io.BytesIO(urllib.request.urlopen("https://i.imgur.com/qEwoaGU.png").read()), use_column_width=True)
 
-if 'prev_selected_team_name' not in st.session_state:
-    st.session_state.prev_selected_team_name = None
+    # Selection for competition
+    competition = st.selectbox('Select a Competition', standard_radar_chart_data['COMPETITION_ACRONYM'].unique())
+    filtered_comp = standard_radar_chart_data[standard_radar_chart_data['COMPETITION_ACRONYM'] == competition]
 
-with col2:
-    competition = st.selectbox('Select a Competition', standard_chart_data['COMPETITION_ACRONYM'].unique())
-    filtered_comp = standard_chart_data[standard_chart_data['COMPETITION_ACRONYM'] == competition]
-
-    ## Select season as desired
+    # Select season
     available_seasons = filtered_comp['SEASON'].unique()
     avai_season_names = df_seasons[df_seasons['SEASON'].isin(available_seasons)][['SEASON', 'SEASON_NAME']]
-
     season_selected = st.selectbox('Select a Season', sorted(avai_season_names['SEASON_NAME'].to_list(), reverse=True))
     season = avai_season_names[avai_season_names['SEASON_NAME'] == season_selected]['SEASON'].iloc[0]
 
     filtered_standard = filtered_comp[filtered_comp['SEASON'] == season]
 
-    # Get the list of valid team names for the selected competition and season
+    # Selection for team
     valid_team_names = list(sorted([name for name in filtered_standard['TEAM_NAME'].unique() if "Average" not in name]))
-
-    # Determine the default index for the team name selectbox
+    if 'prev_selected_team_name' not in st.session_state:
+        st.session_state.prev_selected_team_name = None
     default_index = 0
     if st.session_state.prev_selected_team_name in valid_team_names:
         default_index = valid_team_names.index(st.session_state.prev_selected_team_name)
-
-    # Use the same variable 'team_name' for the team name selection
     team_name = st.selectbox('Select a Team', valid_team_names, index=default_index)
-
-    # Update the session state with the currently selected team name
     st.session_state.prev_selected_team_name = team_name
 
-with col3:
-    st.image(io.BytesIO(urllib.request.urlopen(str(team_names[team_names['TEAM_NAME'] == team_name].TEAM_LOGO_URL.iloc[0])).read()), use_column_width=True)
+    # Display team logo
+    # Assuming team_names is defined and includes 'TEAM_NAME' and 'TEAM_LOGO_URL'
+    # team_names = ...
+    team_logo_url = team_names[team_names['TEAM_NAME'] == team_name].TEAM_LOGO_URL.iloc[0]
+    st.image(io.BytesIO(urllib.request.urlopen(team_logo_url).read()), use_column_width=True)
 
+    # Display team name
+    st.write(f"Kindly maximize your browser window for the best viewing experience.")
 
-tabs = st.tabs(["Radar Charts", "General Charts"])
+tabs = st.tabs(["Radar Charts", "General Charts", "Defending Charts"])
 
 with tabs[0]:
     # Create a two-column layout
@@ -479,16 +639,16 @@ with tabs[0]:
 
     # Use the first column for the Standard Radar Chart
     with col1:
-        fig_standard = create_radar_chart(season, team_name, standard_chart_data, competition, "Standard Radar Chart") 
+        fig_standard = create_radar_chart(season, team_name, standard_radar_chart_data, competition, "Standard Radar Chart") 
         st.plotly_chart(fig_standard, use_container_width=False)  # Set to True to use the full width of the column
 
     # Use the second column for the Attacking and Defending Radar Charts
     with col2:
-        fig_attacking = create_radar_chart(season, team_name, attacking_chart_data, competition, "Attacking Radar Chart", 420, 350,
+        fig_attacking = create_radar_chart(season, team_name, attacking_radar_chart_data, competition, "Attacking Radar Chart", 420, 350,
                                            label_spread=3)
         st.plotly_chart(fig_attacking, use_container_width=False)  # Set to True to use the full width of the column
 
-        fig_defending = create_radar_chart(season, team_name, defending_chart_data, competition, "Defending Radar Chart", 420, 350,
+        fig_defending = create_radar_chart(season, team_name, defending_radar_chart_data, competition, "Defending Radar Chart", 420, 350,
                                            label_spread=3)
         st.plotly_chart(fig_defending, use_container_width=False)  # Set to True to use the full width of the column
 
@@ -519,7 +679,7 @@ with tabs[1]:
 
     col3, col4, col5 = st.columns([1, 4, 1])  # Adjust the ratio if needed
 
-    @st.cache_data
+    # @st.cache_data
     def load_image(competition, season):
         binary_data = base64.b64decode(xpts_table_images[(xpts_table_images['COMPETITION_ACRONYM'] == competition) &
         (xpts_table_images['SEASON'] == season)]['TABLE_IMAGE'].iloc[0])
@@ -530,6 +690,94 @@ with tabs[1]:
     with col4:
         image = load_image(competition, season)
         st.image(image, use_column_width=True)
+
+with tabs[2]:
+    col1, col2 = st.columns([1, 1])  # Adjust the ratio if needed
+
+    with col1:
+        filtered_defending = team_defending_chart[team_defending_chart['SEASON'] == season]
+        filtered_defending = filtered_defending[filtered_defending['COMPETITION_ACRONYM'] == competition]
+        fig_team_defending = create_FM_team_scatter_chart(filtered_defending, 'DEFENDING', team_name, 'CLEARANCES PER GAME', 
+                                                          'BLOCKS PER GAME', 1., 9.5, 29.5, 6.5, 15, 
+                                                            "Fewer blocks<br>Fewer Clearances", "Fewer blocks<br>Lots of Clearances",
+                                                            "Lots of blocks<br>Fewer Clearances", "Fewer blocks<br>Lots of Clearances", 
+                                                            "red", "orange", "orange", "green")
+        st.plotly_chart(fig_team_defending, use_container_width=False)
+
+    with col2:
+            section_counts_percentage_filt = section_counts_percentage[section_counts_percentage['SEASON'] == season]
+            section_counts_percentage_filt = section_counts_percentage_filt[section_counts_percentage_filt['COMPETITION_ACRONYM'] == competition]
+            section_counts_percentage_filt = section_counts_percentage_filt[section_counts_percentage_filt['TEAM_NAME'] == team_name]
+
+            fig_team_defensive_actions = plot_defensive_actions(section_counts_percentage_filt)
+            st.pyplot(fig_team_defensive_actions, use_container_width=True)
+
+
+    col3, col4 = st.columns([1, 1])
+
+    with col3:
+        fig_team_defensive_efficiency = create_FM_team_scatter_chart(filtered_defending, 'DEFENSIVE EFFICIENCY', team_name, 
+                                                          'OPPOSITION CONVERSION RATE (%)', 'SHOTS FACED PER GAME',
+                                                            0.65, 7, 16, 5.5, 18, "Quiet defence<br>Impenetrable defence", 
+                                                            "Quiet defence<br>Leaky defence", "Busy defence<br>Impenetrable defence", 
+                                                            "Busy defence<br>Leaky defence", "green", "orange", "orange", "red")
+        st.plotly_chart(fig_team_defensive_efficiency, use_container_width=False)
+
+    with col4:
+        fig_team_goalkeeping = create_FM_team_scatter_chart(filtered_defending, 'GOALKEEPING', team_name, 'SHOTS FACED PER GAME', 
+                             'CONCEDED PER GAME', 0.45, 6, 18, 0.5, 2.75, "Impenetrable defence<br>Quiet defence", 
+                             "Impenetrable defence<br>Busy defence", "Leaky defence<br>Quiet defence", "Leaky defence<br>Busy defence", 
+                            "green", "orange", "orange", "red")
+        st.plotly_chart(fig_team_goalkeeping, use_container_width=False)
+
+    col5, col6 = st.columns([1, 1])
+    with col5:
+        fig_team_tackling = create_FM_team_scatter_chart(filtered_defending, 'TACKLING', team_name, 'TACKLES WON RATIO (%)', 
+                                                         'TACKLES ATTEMPTED PER GAME', 0.6, 52, 66, 11, 24, 
+                                                            "Fewer Duels<br>Poor Dueling", "Fewer Duels<br>Strong Dueling",
+                                                            "Lots of Duels<br>Poor Dueling", "Lots of Duels<br>Strong Dueling", "red", 
+                                                            "orange", "orange", "green")
+        st.plotly_chart(fig_team_tackling, use_container_width=False)
+
+    with col6:
+        filt_pressing_intensity_chart = pressing_intensity_chart[pressing_intensity_chart['SEASON'] == season]
+        filt_pressing_intensity_chart = filt_pressing_intensity_chart[filt_pressing_intensity_chart['COMPETITION_ACRONYM'] == competition]
+        fig_team_pressing_intensity = create_FM_team_scatter_chart(filt_pressing_intensity_chart, 'PRESSING INTENSITY',team_name, 'AVERAGE DEFENSIVE ACTION FROM DEFENDERS (YARDS)', 
+                                                        'OPPOSITION PASSES PER DEFENSIVE ACTION', 0.75, 20, 35, 6, 24, 
+                                                        "Low PPDA from Opposition<br>Defenders Defending Deeper", 
+                                                        "Low PPDA from Opposition<br>Defenders Defending Higher",
+                                                        "High PPDA from Opposition<br>Defenders Defending Deeper", 
+                                                        "High PPDA from Opposition<br>Defenders Defending Higher", "red", "orange", "orange", "green")
+        st.plotly_chart(fig_team_pressing_intensity, use_container_width=False)
+
+    col7, col8 = st.columns([1, 1])
+    with col7:
+        filt_set_piece_efficiency_chart = set_piece_efficiency_chart[set_piece_efficiency_chart['SEASON'] == season]
+        filt_set_piece_efficiency_chart = filt_set_piece_efficiency_chart[filt_set_piece_efficiency_chart['COMPETITION_ACRONYM'] == competition]
+
+        fig_set_piece_efficiency = create_FM_team_scatter_chart(filt_set_piece_efficiency_chart, 'SET PIECE DEFENSIVE EFFICIENCY', team_name, 
+                                                                  'OPPOSITION CROSSES FROM SET PIECE PER GAME',
+                             'OPPOSITION XG FROM SET PIECE CROSSES PER GAME', 0.3, 2, 8, 0.05, 0.3, 
+                                                        "Low xG conceded from crosses<br>Fewer crosses conceded", 
+                                                        "Low xG conceded from crosses<br>Many crosses conceded",
+                                                        "High xG conceded from crosses<br>Fewer crosses conceded", 
+                                                        "High xG conceded from crosses<br>Many crosses conceded", 
+                                                        "green", "orange", "orange", "red")
+        st.plotly_chart(fig_set_piece_efficiency, use_container_width=False)
+
+    with col8:
+        def_set_piece_final_filt = def_set_piece_final[def_set_piece_final['SEASON'] == season]
+        def_set_piece_final_filt = def_set_piece_final_filt[def_set_piece_final_filt['COMPETITION_ACRONYM'] == competition]
+        def_set_piece_final_filt = def_set_piece_final_filt[def_set_piece_final_filt['TEAM_NAME'] == team_name]
+
+        def_set_piece_chart = def_set_piece_final_filt[['CROSS_END_LOCATION', 'PERC_1ST_CONTACT']].set_index('CROSS_END_LOCATION')
+
+        fig_def_set_piece = create_set_piece_first_contacts_plot(def_set_piece_chart)
+
+        st.pyplot(fig_def_set_piece, use_container_width=True)
+
+    
+
 
 
 # st.sidebar.caption("Note: Expand the plot for the best viewing experience.")

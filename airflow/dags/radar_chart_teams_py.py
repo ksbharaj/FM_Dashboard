@@ -70,19 +70,24 @@ def prepare_team_defending_stats():
     team_defending = team_defending.merge(df_competitions[['COMPETITION', 'COMPETITION_ACRONYM', 'SEASON']],
                                           on=['COMPETITION', 'SEASON'], how='left')
 
-    team_defending['Clearances/Game'] = team_defending['CLEARANCES'] / team_defending['MATCHES_PLAYED']
+    # team_defending['Clearances/Game'] = team_defending['CLEARANCES'] / team_defending['MATCHES_PLAYED']
     team_defending['Fouls Made/Game'] = team_defending['FOULS_MADE'] / team_defending['MATCHES_PLAYED']
     team_defending['Conceded/Game'] = team_defending['GOALS_CONCEDED'] / team_defending['MATCHES_PLAYED']
     team_defending['xG Against/Game'] = team_defending['XG_AGAINST'] / team_defending['MATCHES_PLAYED']
-    team_defending['Tackles Attempted/Game'] = team_defending['TACKLES'] / team_defending['MATCHES_PLAYED']
+    # team_defending['Tackles Attempted/Game'] = team_defending['TACKLES'] / team_defending['MATCHES_PLAYED']
     team_defending['Tackles Won (%)'] = team_defending['TACKLES_WON'] * 100 / team_defending['TACKLES']
-    team_defending['Interceptions/Game'] = team_defending['INTERCEPTIONS'] / team_defending['MATCHES_PLAYED']
-    team_defending['Blocked Shots/Game'] = team_defending['BLOCKED_SHOTS'] / team_defending['MATCHES_PLAYED']
+    # team_defending['Interceptions/Game'] = team_defending['INTERCEPTIONS'] / team_defending['MATCHES_PLAYED']
+    # team_defending['Blocked Shots/Game'] = team_defending['BLOCKED_SHOTS'] / team_defending['MATCHES_PLAYED']
+    team_defending['Possession Won'] = team_defending['POSS_WON']
+    team_defending['Opposition PPDA'] = team_defending['OPP_PPDA']
+    team_defending['Final 3rd Passes Against/Game'] = team_defending['FINAL_3RD_PASSES_AGAINST'] / team_defending[
+        'MATCHES_PLAYED']
+    team_defending['Clean Sheets'] = team_defending['CLEAN_SHEETS']
 
     team_defending = team_defending[
-        ['SEASON', 'TEAM_NAME', 'COMPETITION_ACRONYM', 'Clearances/Game', 'Fouls Made/Game', 'Conceded/Game',
-         'xG Against/Game',
-         'Tackles Attempted/Game', 'Tackles Won (%)', 'Interceptions/Game', 'Blocked Shots/Game']]
+        ['SEASON', 'TEAM_NAME', 'COMPETITION_ACRONYM', 'MATCHES_PLAYED', 'Fouls Made/Game', 'Conceded/Game',
+         'xG Against/Game', 'Tackles Won (%)', 'Possession Won', 'Opposition PPDA', 'Final 3rd Passes Against/Game',
+         'Clean Sheets']]
 
     team_defending_average = team_defending.drop(columns=['TEAM_NAME']).groupby(
         ['SEASON', 'COMPETITION_ACRONYM']).mean().reset_index()
@@ -91,15 +96,22 @@ def prepare_team_defending_stats():
     team_defending = pd.concat([team_defending, team_defending_average], ignore_index=True)
 
     scaler = MinMaxScaler()
-    team_defending_scaled = (team_defending.drop(['TEAM_NAME', 'SEASON', 'COMPETITION_ACRONYM'], axis=1))
-    team_defending_scaled_1 = team_defending_scaled.drop(['Fouls Made/Game', 'Conceded/Game', 'xG Against/Game'],axis=1)
-    team_defending_scaled_2 = team_defending_scaled[['Fouls Made/Game', 'Conceded/Game', 'xG Against/Game']]
-    team_defending_scaled_1 = pd.DataFrame(scaler.fit_transform(team_defending_scaled_1),columns=team_defending_scaled_1.columns)
+    team_defending_scaled = (
+        team_defending.drop(['TEAM_NAME', 'SEASON', 'COMPETITION_ACRONYM', 'MATCHES_PLAYED'], axis=1))
+    team_defending_scaled_1 = team_defending_scaled.drop(['Fouls Made/Game', 'Conceded/Game', 'xG Against/Game',
+                                                          'Final 3rd Passes Against/Game', 'Opposition PPDA'], axis=1)
+    team_defending_scaled_2 = team_defending_scaled[['Fouls Made/Game', 'Conceded/Game', 'xG Against/Game',
+                                                     'Final 3rd Passes Against/Game', 'Opposition PPDA']]
+    team_defending_scaled_1['Possession Won'] = team_defending_scaled_1['Possession Won'] / team_defending[
+        'MATCHES_PLAYED']
+    team_defending_scaled_1['Clean Sheets'] = team_defending_scaled_1['Clean Sheets'] / team_defending['MATCHES_PLAYED']
+    team_defending_scaled_1 = pd.DataFrame(scaler.fit_transform(team_defending_scaled_1),
+                                           columns=team_defending_scaled_1.columns)
 
     scaler = MinMaxScaler()
-    team_defending_scaled_2 = pd.DataFrame(scaler.fit_transform(team_defending_scaled_2),columns=team_defending_scaled_2.columns)
-    team_defending_scaled_2 = pd.DataFrame(scaler.fit_transform(1 - team_defending_scaled_2),columns=team_defending_scaled_2.columns)
-    team_defending_scaled_2 = pd.DataFrame(scaler.inverse_transform(team_defending_scaled_2),columns=team_defending_scaled_2.columns)
+    team_defending_scaled_2 = pd.DataFrame(scaler.fit_transform(team_defending_scaled_2), columns=team_defending_scaled_2.columns)
+    team_defending_scaled_2 = pd.DataFrame(scaler.fit_transform(1 - team_defending_scaled_2), columns=team_defending_scaled_2.columns)
+    team_defending_scaled_2 = pd.DataFrame(scaler.inverse_transform(team_defending_scaled_2), columns=team_defending_scaled_2.columns)
     team_defending_scaled = pd.concat([team_defending_scaled_1, team_defending_scaled_2], axis=1)
 
     team_defending_scaled = pd.concat(
@@ -343,10 +355,11 @@ def defending_radar_chart():
         by=["COMPETITION_ACRONYM", "SEASON", "TEAM_NAME"])
 
     team_defending_radar = team_defending_radar_1.merge(team_defending_radar_2,
-                                                        on=['SEASON', 'TEAM_NAME', 'COMPETITION_ACRONYM', 'variable'],
+                                                        on=['SEASON','TEAM_NAME','COMPETITION_ACRONYM','variable'],
                                                         how='left')
 
-    team_defending_radar.rename(columns={'variable': 'VARIABLE', 'norm_value': "NORM_VALUE",'value': 'VALUE'}, inplace=True)
+    team_defending_radar.rename(columns={'variable': 'VARIABLE', 'norm_value': "NORM_VALUE",
+                                         'value': 'VALUE'}, inplace=True)
 
     return team_defending_radar
 
@@ -398,9 +411,10 @@ def standard_radar_chart():
     team_standard_radar_6 = team_standard_radar_6.melt(
         id_vars=["SEASON", "TEAM_NAME", "COMPETITION_ACRONYM"]).sort_values(
         by=["COMPETITION_ACRONYM", "SEASON", "TEAM_NAME"])
-    team_standard_radar = team_standard_radar_5.merge(team_standard_radar_6,on=['SEASON', 'TEAM_NAME', 'COMPETITION_ACRONYM',
-                                                      'variable'], how='left')
-    team_standard_radar.rename(columns={'variable': 'VARIABLE', 'norm_value': "NORM_VALUE",'value': 'VALUE'}, inplace=True)
+    team_standard_radar = team_standard_radar_5.merge(team_standard_radar_6,on=['SEASON', 'TEAM_NAME',
+                                                    'COMPETITION_ACRONYM', 'variable'], how='left')
+    team_standard_radar.rename(columns={'variable': 'VARIABLE', 'norm_value': "NORM_VALUE",'value': 'VALUE'},
+                               inplace=True)
 
     return team_standard_radar
     # file_path = '/tmp/team_standard_radar.csv'
