@@ -41,6 +41,10 @@ SNOWFLAKE_PASSWORD = st.secrets["snowflake"]["password"]
 #     local_secrets = toml.load('local_secrets.toml')
 #     SNOWFLAKE_PASSWORD = local_secrets['SNOWFLAKE_PASSWORD']
 
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) \
+           Chrome/58.0.3029.110 Safari/537.3'}
+
+
 
 conn = snowflake.connector.connect(
     user=SNOWFLAKE_USER,
@@ -599,7 +603,8 @@ st.title('Team Analytics')
 with st.sidebar:
     st.write(f"Kindly maximize your browser window for the best viewing experience.")
     # Image at the top of the sidebar
-    st.image(io.BytesIO(urllib.request.urlopen("https://i.imgur.com/qEwoaGU.png").read()), use_column_width=True)
+    st.image(io.BytesIO(urllib.request.urlopen(urllib.request.Request("https://i.imgur.com/qEwoaGU.png", headers=headers)).read()), 
+             use_column_width=True)
 
     # Selection for competition
     competition = st.selectbox('Select a Competition', standard_radar_chart_data['COMPETITION_ACRONYM'].unique())
@@ -627,7 +632,8 @@ with st.sidebar:
     # Assuming team_names is defined and includes 'TEAM_NAME' and 'TEAM_LOGO_URL'
     # team_names = ...
     team_logo_url = team_names[team_names['TEAM_NAME'] == team_name].TEAM_LOGO_URL.iloc[0]
-    st.image(io.BytesIO(urllib.request.urlopen(team_logo_url).read()), use_column_width=True)
+    st.image(io.BytesIO(urllib.request.urlopen(urllib.request.Request(team_logo_url, headers=headers)).read()), 
+             use_column_width=True)
 
     # Display team name
     
