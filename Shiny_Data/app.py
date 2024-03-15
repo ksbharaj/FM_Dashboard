@@ -597,7 +597,7 @@ css='''
     </style>
     '''
 st.markdown(css, unsafe_allow_html=True)
-st.header('This application is on maintenance this weekend. CUrrently only functions on "EPL" data')
+st.header('This application is on maintenance this weekend. Currently only functions on "EPL" data')
 st.title('Team Analytics')
 
 
