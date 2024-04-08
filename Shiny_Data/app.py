@@ -28,9 +28,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Snowflake details
-SNOWFLAKE_USER = 'kbharaj3'
-SNOWFLAKE_ACCOUNT = 'qx25653.ca-central-1.aws'
-SNOWFLAKE_WAREHOUSE = 'FOOTY_STORE'
+SNOWFLAKE_USER = 'karan14'
+SNOWFLAKE_ACCOUNT = 'lv65293.ca-central-1.aws'
+SNOWFLAKE_WAREHOUSE = 'COMPUTE_WH'
 SNOWFLAKE_DATABASE = 'GEGENSTATS'
 SNOWFLAKE_SCHEMA = 'RADAR_CHARTS'
 SNOWFLAKE_PASSWORD = st.secrets["snowflake"]["password"]
@@ -380,7 +380,7 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
             'xanchor': 'center',  # Ensures the title is centered at the x position
             'yanchor': 'top',  # Ensures the title is at the top of the y position
             'font': dict(
-                family="Roboto, sans-serif",  # Specify the font family
+                family="Roboto",  # Specify the font family
                 size=23,                     # Specify the font size
                 color="white"                # Specify the font color
             )
@@ -400,7 +400,7 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
     )
 
     fig.update_xaxes(
-        title=dict(font=dict(size=25)),
+        title=dict(font=dict(size=18), standoff=2),
         showline=True,  # Show the axis line
         linewidth=2,  # Width of the axis line
         linecolor='white',  # Color of the axis line
@@ -409,7 +409,7 @@ def create_FM_team_scatter_chart(df, chart_name, team_name, x_axis_label, y_axis
     )
 
     fig.update_yaxes(
-        title=dict(font=dict(size=25)),
+        title=dict(font=dict(size=18), standoff=2),
         showline=True,
         linewidth=2,
         linecolor='white',
