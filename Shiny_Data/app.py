@@ -147,12 +147,15 @@ y_max_goal_output = round((team_goal_output['NON PENALTY EXPECTED GOALS PER GAME
 
 ## Streamlit App's Title 
 st.title('Team Analytics')
-st.markdown("Hey! This app allows football enthusiasts to anaylze football data from the top 5 leagues in  the last 3 seasons! It's built in the style of Football Manager 24")
-st.markdown("Select the ***Competition***, ***Season*** and ***Team*** of from the sidebar on the left. If then Competition or Season is change, you may need to press ***Load Teams*** before progressing!")
-st.markdown("Select from either of the following:")
-st.markdown(" ***Radar Charts***: Help summarize the team's statistics in relation to the league' average for that season")
-st.markdown(" ***General Charts***: Show the team's Aerial Dominance and Goal Output against all other teams in the league. Also shows a personal favourite- the xPts table (or Justice table)")
-st.markdown(" ***Defending Charts***: Various Interesting charts to show just how good the team is at defending")
+st.subheader("Hey! Analyze football data from the top 5 leagues in the last 3 seasons here! (Inspired by Football Manager 24)")
+st.subheader("**Select the ***Competition***, ***Season*** and ***Team*** of from the sidebar. Then select from any one of the Radio Buttons:**")
+st.markdown(" **Radar Charts 🌐**: Help summarize the team's statistics in relation to the league' average for that season")
+st.markdown(" **General Charts 🧿**: Show the team's Aerial Dominance and Goal Output against all other teams in the league. Also shows a personal favourite- the xPts table (or Justice table)")
+st.markdown(" **Defending Charts 🤚**: Various interesting charts to show just how good the team is at defending")
+st.markdown(" **Creating Charts 🪄**: Shows how effective the selected team is at crossing in-plan and from set-pieces")
+st.markdown(" **Scoring Charts ⚽**: Various charts showing the goal threat the team possesses, including an Interactive Shot Map!")
+st.markdown("""---""")
+
 
 # ==================================================================
 # Section: Streamlit's Sidebar
@@ -164,7 +167,7 @@ if 'competition' not in st.session_state:
     st.session_state.proper_team_update = True
 
 with st.sidebar:   
-
+    st.write("If the Competition or Season selection changes, you may be asked to press a ***Load Teams*** button before progressing!")
     # with st.form(key='comp_season_form', border=False):
     # Display select box and update session state
     competitions = standard_radar_chart_data['COMPETITION_ACRONYM'].unique()
@@ -425,7 +428,7 @@ if st.session_state.proper_team_update:
                                                         "Lots of crosses<br>Inaccurate crossing", 
                                                         "Lots of crosses<br>Accurate crossing",
                                                         "red", "orange", "orange", "green")
-            st.caption("Shows how freuently " + st.session_state.team_name + " cross the ball, and their success doing so in the " + 
+            st.caption("Shows how frequently " + st.session_state.team_name + " cross the ball, and their success doing so in the " + 
                         st.session_state.competition + " in the " + season_selected + " season")
             st.plotly_chart(fig_filt_crossing, use_container_width=True)
 
