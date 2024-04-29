@@ -203,7 +203,7 @@ with st.sidebar:
 
     if st.session_state.team_name not in valid_team_names:
         st.session_state.proper_team_update = False
-        with st.form(key='comp_season_form', border=False):
+        with st.form(key='comp_season_form'):
             submit_comp_season = st.form_submit_button(label='Load Teams')
         if submit_comp_season:
             st.session_state.competition = competition_selected
