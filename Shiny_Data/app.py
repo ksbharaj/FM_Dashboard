@@ -523,7 +523,7 @@ if st.session_state.proper_team_update:
                                                         "High no. of set piece goals<br>Low no. of set piece goals conceded",
                                                         "High no. of set piece goals<br>High no. of set piece goals conceded",
                                                         "orange", "red", "green", "orange")
-                st.caption("Gives a comparison of " + st.session_state.team_name + "'s gaosl from set pieces vs goals conceded from set pieces in the " + 
+                st.caption("Gives a comparison of " + st.session_state.team_name + "'s goals from set pieces vs goals conceded from set pieces in the " + 
                             st.session_state.competition + " in the " + season_selected + " season")
                 st.plotly_chart(fig_goals_set_piece, use_container_width=True)
         
@@ -535,6 +535,8 @@ if st.session_state.proper_team_update:
                 df_shots_last_5_matches_filt = df_shots_last_5_matches[df_shots_last_5_matches['SEASON'] == st.session_state.season]
                 df_shots_last_5_matches_filt = df_shots_last_5_matches_filt[df_shots_last_5_matches_filt['COMPETITION_ACRONYM'] == st.session_state.competition]
                 df_shots_last_5_matches_filt = df_shots_last_5_matches_filt[df_shots_last_5_matches_filt['TEAM_NAME'] == st.session_state.team_name]
+                last5_GWs = df_shots_last_5_matches_filt[['GAMEWEEK']].drop_duplicates().sort_values(by="GAMEWEEK")[-5:]
+                df_shots_last_5_matches_filt = df_shots_last_5_matches_filt.merge(last5_GWs, on="GAMEWEEK")
 
                 df_shots_last_5_matches_filt['norm_start_x'] = df_shots_last_5_matches_filt['START_X'] / 120
                 df_shots_last_5_matches_filt['norm_start_y'] = df_shots_last_5_matches_filt['START_Y'] / 80
