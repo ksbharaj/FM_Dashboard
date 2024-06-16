@@ -400,7 +400,7 @@ if st.session_state.proper_team_update:
 
                 fig_set_piece_efficiency = create_FM_team_scatter_chart(filt_set_piece_efficiency_chart, 'SET PIECE DEFENSIVE EFFICIENCY', st.session_state.team_name, 
                                                                         'OPPOSITION CROSSES FROM SET PIECE PER GAME',
-                                    'OPPOSITION XG FROM SET PIECE CROSSES PER GAME', 0.3, 2, 8, 0.05, 0.3, 
+                                    'OPPOSITION XG FROM SET PIECE CROSSES PER GAME', 0.4, 2, 14, 0.05, 0.3, 
                                                                 "Low xG conceded from crosses<br>Fewer crosses conceded", 
                                                                 "Low xG conceded from crosses<br>Many crosses conceded",
                                                                 "High xG conceded from crosses<br>Fewer crosses conceded", 

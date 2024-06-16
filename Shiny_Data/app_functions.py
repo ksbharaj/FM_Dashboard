@@ -1121,6 +1121,10 @@ def plot_single_passmap(df_player_match, res_dict, df_match_oi, df_events, teami
     fig.legend(handles=legend_elements, loc='lower center', ncol=4, facecolor='#2B2B2B', edgecolor='none', 
             framealpha=0, fontsize=6, labelcolor='white')
 
+    plt.rcParams['axes.facecolor'] = '#2B2B2B'
+    plt.rcParams['figure.facecolor'] = '#2B2B2B'
+    plt.rcParams['savefig.facecolor'] = '#2B2B2B'
+
     return fig
 
 
@@ -1332,7 +1336,11 @@ def plot_double_passmap(df_player_match, res_dict, df_match_oi, df_events, teamI
 
     fig.legend(handles=legend_elements, loc='lower center', ncol=4, facecolor='#2B2B2B', edgecolor='none', 
             framealpha=0, fontsize=6, labelcolor='white')
-    
+
+    plt.rcParams['axes.facecolor'] = '#2B2B2B'
+    plt.rcParams['figure.facecolor'] = '#2B2B2B'
+    plt.rcParams['savefig.facecolor'] = '#2B2B2B'
+
     return fig
 
 def plot_xg_match_story(df_shots, df_goals, df_match_oi, xg_vline, max_mins):
@@ -1412,5 +1420,9 @@ def plot_xg_match_story(df_shots, df_goals, df_match_oi, xg_vline, max_mins):
     ax.set_xlabel('Minutes')
     ax.set_ylabel('xG', rotation=0, labelpad=12)
     ax.legend(loc='upper left', facecolor='#2B2B2B', edgecolor='none', framealpha=0, fontsize=12, labelcolor='white')
+
+    plt.rcParams['axes.facecolor'] = '#2B2B2B'
+    plt.rcParams['figure.facecolor'] = '#2B2B2B'
+    plt.rcParams['savefig.facecolor'] = '#2B2B2B'
 
     return fig
