@@ -1,298 +1,125 @@
 ,COMPETITION,SEASON,game,minute,player,team,xG,PSxG,outcome,distance,body_part,notes,SCA 1player,SCA 1event,SCA 2player,SCA 2event
-0,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,5,Leandro Trossard,Arsenal,0.13,0.19,Goal,9,Left Foot,,Declan Rice,Pass (Live),Thomas Partey,Pass (Live)
-1,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,10,Thomas Partey,Arsenal,0.07,,Blocked,23,Right Foot,,Bukayo Saka,Pass (Live),Martin Ødegaard,Pass (Live)
-2,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,15,Takehiro Tomiyasu,Arsenal,0.29,,Off Target,6,Head,,Martin Ødegaard,Pass (Live),Declan Rice,Pass (Live)
-3,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,16,Nicolas Jackson,Chelsea,0.03,,Blocked,19,Right Foot,,Nicolas Jackson,Take-On,Benoît Badiashile,Pass (Live)
-4,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,19,Benoît Badiashile,Chelsea,0.07,,Off Target,6,Head,,Mykhailo Mudryk,Pass (Dead),,
-5,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,19,Axel Disasi,Chelsea,0.9,,Off Target,2,Right Foot,Volley,Benoît Badiashile,Shot,,
-6,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,22,Bukayo Saka,Arsenal,0.03,,Blocked,22,Left Foot,,Bukayo Saka,Take-On,Ben White,Pass (Live)
-7,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,22,Declan Rice,Arsenal,0.07,,Off Target,21,Right Foot,,Declan Rice,Take-On,Leandro Trossard,Pass (Live)
-8,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,23,Thomas Partey,Arsenal,0.05,,Blocked,23,Right Foot,,Ben White,Pass (Live),Martin Ødegaard,Pass (Live)
-9,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,26,Leandro Trossard,Arsenal,0.02,,Blocked,18,Left Foot,,Martin Ødegaard,Pass (Live),Kai Havertz,Pass (Live)
-10,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,26,Bukayo Saka,Arsenal,0.03,0.13,Saved,15,Left Foot,Deflected,Kai Havertz,Pass (Live),Martin Ødegaard,Pass (Live)
-11,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,26,Kai Havertz,Arsenal,0.13,0.28,Saved,16,Left Foot,,Ben White,Pass (Live),,
-12,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,27,Leandro Trossard,Arsenal,0.28,,Off Target,11,Right Foot,,Bukayo Saka,Pass (Live),Ben White,Pass (Live)
-13,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,28,Bukayo Saka,Arsenal,0.04,,Blocked,13,Left Foot,,Thomas Partey,Pass (Live),Ben White,Pass (Live)
-14,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,30,Marc Cucurella,Chelsea,0.07,,Blocked,14,Left Foot,,Noni Madueke,Pass (Live),Conor Gallagher,Pass (Live)
-15,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,30,Enzo Fernández,Chelsea,0.09,,Off Target,17,Right Foot,,Marc Cucurella,Pass (Live),Marc Cucurella,Shot
-16,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,33,Leandro Trossard,Arsenal,0.01,,Blocked,27,Right Foot,,Takehiro Tomiyasu,Pass (Live),Leandro Trossard,Pass (Live)
-17,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,34,Bukayo Saka,Arsenal,0.04,,Off Target,26,Left Foot,,Martin Ødegaard,Pass (Live),Leandro Trossard,Pass (Live)
-18,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,49,Declan Rice,Arsenal,0.06,0.03,Saved,14,Right Foot,,Martin Ødegaard,Pass (Live),Declan Rice,Interception
-19,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,50,Martin Ødegaard,Arsenal,0.06,,Off Target,22,Left Foot,,Martin Ødegaard,Take-On,Thomas Partey,Pass (Live)
-20,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,51,Kai Havertz,Arsenal,0.42,0.73,Saved,6,Right Foot,,Martin Ødegaard,Pass (Live),Ben White,Pass (Live)
-21,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,52,Declan Rice,Arsenal,0.05,,Blocked,16,Right Foot,,Bukayo Saka,Pass (Live),Martin Ødegaard,Pass (Live)
-22,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,52,Ben White,Arsenal,0.24,0.29,Goal,8,Left Foot,,Declan Rice,Shot,,
-23,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,57,Kai Havertz,Arsenal,0.39,0.35,Goal,12,Left Foot,,Martin Ødegaard,Pass (Live),Gabriel Magalhães,Pass (Live)
-24,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,60,Leandro Trossard,Arsenal,0.11,,Blocked,16,Right Foot,,Bukayo Saka,Pass (Live),Bukayo Saka,Tackle
-25,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,60,Martin Ødegaard,Arsenal,0.04,,Blocked,18,Right Foot,,Kai Havertz,Pass (Live),Takehiro Tomiyasu,Pass (Live)
-26,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,60,Thomas Partey,Arsenal,0.03,,Blocked,29,Right Foot,,Martin Ødegaard,Shot,,
-27,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,61,Nicolas Jackson,Chelsea,0.47,,Off Target,4,Right Foot,,Noni Madueke,Pass (Live),,
-28,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,65,Kai Havertz,Arsenal,0.09,0.42,Goal,14,Left Foot,,Bukayo Saka,Pass (Live),Thomas Partey,Pass (Live)
-29,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,68,Raheem Sterling,Chelsea,0.05,0.02,Saved,28,Right Foot,Free kick,Raheem Sterling,Fouled,Conor Gallagher,Pass (Live)
-30,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,70,Ben White,Arsenal,0.07,0.75,Goal,12,Right Foot,Volley,Martin Ødegaard,Pass (Live),Bukayo Saka,Pass (Live)
-31,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,88,Fabio Vieira,Arsenal,0.05,,Off Target,16,Right Foot,,Martin Ødegaard,Pass (Live),Gabriel Martinelli,Pass (Live)
-32,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,90+1,Gabriel Martinelli,Arsenal,0.21,,Off Target,15,Right Foot,,Fabio Vieira,Pass (Live),,
-33,ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,90+7,Gabriel Martinelli,Arsenal,0.41,0.08,Saved,12,Right Foot,,Oleksandr Zinchenko,Pass (Live),Martin Ødegaard,Pass (Live)
-34,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,5,Joachim Andersen,Crystal Palace,0.06,,Blocked,10,Left Foot,,Eberechi Eze,Pass (Live),Daniel Muñoz,Pass (Live)
-35,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,8,Adam Wharton,Crystal Palace,0.02,,Blocked,28,Right Foot,,,,,
-36,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,12,Eberechi Eze,Crystal Palace,0.06,,Off Target,23,Right Foot,,Eberechi Eze,Take-On,Jean-Philippe Mateta,Pass (Live)
-37,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,14,Jean-Philippe Mateta,Crystal Palace,0.03,,Off Target,12,Head,,Eberechi Eze,Pass (Live),Joachim Andersen,Pass (Live)
-38,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,16,Adam Wharton,Crystal Palace,0.01,0.02,Saved,32,Left Foot,,Will Hughes,Pass (Live),,
-39,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,18,Jordan Ayew,Crystal Palace,0.02,,Off Target,33,Right Foot,,Nathaniel Clyne,Pass (Live),Jordan Ayew,Pass (Live)
-40,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,23,Eberechi Eze,Crystal Palace,0.03,0.24,Saved,44,Right Foot,Free kick,Eberechi Eze,Fouled,Tyrick Mitchell,Pass (Live)
-41,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,28,Jordan Ayew,Crystal Palace,0.02,0.02,Saved,29,Right Foot,,Joachim Andersen,Pass (Live),Tyrick Mitchell,Pass (Live)
-42,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,32,Adam Wharton,Crystal Palace,0.01,,Blocked,25,Left Foot,,Jordan Ayew,Fouled,Daniel Muñoz,Pass (Live)
-43,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,45+2,Fabian Schär,Newcastle Utd,0.01,,Off Target,17,Head,,Bruno Guimarães,Pass (Dead),Bruno Guimarães,Fouled
-44,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,49,Harvey Barnes,Newcastle Utd,0.04,,Blocked,16,Right Foot,,Elliot Anderson,Pass (Live),Alexander Isak,Pass (Live)
-45,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,54,Eberechi Eze,Crystal Palace,0.03,,Off Target,24,Left Foot,,Eberechi Eze,Take-On,Will Hughes,Pass (Live)
-46,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,55,Jean-Philippe Mateta,Crystal Palace,0.12,0.7,Goal,16,Right Foot,,Jordan Ayew,Pass (Live),Jean-Philippe Mateta,Pass (Live)
-47,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,62,Eberechi Eze,Crystal Palace,0.08,,Blocked,25,Right Foot,Free kick,Eberechi Eze,Fouled,Daniel Muñoz,Pass (Live)
-48,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,63,Jean-Philippe Mateta,Crystal Palace,0.04,0.05,Saved,10,Head,,Eberechi Eze,Pass (Dead),Daniel Muñoz,Tackle
-49,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,63,Eberechi Eze,Crystal Palace,0.04,,Blocked,13,Right Foot,,Eberechi Eze,Take-On,Tyrick Mitchell,Pass (Live)
-50,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,65,Will Hughes,Crystal Palace,0.03,,Off Target,16,Left Foot,,Eberechi Eze,Pass (Live),Adam Wharton,Pass (Live)
-51,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,71,Adam Wharton,Crystal Palace,0.03,,Off Target,21,Left Foot,,Daniel Muñoz,Pass (Live),Adam Wharton,Pass (Live)
-52,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,72,Alexander Isak,Newcastle Utd,0.06,,Blocked,14,Right Foot,,Anthony Gordon,Pass (Live),Bruno Guimarães,Pass (Live)
-53,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,86,Lewis Hall,Newcastle Utd,0.04,,Blocked,23,Left Foot,,Lewis Hall,Pass (Live),Bruno Guimarães,Pass (Live)
-54,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,86,Elliot Anderson,Newcastle Utd,0.05,0.06,Saved,11,Head,,Dan Burn,Pass (Live),Lewis Hall,Shot
-55,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,88,Jean-Philippe Mateta,Crystal Palace,0.17,0.39,Goal,9,Left Foot,,Will Hughes,Pass (Live),Jeffrey Schlupp,Pass (Live)
-56,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,90+2,Michael Olise,Crystal Palace,0.04,,Blocked,24,Left Foot,Free kick,Michael Olise,Fouled,Daniel Muñoz,Pass (Dead)
-57,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,90+2,Chris Richards,Crystal Palace,0.03,0.08,Saved,12,Head,,Michael Olise,Pass (Dead),Michael Olise,Shot
-58,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,90+5,Tyrick Mitchell,Crystal Palace,0.04,,Blocked,16,Left Foot,,Jeffrey Schlupp,Pass (Live),Jaïro Riedewald,Pass (Live)
-59,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,90+5,Anthony Gordon,Newcastle Utd,0.14,0.1,Saved,9,Right Foot,,Anthony Gordon,Take-On,Alexander Isak,Pass (Live)
-60,ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,90+6,Bruno Guimarães,Newcastle Utd,0.03,,Off Target,9,Head,,Anthony Gordon,Pass (Dead),Anthony Gordon,Shot
-61,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,3,Dwight McNeil,Everton,0.03,,Blocked,13,Left Foot,,Jarrad Branthwaite,Pass (Live),James Tarkowski,Pass (Live)
-62,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,3,Abdoulaye Doucouré,Everton,0.21,,Off Target,9,Right Foot,,Dwight McNeil,Shot,,
-63,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,4,Darwin Núñez,Liverpool,0.21,,Blocked,9,Right Foot,,Luis Díaz,Pass (Live),Alexis Mac Allister,Pass (Live)
-64,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,10,Alexis Mac Allister,Liverpool,0.02,,Blocked,20,Left Foot,,,,,
-65,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,13,Ben Godfrey,Everton,0.08,,Off Target,6,Head,,Dwight McNeil,Pass (Dead),Idrissa Gana Gueye,Fouled
-66,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,17,Dominic Calvert-Lewin,Everton,0.2,0.22,Saved,5,Head,,James Tarkowski,Pass (Live),Dwight McNeil,Pass (Dead)
-67,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,20,James Tarkowski,Everton,0.03,0.08,Saved,12,Head,,Dwight McNeil,Pass (Dead),Dominic Calvert-Lewin,Fouled
-68,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,27,Jarrad Branthwaite,Everton,0.06,,Off Target,9,Other,,Dwight McNeil,Pass (Dead),Idrissa Gana Gueye,Fouled
-69,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,27,Ben Godfrey,Everton,0.05,,Blocked,11,Right Foot,,Jack Harrison,Pass (Live),James Tarkowski,Pass (Live)
-70,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,27,Jarrad Branthwaite,Everton,0.09,0.37,Goal,10,Left Foot,,Ben Godfrey,Shot,,
-71,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,35,Darwin Núñez,Liverpool,0.51,0.32,Saved,10,Right Foot,,Mohamed Salah,Pass (Live),Alexis Mac Allister,Pass (Live)
-72,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,44,Luis Díaz,Liverpool,0.25,0.32,Saved,10,Right Foot,Volley,Darwin Núñez,Pass (Live),Mohamed Salah,Pass (Live)
-73,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,45,Mohamed Salah,Liverpool,0.1,,Off Target,21,Left Foot,,Darwin Núñez,Pass (Live),Trent Alexander-Arnold,Pass (Live)
-74,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,45,Mohamed Salah,Liverpool,0.07,,Off Target,16,Left Foot,,Mohamed Salah,Shot,,
-75,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,45+5,Mohamed Salah,Liverpool,0.15,,Blocked,17,Left Foot,,Dominik Szoboszlai,Pass (Live),Mohamed Salah,Pass (Live)
-76,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,45+5,Alexis Mac Allister,Liverpool,0.02,,Blocked,27,Right Foot,,Mohamed Salah,Shot,,
-77,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,45+5,Andrew Robertson,Liverpool,0.06,0.04,Saved,10,Left Foot,,Curtis Jones,Pass (Live),Andrew Robertson,Pass (Live)
-78,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,48,Virgil van Dijk,Liverpool,0.05,0.06,Saved,10,Head,,Andrew Robertson,Pass (Dead),Darwin Núñez,Pass (Live)
-79,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,51,Alexis Mac Allister,Liverpool,0.02,,Blocked,22,Right Foot,,Virgil van Dijk,Pass (Live),Trent Alexander-Arnold,Pass (Live)
-80,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,52,Curtis Jones,Liverpool,0.06,,Blocked,11,Left Foot,,Alexis Mac Allister,Pass (Live),Dominik Szoboszlai,Pass (Live)
-81,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,53,Dominik Szoboszlai,Liverpool,0.03,,Blocked,26,Right Foot,,Virgil van Dijk,Pass (Live),Alexis Mac Allister,Pass (Live)
-82,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,53,Dominic Calvert-Lewin,Everton,0.01,,Off Target,65,Right Foot,,,,,
-83,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,55,Idrissa Gana Gueye,Everton,0.04,0.43,Saved,17,Right Foot,,Jack Harrison,Pass (Live),Abdoulaye Doucouré,Pass (Live)
-84,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,55,Mohamed Salah,Liverpool,0.11,0.06,Saved,12,Right Foot,,Luis Díaz,Pass (Live),Mohamed Salah,Pass (Live)
-85,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,57,Dwight McNeil,Everton,0.02,0.29,Saved,29,Left Foot,,Jack Harrison,Pass (Live),Ashley Young,Pass (Live)
-86,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,58,Dominic Calvert-Lewin,Everton,0.09,0.14,Goal,6,Head,,Dwight McNeil,Pass (Dead),Dwight McNeil,Shot
-87,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,62,Virgil van Dijk,Liverpool,0.03,,Blocked,11,Head,,Andrew Robertson,Pass (Dead),Luis Díaz,Pass (Live)
-88,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,64,Dwight McNeil,Everton,0.1,,Blocked,14,Left Foot,,Jack Harrison,Take-On,Jordan Pickford,Pass (Dead)
-89,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,65,Ben Godfrey,Everton,0.1,,Blocked,8,Head,,Dwight McNeil,Pass (Dead),Dwight McNeil,Shot
-90,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,67,Luis Díaz,Liverpool,0.02,,Blocked,17,Right Foot,,Harvey Elliott,Pass (Live),Virgil van Dijk,Pass (Live)
-91,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,69,Luis Díaz,Liverpool,0.06,,Woodwork,13,Right Foot,,Andrew Robertson,Pass (Live),Virgil van Dijk,Pass (Live)
-92,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,70,Mohamed Salah,Liverpool,0.05,,Blocked,14,Left Foot,,Trent Alexander-Arnold,Pass (Live),Harvey Elliott,Pass (Live)
-93,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,70,Alexis Mac Allister,Liverpool,0.02,,Blocked,27,Right Foot,Volley,Mohamed Salah,Shot,,
-94,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,79,Mohamed Salah,Liverpool,0.1,,Off Target,12,Right Foot,,Wataru Endo,Pass (Live),Harvey Elliott,Pass (Live)
-95,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,80,Jack Harrison,Everton,0.12,,Off Target,4,Head,,Abdoulaye Doucouré,Pass (Live),Dwight McNeil,Pass (Live)
-96,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,81,Trent Alexander-Arnold,Liverpool,0.03,,Off Target,30,Right Foot,,Jarell Quansah,Pass (Live),Luis Díaz,Pass (Live)
-97,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,89,Ashley Young,Everton,0.04,,Off Target,20,Right Foot,,Jack Harrison,Pass (Live),Ashley Young,Pass (Dead)
-98,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,90,Harvey Elliott,Liverpool,0.06,0.14,Saved,22,Left Foot,,Harvey Elliott,Pass (Live),Joe Gomez,Pass (Live)
-99,ENG-Premier League,2324,2024-04-24 Everton-Liverpool,90+5,Mohamed Salah,Liverpool,0.06,0.3,Saved,18,Left Foot,Volley,Luis Díaz,Pass (Live),Harvey Elliott,Pass (Live)
-100,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,1,Diogo Dalot,Manchester Utd,0.03,0.33,Saved,30,Left Foot,,,,,
-101,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,2,Rasmus Højlund,Manchester Utd,0.02,,Off Target,11,Head,,Bruno Fernandes,Pass (Live),Diogo Dalot,Shot
-102,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,12,Casemiro,Manchester Utd,0.14,,Off Target,7,Head,,Bruno Fernandes,Pass (Dead),Alejandro Garnacho,Pass (Live)
-103,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,14,Cameron Archer,Sheffield Utd,0.07,,Off Target,22,Left Foot,,Gustavo Hamer,Pass (Live),,
-104,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,15,Ben Brereton,Sheffield Utd,0.04,0.05,Saved,17,Right Foot,,Gustavo Hamer,Pass (Live),Cameron Archer,Pass (Live)
-105,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,17,Casemiro,Manchester Utd,0.2,,Blocked,5,Head,,Bruno Fernandes,Pass (Dead),,
-106,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,17,Alejandro Garnacho,Manchester Utd,0.02,0.01,Saved,19,Right Foot,,Diogo Dalot,Pass (Live),Casemiro,Shot
-107,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,20,Kobbie Mainoo,Manchester Utd,0.06,,Blocked,16,Left Foot,,Antony,Take-On,Bruno Fernandes,Pass (Live)
-108,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,21,Christian Eriksen,Manchester Utd,0.06,,Off Target,24,Right Foot,,Antony,Pass (Live),Aaron Wan-Bissaka,Pass (Live)
-109,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,22,Alejandro Garnacho,Manchester Utd,0.24,0.38,Saved,12,Right Foot,,Antony,Pass (Live),Alejandro Garnacho,Pass (Live)
-110,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,25,Antony,Manchester Utd,0.06,,Blocked,17,Left Foot,,Aaron Wan-Bissaka,Pass (Live),Antony,Pass (Live)
-111,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,26,Antony,Manchester Utd,0.04,,Off Target,21,Left Foot,,Rasmus Højlund,Pass (Live),Kobbie Mainoo,Pass (Live)
-112,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,31,Rasmus Højlund,Manchester Utd,0.06,0.04,Saved,13,Left Foot,,Christian Eriksen,Pass (Live),Diogo Dalot,Pass (Live)
-113,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,35,Jayden Bogle,Sheffield Utd,0.15,0.83,Goal,6,Right Foot,,,,,
-114,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,38,Alejandro Garnacho,Manchester Utd,0.03,,Blocked,15,Right Foot,,Alejandro Garnacho,Take-On,Bruno Fernandes,Pass (Dead)
-115,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,38,Bruno Fernandes,Manchester Utd,0.03,,Off Target,24,Right Foot,,,,,
-116,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,39,Bruno Fernandes,Manchester Utd,0.02,0.05,Saved,30,Right Foot,,Alejandro Garnacho,Pass (Live),Casemiro,Pass (Live)
-117,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,42,Harry Maguire,Manchester Utd,0.09,0.55,Goal,6,Head,,Alejandro Garnacho,Pass (Live),Kobbie Mainoo,Fouled
-118,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,45,Alejandro Garnacho,Manchester Utd,0.19,0.43,Saved,16,Right Foot,,Diogo Dalot,Pass (Live),André Onana,Pass (Live)
-119,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,45+1,Christian Eriksen,Manchester Utd,0.02,,Off Target,29,Right Foot,,Diogo Dalot,Pass (Live),Alejandro Garnacho,Pass (Live)
-120,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,47,Alejandro Garnacho,Manchester Utd,0.05,0.08,Saved,12,Right Foot,Deflected,Bruno Fernandes,Pass (Live),Rasmus Højlund,Pass (Live)
-121,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,50,Ben Brereton,Sheffield Utd,0.31,0.76,Goal,9,Right Foot,,Ben Osborn,Pass (Live),Gustavo Hamer,Pass (Live)
-122,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,59,Bruno Fernandes,Manchester Utd,0.02,,Blocked,18,Right Foot,,Amad Diallo,Pass (Live),Amad Diallo,Take-On
-123,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,61,Bruno Fernandes (pen),Manchester Utd,0.79,0.95,Goal,13,Right Foot,,Harry Maguire,Fouled,Bruno Fernandes,Shot
-124,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,66,Diogo Dalot,Manchester Utd,0.06,,Blocked,3,Right Foot,,Bruno Fernandes,Pass (Dead),Alejandro Garnacho,Pass (Live)
-125,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,67,Ben Brereton,Sheffield Utd,0.03,,Blocked,32,Right Foot,,Gustavo Hamer,Pass (Live),Oliver Arblaster,Interception
-126,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,68,Scott McTominay,Manchester Utd,0.07,0.08,Saved,15,Right Foot,Volley,Bruno Fernandes,Pass (Live),Casemiro,Pass (Live)
-127,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,74,Ben Brereton,Sheffield Utd,0.04,,Blocked,11,Right Foot,Deflected,Ben Osborn,Pass (Live),Gustavo Hamer,Pass (Dead)
-128,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,74,Anel Ahmedhodžić,Sheffield Utd,0.09,,Off Target,14,Right Foot,Volley,Ben Brereton,Shot,,
-129,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,81,Bruno Fernandes,Manchester Utd,0.03,0.23,Goal,30,Left Foot,Deflected,Kobbie Mainoo,Pass (Live),Aaron Wan-Bissaka,Pass (Live)
-130,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,85,Rasmus Højlund,Manchester Utd,0.52,0.78,Goal,6,Left Foot,,Bruno Fernandes,Pass (Live),Diogo Dalot,Pass (Live)
-131,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,89,Gustavo Hamer,Sheffield Utd,0.03,,Off Target,33,Right Foot,Free kick,Gustavo Hamer,Fouled,Oliver Arblaster,Pass (Live)
-132,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,90,Vinicius Souza,Sheffield Utd,0.03,0.59,Saved,10,Head,,Gustavo Hamer,Pass (Dead),Vinicius Souza,Pass (Live)
-133,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,90,Gustavo Hamer,Sheffield Utd,0.02,,Blocked,23,Right Foot,,Oliver Norwood,Pass (Live),Vinicius Souza,Pass (Live)
-134,ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,90+5,Alejandro Garnacho,Manchester Utd,0.1,0.03,Saved,12,Left Foot,,Bruno Fernandes,Pass (Live),,
-135,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,5,Antoine Semenyo,Bournemouth,0.05,0.1,Saved,24,Left Foot,Deflected,Ryan Christie,Pass (Live),Lewis Cook,Interception
-136,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,6,Marcos Senesi,Bournemouth,0.1,,Woodwork,7,Head,,Ryan Christie,Pass (Dead),Antoine Semenyo,Shot
-137,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,8,Dominic Solanke,Bournemouth,0.1,,Blocked,13,Right Foot,,Alex Scott,Pass (Live),,
-138,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,10,Justin Kluivert,Bournemouth,0.08,,Blocked,13,Right Foot,,Illia Zabarnyi,Pass (Live),Adam Smith,Pass (Live)
-139,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,10,Milos Kerkez,Bournemouth,0.02,,Blocked,31,Left Foot,,Alex Scott,Pass (Live),Antoine Semenyo,Pass (Live)
-140,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,13,Pablo Sarabia,Wolves,0.06,0.23,Saved,27,Left Foot,,Max Kilman,Pass (Live),,
-141,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,13,Hwang Hee-chan,Wolves,0.09,0.11,Saved,8,Head,Deflected,Tommy Doyle,Pass (Live),Rayan Aït-Nouri,Pass (Live)
-142,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,15,Dominic Solanke,Bournemouth,0.04,0.04,Saved,22,Right Foot,,Dominic Solanke,Take-On,Alex Scott,Pass (Live)
-143,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,18,Milos Kerkez,Bournemouth,0.13,0.08,Saved,15,Right Foot,,Justin Kluivert,Pass (Live),Dominic Solanke,Pass (Live)
-144,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,18,Marcos Senesi,Bournemouth,0.08,,Off Target,10,Head,,Ryan Christie,Pass (Dead),Milos Kerkez,Shot
-145,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,26,Justin Kluivert,Bournemouth,0.28,0.36,Saved,14,Right Foot,,Mark Travers,Pass (Live),,
-146,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,27,Ryan Christie,Bournemouth,0.08,,Blocked,21,Right Foot,,Alex Scott,Pass (Live),Dominic Solanke,Pass (Live)
-147,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,32,Mario Lemina,Wolves,0.04,,Blocked,26,Left Foot,,Hwang Hee-chan,Pass (Live),Hwang Hee-chan,Take-On
-148,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,36,Rayan Aït-Nouri,Wolves,0.02,,Off Target,22,Right Foot,,Rayan Aït-Nouri,Take-On,Mario Lemina,Pass (Live)
-149,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,37,Antoine Semenyo,Bournemouth,0.18,0.84,Goal,5,Left Foot,,,,,
-150,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,43,Nélson Semedo,Wolves,0.03,,Blocked,19,Left Foot,,João Gomes,Pass (Live),Nélson Semedo,Pass (Live)
-151,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,49,Matt Doherty,Wolves,0.04,,Off Target,13,Head,,Mario Lemina,Pass (Live),João Gomes,Pass (Live)
-152,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,51,Tommy Doyle,Wolves,0.02,,Blocked,30,Right Foot,Deflected,João Gomes,Pass (Live),Matt Doherty,Pass (Live)
-153,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,54,Justin Kluivert,Bournemouth,0.38,0.27,Saved,12,Left Foot,,Marcos Senesi,Shot,,
-154,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,54,Marcos Senesi,Bournemouth,0.03,,Off Target,25,Left Foot,,Dominic Solanke,Pass (Live),Marcos Senesi,Pass (Live)
-155,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,54,Ryan Christie,Bournemouth,0.03,,Blocked,23,Left Foot,,Ryan Christie,Interception,,
-156,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,55,Ryan Christie,Bournemouth,0.03,,Off Target,16,Right Foot,,Ryan Christie,Shot,,
-157,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,56,Justin Kluivert,Bournemouth,0.02,,Blocked,26,Right Foot,,Dominic Solanke,Pass (Live),Alex Scott,Pass (Live)
-158,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,56,Alex Scott,Bournemouth,0.04,,Off Target,6,Head,,Ryan Christie,Pass (Dead),Justin Kluivert,Shot
-159,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,58,Antoine Semenyo,Bournemouth,0.04,,Blocked,17,Left Foot,,Antoine Semenyo,Take-On,Antoine Semenyo,Take-On
-160,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,59,Marcos Senesi,Bournemouth,0.16,,Off Target,11,Right Foot,,Antoine Semenyo,Shot,,
-161,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,63,Ryan Christie,Bournemouth,0.07,,Blocked,22,Left Foot,,Adam Smith,Pass (Live),Antoine Semenyo,Pass (Live)
-162,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,63,Alex Scott,Bournemouth,0.03,,Off Target,19,Right Foot,,Ryan Christie,Shot,,
-163,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,85,Matheus Cunha,Wolves,0.04,0.16,Saved,11,Right Foot,,Max Kilman,Pass (Live),Toti Gomes,Pass (Live)
-164,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,86,Rayan Aït-Nouri,Wolves,0.02,,Off Target,23,Left Foot,Volley,Rayan Aït-Nouri,Pass (Dead),Tawanda Chirewa,Pass (Live)
-165,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,89,Tawanda Chirewa,Wolves,0.06,,Blocked,25,Right Foot,,Mario Lemina,Pass (Live),Max Kilman,Pass (Live)
-166,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,89,Matheus Cunha,Wolves,0.01,,Blocked,17,Right Foot,,Rayan Aït-Nouri,Pass (Live),Matheus Cunha,Pass (Dead)
-167,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,90,Mario Lemina,Wolves,0.01,0.04,Saved,24,Head,,Matt Doherty,Pass (Dead),Nélson Semedo,Fouled
-168,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,90+4,Matheus Cunha,Wolves,0.04,,Blocked,22,Left Foot,,Matheus Cunha,Take-On,Matheus Cunha,Tackle
-169,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,90+4,Boubacar Traoré,Wolves,0.03,,Off Target,28,Right Foot,,Matheus Cunha,Shot,,
-170,ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,90+9,Hwang Hee-chan,Wolves,0.04,,Blocked,7,Right Foot,Volley,Rayan Aït-Nouri,Pass (Dead),Boubacar Traoré,Pass (Live)
-171,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,3,Danny Welbeck,Brighton,0.04,0.1,Saved,22,Right Foot,,Danny Welbeck,Pass (Live),,
-172,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,15,Nathan Aké,Manchester City,0.42,,Off Target,10,Right Foot,,Phil Foden,Pass (Dead),Kevin De Bruyne,Fouled
-173,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,17,Kevin De Bruyne,Manchester City,0.04,0.16,Goal,14,Head,,Kyle Walker,Pass (Live),Phil Foden,Pass (Live)
-174,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,19,Lewis Dunk,Brighton,0.05,0.11,Saved,10,Head,,Valentín Barco,Pass (Dead),Adam Lallana,Pass (Live)
-175,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,20,Julián Álvarez,Manchester City,0.03,,Off Target,14,Right Foot,,Mateo Kovačić,Pass (Live),Kevin De Bruyne,Pass (Live)
-176,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,23,Kevin De Bruyne,Manchester City,0.05,,Blocked,25,Right Foot,,Mateo Kovačić,Pass (Live),Kevin De Bruyne,Pass (Live)
-177,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,23,Julián Álvarez,Manchester City,0.02,,Off Target,21,Right Foot,Volley,Kevin De Bruyne,Shot,,
-178,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,26,Phil Foden,Manchester City,0.07,0.07,Goal,23,Left Foot,"Free kick, Deflected",Phil Foden,Fouled,Bernardo Silva,Pass (Live)
-179,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,34,Phil Foden,Manchester City,0.1,0.67,Goal,17,Left Foot,,,,,
-180,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,37,Valentín Barco,Brighton,0.04,,Blocked,20,Left Foot,,João Pedro,Pass (Live),João Pedro,Take-On
-181,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,45,Kevin De Bruyne,Manchester City,0.05,,Blocked,14,Right Foot,,Phil Foden,Pass (Live),Manuel Akanji,Pass (Live)
-182,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,45,Julián Álvarez,Manchester City,0.03,,Blocked,17,Right Foot,,Kevin De Bruyne,Shot,,
-183,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,46,Pascal Groß,Brighton,0.03,0.05,Saved,18,Left Foot,,,,,
-184,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,50,Phil Foden,Manchester City,0.06,,Blocked,18,Left Foot,,Julián Álvarez,Pass (Live),Mateo Kovačić,Pass (Live)
-185,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,59,Julián Álvarez,Manchester City,0.08,0.03,Saved,20,Right Foot,,Phil Foden,Pass (Live),Rodri,Pass (Live)
-186,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,60,Julián Álvarez,Manchester City,0.03,,Off Target,18,Right Foot,,,,,
-187,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,62,Julián Álvarez,Manchester City,0.21,0.6,Goal,12,Right Foot,,Kyle Walker,Take-On,Ederson,Pass (Live)
-188,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,64,Simon Adingra,Brighton,0.04,,Off Target,14,Right Foot,,Danny Welbeck,Pass (Live),Valentín Barco,Pass (Live)
-189,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,75,Danny Welbeck,Brighton,0.07,,Off Target,22,Left Foot,,Danny Welbeck,Take-On,Jan Paul van Hecke,Tackle
-190,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,85,João Pedro,Brighton,0.23,,Off Target,9,Right Foot,,Igor,Pass (Live),João Pedro,Pass (Live)
-191,ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,90+4,Jeremy Doku,Manchester City,0.11,0.36,Saved,15,Right Foot,,,,,
-192,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,7,Gedeon Kalulu,Lorient,0.04,,Off Target,24,Right Foot,,Eli Junior Kroupi,Pass (Live),,
-193,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,12,Ayman Kari,Lorient,0.19,,Off Target,13,Right Foot,,Imran Louza,Pass (Live),Gedeon Kalulu,Pass (Live)
-194,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,17,Kylian Mbappé,Paris S-G,0.03,0.33,Saved,26,Right Foot,,Ousmane Dembélé,Pass (Live),Ousmane Dembélé,Interception
-195,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,19,Julien Laporte,Lorient,0.03,0.07,Saved,18,Head,,Julien Ponceau,Pass (Dead),Ayman Kari,Fouled
-196,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,19,Ousmane Dembélé,Paris S-G,0.13,0.54,Goal,19,Left Foot,,Senny Mayulu,Pass (Live),,
-197,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,22,Kylian Mbappé,Paris S-G,0.32,0.97,Goal,8,Left Foot,,Nuno Mendes,Pass (Live),Kylian Mbappé,Pass (Live)
-198,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,28,Imran Louza,Lorient,0.03,,Off Target,25,Left Foot,,Souleymane Touré,Pass (Live),Ayman Kari,Pass (Live)
-199,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,29,Senny Mayulu,Paris S-G,0.03,,Off Target,25,Right Foot,,Lee Kang-in,Pass (Live),Fabián Ruiz Peña,Pass (Live)
-200,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,31,Tiemoué Bakayoko,Lorient,0.27,0.35,Saved,6,Head,,Imran Louza,Pass (Dead),Imran Louza,Pass (Live)
-201,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,60,Ousmane Dembélé,Paris S-G,0.5,0.79,Goal,5,Right Foot,,Kylian Mbappé,Pass (Live),Kylian Mbappé,Take-On
-202,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,67,Fabián Ruiz Peña,Paris S-G,0.03,,Blocked,27,Left Foot,,Fabián Ruiz Peña,Take-On,,
-203,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,67,Yoram Zague,Paris S-G,0.02,,Off Target,32,Right Foot,,Ousmane Dembélé,Pass (Live),Fabián Ruiz Peña,Pass (Live)
-204,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,70,Julien Ponceau,Lorient,0.12,0.21,Saved,9,Right Foot,,Gedeon Kalulu,Pass (Live),,
-205,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,71,Randal Kolo Muani,Paris S-G,0.16,,Blocked,14,Right Foot,,Ousmane Dembélé,Pass (Live),Randal Kolo Muani,Pass (Live)
-206,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,72,Kylian Mbappé,Paris S-G,0.06,0.07,Saved,12,Left Foot,,Randal Kolo Muani,Pass (Live),Carlos Soler,Pass (Live)
-207,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,80,Panos Katseris,Lorient,0.12,0.44,Saved,12,Right Foot,,Benjamin Mendy,Pass (Live),Souleymane Touré,Pass (Live)
-208,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,80,Laurent Abergel,Lorient,0.02,0.04,Saved,27,Right Foot,,Panos Katseris,Shot,,
-209,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,84,Ethan Mbappé,Paris S-G,0.11,0.03,Saved,11,Left Foot,,Kylian Mbappé,Pass (Live),Manuel Ugarte Ribeiro,Pass (Live)
-210,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,85,Ousmane Dembélé,Paris S-G,0.03,,Off Target,26,Left Foot,,Manuel Ugarte Ribeiro,Pass (Live),Randal Kolo Muani,Pass (Live)
-211,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,87,Badredine Bouanani,Lorient,0.02,,Off Target,25,Left Foot,,Badredine Bouanani,Take-On,,
-212,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,88,Ethan Mbappé,Paris S-G,0.03,,Blocked,20,Left Foot,,Kylian Mbappé,Pass (Live),Kylian Mbappé,Take-On
-213,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,90,Kylian Mbappé,Paris S-G,0.03,0.24,Goal,15,Right Foot,Deflected,Randal Kolo Muani,Pass (Live),Ethan Mbappé,Pass (Live)
-214,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,90+1,Fabián Ruiz Peña,Paris S-G,0.08,,Off Target,23,Left Foot,,Randal Kolo Muani,Pass (Live),Kylian Mbappé,Pass (Live)
-215,FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,90+3,Kylian Mbappé,Paris S-G,0.02,,Off Target,46,Right Foot,,Fabián Ruiz Peña,Pass (Live),,
-216,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,5,Jordan Veretout,Marseille,0.13,,Off Target,18,Right Foot,,Jonathan Clauss,Pass (Live),Pierre-Emerick Aubameyang,Pass (Live)
-217,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,13,Terem Moffi,Nice,0.43,0.58,Goal,14,Right Foot,,Mohamed Ali Cho,Pass (Live),Jeremie Boga,Pass (Live)
-218,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,23,Terem Moffi,Nice,0.21,,Off Target,15,Right Foot,,Antoine Mendy,Pass (Live),Morgan Sanson,Pass (Live)
-219,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,24,Jordan Veretout,Marseille,0.02,,Off Target,27,Right Foot,,Luis Henrique,Pass (Live),Jordan Veretout,Pass (Live)
-220,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,31,Jonathan Clauss,Marseille,0.04,0.29,Goal,22,Right Foot,Volley,Samuel Gigot,Pass (Live),Geoffrey Kondogbia,Pass (Live)
-221,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,34,Luis Henrique,Marseille,0.06,,Blocked,18,Left Foot,,Amine Harit,Pass (Live),Jonathan Clauss,Pass (Live)
-222,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,36,Leonardo Balerdi,Marseille,0.09,,Off Target,7,Head,,Ulisses Garcia,Pass (Dead),Geoffrey Kondogbia,Fouled
-223,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,39,Terem Moffi,Nice,0.03,,Blocked,12,Head,,Morgan Sanson,Pass (Dead),Mohamed Ali Cho,Fouled
-224,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,41,Pierre-Emerick Aubameyang,Marseille,0.04,,Blocked,18,Left Foot,,Jordan Veretout,Pass (Live),Amine Harit,Pass (Live)
-225,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,42,Morgan Sanson,Nice,0.02,0.06,Saved,31,Right Foot,,Melvin Bard,Pass (Live),Khéphren Thuram,Pass (Live)
-226,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,45,Morgan Sanson,Nice,0.24,0.13,Saved,10,Left Foot,,Jeremie Boga,Pass (Live),Mohamed Ali Cho,Pass (Live)
-227,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,51,Luis Henrique,Marseille,0.02,,Blocked,26,Right Foot,,Jonathan Clauss,Fouled,,
-228,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,56,Pierre-Emerick Aubameyang (pen),Marseille,0.79,0.99,Goal,13,Right Foot,,Leonardo Balerdi,Fouled,Amine Harit,Pass (Live)
-229,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,72,Melvin Bard,Nice,0.04,0.28,Goal,24,Left Foot,,Pablo Rosario,Pass (Live),Khéphren Thuram,Pass (Live)
-230,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,78,Jeremie Boga,Nice,0.04,,Blocked,32,Right Foot,Free kick,Hicham Boudaoui,Fouled,Khéphren Thuram,Pass (Live)
-231,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,80,Gaëtan Laborde,Nice,0.2,,Off Target,6,Head,,Jeremie Boga,Pass (Dead),Jeremie Boga,Take-On
-232,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,81,Iliman Ndiaye,Marseille,0.37,0.35,Saved,15,Right Foot,,Pierre-Emerick Aubameyang,Pass (Live),Iliman Ndiaye,Pass (Live)
-233,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,86,Jeremie Boga,Nice,0.09,,Blocked,14,Right Foot,,Evann Guessand,Pass (Live),Evann Guessand,Pass (Live)
-234,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,86,Alexis Claude-Maurice,Nice,0.13,,Off Target,16,Right Foot,,Jeremie Boga,Shot,,
-235,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,90+4,Pierre-Emerick Aubameyang,Marseille,0.59,,Woodwork,15,Right Foot,,Pierre-Emerick Aubameyang,Take-On,Pape Gueye,Pass (Live)
-236,FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,90+5,Pierre-Emerick Aubameyang,Marseille,0.09,0.03,Saved,18,Right Foot,,Samuel Gigot,Pass (Live),Azzedine Ounahi,Pass (Live)
-237,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,3,Gabriel Gudmundsson,Lille,0.26,0.05,Saved,13,Left Foot,,Gabriel Gudmundsson,Take-On,Benjamin André,Pass (Live)
-238,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,5,Tiago santos,Lille,0.01,,Blocked,35,Right Foot,,Angel Gomes,Pass (Live),Jonathan David,Pass (Live)
-239,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,9,Youssouf Fofana,Monaco,0.07,,Off Target,26,Left Foot,,Wissam Ben Yedder,Pass (Live),Maghnes Akliouche,Pass (Live)
-240,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,12,Folarin Balogun,Monaco,0.03,,Blocked,13,Left Foot,,Wissam Ben Yedder,Pass (Live),Youssouf Fofana,Pass (Live)
-241,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,15,Angel Gomes,Lille,0.13,,Off Target,17,Right Foot,,Jonathan David,Pass (Live),Gabriel Gudmundsson,Pass (Live)
-242,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,20,Takumi Minamino,Monaco,0.06,,Off Target,24,Right Foot,,,,,
-243,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,22,Denis Zakaria,Monaco,0.02,0.06,Saved,32,Right Foot,,Krépin Diatta,Pass (Live),,
-244,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,23,Wissam Ben Yedder,Monaco,0.17,0.02,Saved,16,Right Foot,,Folarin Balogun,Pass (Live),,
-245,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,23,Maghnes Akliouche,Monaco,0.09,,Blocked,15,Left Foot,,Folarin Balogun,Pass (Live),Youssouf Fofana,Pass (Live)
-246,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,26,Leny Yoro,Lille,0.2,0.08,Saved,8,Head,,Angel Gomes,Pass (Dead),Angel Gomes,Fouled
-247,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,27,Youssouf Fofana,Monaco,0.13,,Off Target,8,Head,,Maghnes Akliouche,Pass (Dead),,
-248,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,30,Bafodé Diakité,Lille,0.16,,Blocked,7,Head,,Nabil Bentaleb,Pass (Dead),Ismaily,Pass (Live)
-249,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,38,Takumi Minamino,Monaco,0.13,,Off Target,9,Left Foot,,Takumi Minamino,Take-On,Maghnes Akliouche,Pass (Live)
-250,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,42,Hákon Arnar Haraldsson,Lille,0.1,,Off Target,14,Right Foot,,Angel Gomes,Pass (Live),,
-251,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,47,Gabriel Gudmundsson,Lille,0.07,,Woodwork,11,Head,,Angel Gomes,Pass (Live),Hákon Arnar Haraldsson,Pass (Live)
-252,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,48,Angel Gomes,Lille,0.03,0.25,Saved,19,Right Foot,,Nabil Bentaleb,Pass (Live),Angel Gomes,Pass (Dead)
-253,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,51,Wissam Ben Yedder,Monaco,0.04,,Off Target,16,Right Foot,,Maghnes Akliouche,Pass (Dead),Youssouf Fofana,Pass (Live)
-254,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,51,Takumi Minamino,Monaco,0.02,,Blocked,18,Right Foot,,Folarin Balogun,Pass (Live),Wissam Ben Yedder,Shot
-255,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,54,Takumi Minamino,Monaco,0.08,,Blocked,13,Right Foot,,Wissam Ben Yedder,Pass (Live),Takumi Minamino,Pass (Live)
-256,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,55,Maghnes Akliouche,Monaco,0.14,0.04,Saved,12,Left Foot,Volley,Takumi Minamino,Shot,,
-257,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,61,Youssouf Fofana,Monaco,0.1,0.34,Goal,23,Left Foot,,,,,
-258,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,65,Hákon Arnar Haraldsson,Lille,0.06,0.07,Saved,14,Head,,Angel Gomes,Pass (Live),Jonathan David,Pass (Live)
-259,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,69,Wissam Ben Yedder,Monaco,0.14,0.95,Saved,9,Right Foot,,Takumi Minamino,Pass (Live),,
-260,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,70,Takumi Minamino,Monaco,0.02,,Blocked,27,Right Foot,Volley,,,,
-261,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,72,Thilo Kehrer,Monaco,0.19,,Off Target,7,Head,,Takumi Minamino,Pass (Live),Krépin Diatta,Pass (Dead)
-262,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,72,Wissam Ben Yedder,Monaco,0.1,,Blocked,7,Right Foot,,Thilo Kehrer,Shot,,
-263,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,74,Denis Zakaria,Monaco,0.05,0.16,Saved,13,Right Foot,,Breel Embolo,Pass (Live),Denis Zakaria,Pass (Live)
-264,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,79,Edon Zhegrova,Lille,0.02,,Off Target,32,Left Foot,,Angel Gomes,Pass (Live),Rémy Cabella,Pass (Live)
-265,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,81,Rémy Cabella,Lille,0.06,,Off Target,16,Left Foot,,Angel Gomes,Pass (Live),Tiago santos,Pass (Live)
-266,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,84,Edon Zhegrova,Lille,0.16,,Off Target,11,Head,,Ismaily,Pass (Live),Rémy Cabella,Pass (Live)
-267,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,87,Vanderson,Monaco,0.02,0.03,Saved,33,Right Foot,,Breel Embolo,Pass (Live),Breel Embolo,Take-On
-268,FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,90,Tiago santos,Lille,0.06,,Off Target,27,Right Foot,,Nabil Bentaleb,Pass (Live),Yusuf Yazıcı,Pass (Live)
-269,ITA-Serie A,2324,2024-04-25 Udinese-Roma,9,Lorenzo Lucca,Udinese,0.08,,Off Target,12,Head,,Lazar Samardzic,Pass (Live),Hassane Kamara,Pass (Live)
-270,ITA-Serie A,2324,2024-04-25 Udinese-Roma,15,Kingsley Ehizibue,Udinese,0.04,,Blocked,19,Right Foot,,Hassane Kamara,Pass (Live),,
-271,ITA-Serie A,2324,2024-04-25 Udinese-Roma,16,Jaka Bijol,Udinese,0.11,,Off Target,9,Head,,Lazar Samardzic,Pass (Dead),Kingsley Ehizibue,Shot
-272,ITA-Serie A,2324,2024-04-25 Udinese-Roma,17,Houssem Aouar,Roma,0.08,,Off Target,15,Right Foot,,Nicola Zalewski,Pass (Live),Bryan Cristante,Pass (Live)
-273,ITA-Serie A,2324,2024-04-25 Udinese-Roma,21,Tommaso Baldanzi,Roma,0.05,0.26,Saved,17,Left Foot,Volley,Tommaso Baldanzi,Pass (Live),Obite N'Dicka,Fouled
-274,ITA-Serie A,2324,2024-04-25 Udinese-Roma,23,Roberto Pereyra,Udinese,0.28,0.72,Goal,15,Right Foot,,Roberto Pereyra,Tackle,,
-275,ITA-Serie A,2324,2024-04-25 Udinese-Roma,26,Romelu Lukaku,Roma,0.02,,Blocked,30,Left Foot,,Romelu Lukaku,Tackle,,
-276,ITA-Serie A,2324,2024-04-25 Udinese-Roma,32,Leandro Paredes,Roma,0.02,,Off Target,37,Right Foot,,Nicola Zalewski,Pass (Live),Nicola Zalewski,Take-On
-277,ITA-Serie A,2324,2024-04-25 Udinese-Roma,39,Romelu Lukaku,Roma,0.07,,Off Target,5,Head,,Angeliño,Pass (Live),Nicola Zalewski,Pass (Live)
-278,ITA-Serie A,2324,2024-04-25 Udinese-Roma,49,Leandro Paredes,Roma,0.01,0.11,Saved,35,Right Foot,Volley,,,,
-279,ITA-Serie A,2324,2024-04-25 Udinese-Roma,51,Lorenzo Lucca,Udinese,0.02,0.04,Saved,27,Right Foot,,Lazar Samardzic,Pass (Live),Lazar Samardzic,Interception
-280,ITA-Serie A,2324,2024-04-25 Udinese-Roma,56,Lazar Samardzic,Udinese,0.02,,Off Target,28,Left Foot,,Kingsley Ehizibue,Pass (Live),Lazar Samardzic,Pass (Live)
-281,ITA-Serie A,2324,2024-04-25 Udinese-Roma,59,Bryan Cristante,Roma,0.1,,Off Target,8,Head,,Paulo Dybala,Pass (Dead),Paulo Dybala,Pass (Live)
-282,ITA-Serie A,2324,2024-04-25 Udinese-Roma,61,Paulo Dybala,Roma,0.02,,Blocked,15,Left Foot,Volley,Leandro Paredes,Pass (Dead),Nicola Zalewski,Fouled
-283,ITA-Serie A,2324,2024-04-25 Udinese-Roma,63,Tommaso Baldanzi,Roma,0.12,,Blocked,11,Right Foot,,,,,
-284,ITA-Serie A,2324,2024-04-25 Udinese-Roma,63,Bryan Cristante,Roma,0.02,,Blocked,18,Right Foot,,Tommaso Baldanzi,Shot,,
-285,ITA-Serie A,2324,2024-04-25 Udinese-Roma,64,Romelu Lukaku,Roma,0.33,0.5,Goal,9,Head,,Bryan Cristante,Pass (Live),Diego Llorente,Pass (Live)
-286,ITA-Serie A,2324,2024-04-25 Udinese-Roma,68,Tommaso Baldanzi,Roma,0.03,,Blocked,13,Left Foot,,Paulo Dybala,Pass (Live),,
-287,ITA-Serie A,2324,2024-04-25 Udinese-Roma,68,Romelu Lukaku,Roma,0.13,,Blocked,8,Head,,Tommaso Baldanzi,Shot,,
-288,ITA-Serie A,2324,2024-04-25 Udinese-Roma,79,Lorenzo Pellegrini,Roma,0.04,,Blocked,23,Right Foot,,Gianluca Mancini,Pass (Live),Rick Karsdorp,Pass (Live)
-289,ITA-Serie A,2324,2024-04-25 Udinese-Roma,79,Lorenzo Pellegrini,Roma,0.02,,Off Target,27,Right Foot,Volley,Bryan Cristante,Pass (Live),Chris Smalling,Pass (Live)
-290,ITA-Serie A,2324,2024-04-25 Udinese-Roma,81,Lorenzo Lucca,Udinese,0.05,0.68,Saved,13,Left Foot,,Roberto Pereyra,Pass (Live),Walace,Pass (Live)
-291,ITA-Serie A,2324,2024-04-25 Udinese-Roma,83,Roberto Pereyra,Udinese,0.03,,Blocked,20,Right Foot,,Jordan Zemura,Pass (Live),Martín Payero,Pass (Live)
-292,ITA-Serie A,2324,2024-04-25 Udinese-Roma,83,Roberto Pereyra,Udinese,0.05,,Blocked,11,Left Foot,Volley,Martín Payero,Pass (Dead),Roberto Pereyra,Shot
-293,ITA-Serie A,2324,2024-04-25 Udinese-Roma,85,Sardar Azmoun,Roma,0.11,0.06,Saved,18,Right Foot,,,,,
-294,ITA-Serie A,2324,2024-04-25 Udinese-Roma,90+2,Paulo Dybala,Roma,0.16,,Blocked,19,Left Foot,,Angeliño,Pass (Live),,
-295,ITA-Serie A,2324,2024-04-25 Udinese-Roma,90+5,Lorenzo Pellegrini,Roma,0.03,,Blocked,16,Right Foot,Volley,Paulo Dybala,Pass (Dead),Sardar Azmoun,Pass (Live)
-296,ITA-Serie A,2324,2024-04-25 Udinese-Roma,90+5,Bryan Cristante,Roma,0.13,0.52,Goal,6,Head,,Paulo Dybala,Pass (Dead),Lorenzo Pellegrini,Shot
+0,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,4,Mohamed Salah,Liverpool,0.06,,Blocked,16,Left Foot,,Mohamed Salah,Take-On,Harvey Elliott,Pass (Live)
+1,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,5,Cody Gakpo,Liverpool,0.12,,Off Target,11,Head,,Alexis Mac Allister,Pass (Live),Harvey Elliott,Pass (Live)
+2,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,12,Youri Tielemans,Aston Villa,0.19,0.2,Goal,18,Right Foot,,Ollie Watkins,Pass (Live),Ollie Watkins,Take-On
+3,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,17,Leon Bailey,Aston Villa,0.02,,Blocked,11,Right Foot,,Moussa Diaby,Pass (Live),Leon Bailey,Pass (Live)
+4,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,20,Ollie Watkins,Aston Villa,0.14,,Blocked,16,Right Foot,,Leon Bailey,Pass (Live),Diego Carlos,Pass (Live)
+5,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,21,Leon Bailey,Aston Villa,0.1,,Blocked,10,Left Foot,,Moussa Diaby,Pass (Live),Ezri Konsa,Pass (Live)
+6,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,23,Joe Gomez,Liverpool,0.08,0.15,Saved,12,Right Foot,,Luis Díaz,Pass (Live),Mohamed Salah,Pass (Live)
+7,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,23,Cody Gakpo,Liverpool,0.96,0.94,Goal,4,Right Foot,,Joe Gomez,Shot,,
+8,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,33,John McGinn,Aston Villa,0.04,,Blocked,18,Left Foot,,John McGinn,Take-On,Douglas Luiz,Pass (Live)
+9,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,35,Pau Torres,Aston Villa,0.01,,Blocked,13,Head,,John McGinn,Pass (Dead),Leon Bailey,Fouled
+10,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,36,Diego Carlos,Aston Villa,0.99,,Off Target,2,Left Foot,,Leon Bailey,Pass (Live),Leon Bailey,Take-On
+11,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,38,Alexis Mac Allister,Liverpool,0.04,,Blocked,18,Right Foot,,Mohamed Salah,Pass (Live),Cody Gakpo,Pass (Live)
+12,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,42,Trent Alexander-Arnold,Liverpool,0.04,,Off Target,29,Right Foot,,Luis Díaz,Pass (Live),Joe Gomez,Pass (Live)
+13,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,43,Moussa Diaby,Aston Villa,0.26,,Off Target,19,Left Foot,,John McGinn,Pass (Live),,
+14,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,48,Jarell Quansah,Liverpool,0.1,0.57,Goal,10,Head,,Harvey Elliott,Pass (Dead),Cody Gakpo,Fouled
+15,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,54,Ollie Watkins,Aston Villa,0.41,,Off Target,11,Right Foot,,Moussa Diaby,Pass (Live),Moussa Diaby,Take-On
+16,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,63,Alexis Mac Allister,Liverpool,0.04,,Blocked,21,Right Foot,,Luis Díaz,Pass (Live),Cody Gakpo,Pass (Live)
+17,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,67,Moussa Diaby,Aston Villa,0.06,,Off Target,14,Right Foot,,Ollie Watkins,Pass (Live),Douglas Luiz,Pass (Live)
+18,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,69,Nicolò Zaniolo,Aston Villa,0.26,0.07,Saved,16,Left Foot,,Moussa Diaby,Pass (Live),John McGinn,Pass (Live)
+19,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,69,Douglas Luiz,Aston Villa,0.12,,Off Target,16,Left Foot,,Nicolò Zaniolo,Pass (Live),Nicolò Zaniolo,Shot
+20,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,69,Leon Bailey,Aston Villa,0.04,,Off Target,14,Left Foot,Volley,Douglas Luiz,Shot,,
+21,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,73,Joe Gomez,Liverpool,0.02,,Off Target,27,Right Foot,,Luis Díaz,Pass (Live),Cody Gakpo,Pass (Live)
+22,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,75,Lucas Digne,Aston Villa,0.01,,Off Target,28,Left Foot,Volley,Lucas Digne,Pass (Live),Nicolò Zaniolo,Pass (Live)
+23,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,77,Dominik Szoboszlai,Liverpool,0.23,0.09,Saved,8,Right Foot,,Mohamed Salah,Pass (Live),Dominik Szoboszlai,Pass (Live)
+24,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,80,Dominik Szoboszlai,Liverpool,0.03,,Off Target,11,Left Foot,Volley,Trent Alexander-Arnold,Pass (Dead),Dominik Szoboszlai,Shot
+25,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,82,Trent Alexander-Arnold,Liverpool,0.02,0.04,Saved,27,Left Foot,Volley,Dominik Szoboszlai,Pass (Live),Ryan Gravenberch,Pass (Live)
+26,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,84,Jhon Durán,Aston Villa,0.18,,Blocked,14,Left Foot,,Leon Bailey,Pass (Live),Calum Chambers,Pass (Live)
+27,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,85,Jhon Durán,Aston Villa,0.1,0.27,Goal,22,Left Foot,,,,,
+28,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,86,Darwin Núñez,Liverpool,0.03,0.19,Saved,31,Right Foot,,Ryan Gravenberch,Pass (Live),,
+29,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,88,Jhon Durán,Aston Villa,0.12,0.13,Goal,21,Left Foot,Volley,Moussa Diaby,Pass (Live),Moussa Diaby,Take-On
+30,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,90+2,Moussa Diaby,Aston Villa,0.12,0.06,Saved,16,Left Foot,,,,,
+31,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,90+3,Diego Carlos,Aston Villa,0.01,,Blocked,14,Head,,Lucas Digne,Pass (Dead),Moussa Diaby,Shot
+32,ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,90+5,Curtis Jones,Liverpool,0.06,0.22,Saved,16,Right Foot,,Trent Alexander-Arnold,Pass (Live),Jarell Quansah,Pass (Live)
+33,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,1,Laurent Abergel,Lorient,0.05,,Blocked,23,Right Foot,Volley,Formose Mendy,Pass (Live),Laurent Abergel,Pass (Dead)
+34,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,2,Benjamin Mendy,Lorient,0.36,,Off Target,2,Left Foot,,Badredine Bouanani,Pass (Live),Panos Katseris,Pass (Live)
+35,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,2,Formose Mendy,Lorient,0.02,0.19,Saved,23,Right Foot,Volley,Badredine Bouanani,Pass (Dead),Benjamin Mendy,Shot
+36,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,4,Johan Gastien,Clermont Foot,0.06,,Blocked,26,Left Foot,,Jim Allevinah,Pass (Live),Jérémy Jacquet,Pass (Live)
+37,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,7,Badredine Bouanani,Lorient,0.03,0.2,Saved,15,Right Foot,,Laurent Abergel,Pass (Live),Mohamed Bamba,Pass (Live)
+38,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,8,Benjamin Mendy,Lorient,0.05,,Off Target,18,Left Foot,Volley,Badredine Bouanani,Pass (Live),Tosin Aiyegun,Pass (Live)
+39,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,13,Julien Laporte,Lorient,0.05,,Off Target,11,Head,,Badredine Bouanani,Pass (Dead),Mohamed Bamba,Fouled
+40,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,18,Benjamin Mendy,Lorient,0.03,,Off Target,16,Left Foot,,Laurent Abergel,Pass (Live),Julien Ponceau,Pass (Live)
+41,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,19,Jim Allevinah,Clermont Foot,0.29,0.61,Saved,12,Right Foot,,Johan Gastien,Pass (Live),Neto Borges,Pass (Live)
+42,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,27,Ilhan Fakili,Clermont Foot,0.07,0.05,Saved,25,Left Foot,,Alan Virginius,Pass (Live),Ilhan Fakili,Pass (Live)
+43,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,27,Badredine Bouanani,Lorient,0.02,,Off Target,35,Left Foot,,Mohamed Bamba,Pass (Live),Panos Katseris,Pass (Live)
+44,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,34,Alan Virginius,Clermont Foot,0.08,,Off Target,20,Left Foot,,Yohann Magnin,Pass (Live),,
+45,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,36,Ilhan Fakili,Clermont Foot,0.04,0.02,Saved,23,Right Foot,,Neto Borges,Pass (Live),Elba Rashani,Pass (Live)
+46,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,36,Darlin Yongwa,Lorient,0.04,0.49,Saved,20,Left Foot,,Mohamed Bamba,Pass (Live),Formose Mendy,Pass (Live)
+47,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,37,Darlin Yongwa,Lorient,0.03,,Blocked,29,Left Foot,,Darlin Yongwa,Shot,,
+48,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,38,Laurent Abergel,Lorient,0.08,0.36,Goal,29,Right Foot,,Julien Ponceau,Pass (Live),,
+49,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,42,Mohamed Bamba (pen),Lorient,0.79,0.99,Goal,13,Right Foot,,Tosin Aiyegun,Fouled,Panos Katseris,Pass (Live)
+50,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,43,Tosin Aiyegun,Lorient,0.07,0.17,Saved,16,Right Foot,,Mohamed Bamba,Pass (Live),Mohamed Bamba,Interception
+51,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,45+2,Yohann Magnin,Clermont Foot,0.06,,Off Target,26,Right Foot,,Neto Borges,Pass (Live),Elba Rashani,Pass (Live)
+52,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,50,Panos Katseris,Lorient,0.05,,Off Target,15,Right Foot,,,,,
+53,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,51,Jim Allevinah,Clermont Foot,0.1,0.22,Saved,8,Right Foot,,Alan Virginius,Pass (Live),Andy Pelmard,Pass (Live)
+54,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,51,Ilhan Fakili,Clermont Foot,0.03,,Blocked,24,Right Foot,,Andy Pelmard,Pass (Live),Yohann Magnin,Pass (Live)
+55,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,54,Badredine Bouanani,Lorient,0.55,0.88,Goal,5,Right Foot,,Mohamed Bamba,Pass (Live),Darlin Yongwa,Pass (Live)
+56,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,55,Alan Virginius,Clermont Foot,0.08,,Off Target,15,Left Foot,,Johan Gastien,Pass (Live),Chrislain Matsima,Pass (Live)
+57,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,61,Darlin Yongwa,Lorient,0.03,,Blocked,17,Left Foot,,Imran Louza,Pass (Dead),Formose Mendy,Pass (Live)
+58,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,61,Julien Ponceau,Lorient,0.02,,Blocked,32,Right Foot,,Imran Louza,Pass (Live),,
+59,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,63,Gedeon Kalulu,Lorient,0.1,0.07,Saved,10,Right Foot,,Imran Louza,Pass (Live),Laurent Abergel,Pass (Live)
+60,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,63,Bamba Dieng,Lorient,0.42,0.92,Goal,4,Right Foot,,Gedeon Kalulu,Shot,,
+61,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,71,Gedeon Kalulu,Lorient,0.03,,Blocked,17,Right Foot,,Mohamed Bamba,Pass (Live),,
+62,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,72,Montassar Talbi,Lorient,0.01,,Blocked,30,Right Foot,,Bamba Dieng,Pass (Live),Mohamed Bamba,Pass (Live)
+63,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,73,Mohamed Bamba,Lorient,0.36,,Off Target,3,Head,,Mohamed Bamba,Pass (Live),Julien Ponceau,Pass (Live)
+64,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,76,Gedeon Kalulu,Lorient,0.02,,Blocked,17,Right Foot,Deflected,Darlin Yongwa,Fouled,,
+65,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,77,Julien Laporte,Lorient,0.02,,Off Target,33,Left Foot,,Gedeon Kalulu,Pass (Live),Laurent Abergel,Pass (Live)
+66,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,83,Imran Louza,Lorient,0.06,,Off Target,24,Left Foot,,Imran Louza,Pass (Live),Bamba Dieng,Pass (Live)
+67,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,85,Darlin Yongwa,Lorient,0.02,,Off Target,33,Left Foot,,Laurent Abergel,Pass (Live),Imran Louza,Pass (Dead)
+68,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,89,Mohamed Bamba,Lorient,0.04,,Blocked,16,Right Foot,,Formose Mendy,Pass (Live),Formose Mendy,Tackle
+69,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,90,Bamba Dieng,Lorient,0.06,,Off Target,11,Head,,Darlin Yongwa,Pass (Live),Laurent Abergel,Pass (Live)
+70,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,90,Bamba Dieng,Lorient,0.82,0.99,Goal,3,Right Foot,,Mohamed Bamba,Pass (Live),Bamba Dieng,Shot
+71,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,90+2,Gedeon Kalulu,Lorient,0.06,,Off Target,16,Right Foot,,,,,
+72,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,90+6,Imran Louza,Lorient,0.04,,Blocked,31,Left Foot,,Gedeon Kalulu,Pass (Live),Gedeon Kalulu,Tackle
+73,FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,90+7,Formose Mendy,Lorient,0.02,,Off Target,33,Right Foot,,Imran Louza,Shot,,
+74,ITA-Serie A,2324,2024-04-25 Udinese-Roma,9,Lorenzo Lucca,Udinese,0.08,,Off Target,12,Head,,Lazar Samardzic,Pass (Live),Hassane Kamara,Pass (Live)
+75,ITA-Serie A,2324,2024-04-25 Udinese-Roma,15,Kingsley Ehizibue,Udinese,0.04,,Blocked,19,Right Foot,,Hassane Kamara,Pass (Live),,
+76,ITA-Serie A,2324,2024-04-25 Udinese-Roma,16,Jaka Bijol,Udinese,0.11,,Off Target,9,Head,,Lazar Samardzic,Pass (Dead),Kingsley Ehizibue,Shot
+77,ITA-Serie A,2324,2024-04-25 Udinese-Roma,17,Houssem Aouar,Roma,0.08,,Off Target,15,Right Foot,,Nicola Zalewski,Pass (Live),Bryan Cristante,Pass (Live)
+78,ITA-Serie A,2324,2024-04-25 Udinese-Roma,21,Tommaso Baldanzi,Roma,0.05,0.26,Saved,17,Left Foot,Volley,Tommaso Baldanzi,Pass (Live),Obite N'Dicka,Fouled
+79,ITA-Serie A,2324,2024-04-25 Udinese-Roma,23,Roberto Pereyra,Udinese,0.28,0.72,Goal,15,Right Foot,,Roberto Pereyra,Tackle,,
+80,ITA-Serie A,2324,2024-04-25 Udinese-Roma,26,Romelu Lukaku,Roma,0.02,,Blocked,30,Left Foot,,Romelu Lukaku,Tackle,,
+81,ITA-Serie A,2324,2024-04-25 Udinese-Roma,32,Leandro Paredes,Roma,0.02,,Off Target,37,Right Foot,,Nicola Zalewski,Pass (Live),Nicola Zalewski,Take-On
+82,ITA-Serie A,2324,2024-04-25 Udinese-Roma,39,Romelu Lukaku,Roma,0.07,,Off Target,5,Head,,Angeliño,Pass (Live),Nicola Zalewski,Pass (Live)
+83,ITA-Serie A,2324,2024-04-25 Udinese-Roma,49,Leandro Paredes,Roma,0.01,0.11,Saved,35,Right Foot,Volley,,,,
+84,ITA-Serie A,2324,2024-04-25 Udinese-Roma,51,Lorenzo Lucca,Udinese,0.02,0.04,Saved,27,Right Foot,,Lazar Samardzic,Pass (Live),Lazar Samardzic,Interception
+85,ITA-Serie A,2324,2024-04-25 Udinese-Roma,56,Lazar Samardzic,Udinese,0.02,,Off Target,28,Left Foot,,Kingsley Ehizibue,Pass (Live),Lazar Samardzic,Pass (Live)
+86,ITA-Serie A,2324,2024-04-25 Udinese-Roma,59,Bryan Cristante,Roma,0.1,,Off Target,8,Head,,Paulo Dybala,Pass (Dead),Paulo Dybala,Pass (Live)
+87,ITA-Serie A,2324,2024-04-25 Udinese-Roma,61,Paulo Dybala,Roma,0.02,,Blocked,15,Left Foot,Volley,Leandro Paredes,Pass (Dead),Nicola Zalewski,Fouled
+88,ITA-Serie A,2324,2024-04-25 Udinese-Roma,63,Tommaso Baldanzi,Roma,0.12,,Blocked,11,Right Foot,,,,,
+89,ITA-Serie A,2324,2024-04-25 Udinese-Roma,63,Bryan Cristante,Roma,0.02,,Blocked,18,Right Foot,,Tommaso Baldanzi,Shot,,
+90,ITA-Serie A,2324,2024-04-25 Udinese-Roma,64,Romelu Lukaku,Roma,0.33,0.5,Goal,9,Head,,Bryan Cristante,Pass (Live),Diego Llorente,Pass (Live)
+91,ITA-Serie A,2324,2024-04-25 Udinese-Roma,68,Tommaso Baldanzi,Roma,0.03,,Blocked,13,Left Foot,,Paulo Dybala,Pass (Live),,
+92,ITA-Serie A,2324,2024-04-25 Udinese-Roma,68,Romelu Lukaku,Roma,0.13,,Blocked,8,Head,,Tommaso Baldanzi,Shot,,
+93,ITA-Serie A,2324,2024-04-25 Udinese-Roma,79,Lorenzo Pellegrini,Roma,0.04,,Blocked,23,Right Foot,,Gianluca Mancini,Pass (Live),Rick Karsdorp,Pass (Live)
+94,ITA-Serie A,2324,2024-04-25 Udinese-Roma,79,Lorenzo Pellegrini,Roma,0.02,,Off Target,26,Right Foot,Volley,Bryan Cristante,Pass (Live),Chris Smalling,Pass (Live)
+95,ITA-Serie A,2324,2024-04-25 Udinese-Roma,81,Lorenzo Lucca,Udinese,0.01,0.69,Saved,13,Left Foot,,Roberto Pereyra,Pass (Live),Walace,Pass (Live)
+96,ITA-Serie A,2324,2024-04-25 Udinese-Roma,83,Roberto Pereyra,Udinese,0.07,,Blocked,20,Right Foot,,Jordan Zemura,Pass (Live),Martín Payero,Pass (Live)
+97,ITA-Serie A,2324,2024-04-25 Udinese-Roma,83,Roberto Pereyra,Udinese,0.02,,Blocked,11,Left Foot,Volley,Martín Payero,Pass (Dead),Roberto Pereyra,Shot
+98,ITA-Serie A,2324,2024-04-25 Udinese-Roma,85,Sardar Azmoun,Roma,0.11,0.06,Saved,18,Right Foot,,,,,
+99,ITA-Serie A,2324,2024-04-25 Udinese-Roma,90+2,Paulo Dybala,Roma,0.14,,Blocked,21,Left Foot,,Angeliño,Pass (Live),,
+100,ITA-Serie A,2324,2024-04-25 Udinese-Roma,90+5,Lorenzo Pellegrini,Roma,0.03,,Blocked,16,Right Foot,Volley,Paulo Dybala,Pass (Dead),Sardar Azmoun,Pass (Live)
+101,ITA-Serie A,2324,2024-04-25 Udinese-Roma,90+5,Bryan Cristante,Roma,0.13,0.52,Goal,6,Head,,Paulo Dybala,Pass (Dead),Lorenzo Pellegrini,Shot
+102,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,5,Nicolás González,Fiorentina,0.04,0.3,Saved,23,Left Foot,,M'Bala Nzola,Tackle,,
+103,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,9,Milan Đurić,Monza,0.18,0.67,Goal,5,Head,Deflected,Dany Mota,Pass (Live),Samuele Birindelli,Pass (Live)
+104,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,11,Fabiano Parisi,Fiorentina,0.1,,Blocked,15,Left Foot,,M'Bala Nzola,Pass (Live),Lucas Martínez Quarta,Pass (Live)
+105,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,21,Giorgos Kyriakopoulos,Monza,0.06,,Off Target,16,Right Foot,,Andrea Colpani,Pass (Live),Andrea Colpani,Take-On
+106,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,25,Arthur Melo,Fiorentina,0.02,0.01,Saved,34,Right Foot,,Gaetano Castrovilli,Pass (Live),Arthur Melo,Pass (Live)
+107,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,31,Gaetano Castrovilli,Fiorentina,0.1,,Blocked,11,Right Foot,,Lucas Martínez Quarta,Pass (Live),Arthur Melo,Pass (Live)
+108,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,32,Nicolás González,Fiorentina,0.44,0.83,Goal,4,Head,,Antonín Barák,Pass (Live),Lucas Martínez Quarta,Pass (Live)
+109,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,36,Alessio Zerbin,Monza,0.12,,Blocked,12,Right Foot,,Andrea Colpani,Pass (Live),Samuele Birindelli,Pass (Live)
+110,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,36,Alessio Zerbin,Monza,0.13,0.36,Saved,14,Right Foot,,Alessio Zerbin,Shot,,
+111,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,36,Nicolás González,Fiorentina,0.08,0.08,Saved,13,Left Foot,,Nicolás González,Take-On,,
+112,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,45+2,Lucas Martínez Quarta,Fiorentina,0.44,,Off Target,4,Head,,Antonín Barák,Pass (Live),Arthur Melo,Pass (Live)
+113,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,52,Nicolás González,Fiorentina,0.03,0.12,Saved,24,Left Foot,,Arthur Melo,Interception,,
+114,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,52,Nicolás González,Fiorentina,0.05,,Off Target,27,Left Foot,,Gaetano Castrovilli,Pass (Live),M'Bala Nzola,Pass (Live)
+115,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,59,Rolando Mandragora,Fiorentina,0.06,,Blocked,17,Left Foot,Deflected,Arthur Melo,Pass (Live),Nicolás González,Pass (Live)
+116,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,62,Rolando Mandragora,Fiorentina,0.2,0.1,Saved,10,Left Foot,,Fabiano Parisi,Pass (Live),Nikola Milenković,Pass (Live)
+117,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,63,Arthur Melo,Fiorentina,0.02,,Blocked,16,Right Foot,Volley,Rolando Mandragora,Pass (Live),Antonín Barák,Pass (Live)
+118,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,69,Antonín Barák,Fiorentina,0.03,,Blocked,13,Head,,Nicolás González,Pass (Live),Fabiano Parisi,Pass (Live)
+119,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,69,Rolando Mandragora,Fiorentina,0.66,0.57,Saved,5,Left Foot,,Antonín Barák,Shot,,
+120,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,75,Nicolás González,Fiorentina,0.19,0.24,Saved,5,Head,,Lucas Martínez Quarta,Pass (Live),Fabiano Parisi,Pass (Live)
+121,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,78,Arthur Melo,Fiorentina,0.06,0.36,Goal,24,Right Foot,,Arthur Melo,Take-On,Antonín Barák,Pass (Live)
+122,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,81,Andrea Colpani,Monza,0.09,,Off Target,10,Left Foot,,Andrea Colpani,Take-On,Pedro Pereira,Pass (Live)
+123,ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,90+1,Matteo Pessina,Monza,0.08,,Off Target,10,Head,,Pedro Pereira,Pass (Live),Valentin Carboni,Pass (Live)

@@ -6,12 +6,16 @@ import io
 import urllib
 from plottable.plots import image
 
+import pandas as pd
+
 ## Functions for calling snowflake data
 from app_functions import get_snowflake_cursor, fetch_data
 
 ## Functions for creating charts
 from app_functions import create_radar_chart, create_FM_team_scatter_chart, plot_defensive_actions, \
-                            create_set_piece_first_contacts_plot, plot_shot_data
+                          create_set_piece_first_contacts_plot, plot_shot_data, xT_generator, \
+                          plot_match_momentum, rest_dict_pass_map, plot_single_passmap, plot_double_passmap, \
+                          plot_xg_match_story
 
 ## Configure the streamlit page 
 st.set_page_config(layout="centered")
@@ -91,19 +95,19 @@ df_goals_set_piece_chart.rename(columns={'SET_PIECE_GOALS_SCORED':'SET PIECE GOA
 # Section: Download Table Data from Snowflake
 # ==================================================================
 
-cursor = get_snowflake_cursor('TABLES')
+cursor_1 = get_snowflake_cursor('TABLES')
 
 ## Download Team, Competition and Season Data
-team_names = fetch_data(cursor, 'SELECT * FROM TEAMS')
-df_competitions = fetch_data(cursor, 'SELECT COMPETITION, COMPETITION_ACRONYM, SEASON FROM COMPETITIONS')
-df_competition_logos = fetch_data(cursor, 'SELECT COMPETITION_ACRONYM, COMPETITION_LOGO  FROM COMPETITIONS')
-df_seasons = fetch_data(cursor, 'SELECT * FROM SEASONS')
+team_names = fetch_data(cursor_1, 'SELECT * FROM TEAMS')
+df_competitions = fetch_data(cursor_1, 'SELECT COMPETITION, COMPETITION_ACRONYM, SEASON FROM COMPETITIONS')
+df_competition_logos = fetch_data(cursor_1, 'SELECT COMPETITION_ACRONYM, COMPETITION_LOGO  FROM COMPETITIONS')
+df_seasons = fetch_data(cursor_1, 'SELECT * FROM SEASONS')
 
 ## Download Team statistics
-team_misc = fetch_data(cursor, 'SELECT * FROM TEAM_MISC_STATS')
-team_standard = fetch_data(cursor, 'SELECT * FROM TEAM_STANDARD_STATS')
-team_attacking = fetch_data(cursor, 'SELECT * FROM TEAM_ATTACKING_STATS')
-team_defending = fetch_data(cursor, 'SELECT * FROM TEAM_DEFENDING_STATS')
+team_misc = fetch_data(cursor_1, 'SELECT * FROM TEAM_MISC_STATS')
+team_standard = fetch_data(cursor_1, 'SELECT * FROM TEAM_STANDARD_STATS')
+team_attacking = fetch_data(cursor_1, 'SELECT * FROM TEAM_ATTACKING_STATS')
+team_defending = fetch_data(cursor_1, 'SELECT * FROM TEAM_DEFENDING_STATS')
 
 ## Drop duplicates from competition logos dataframe
 df_competition_logos = df_competition_logos.drop_duplicates()
@@ -154,6 +158,7 @@ st.markdown(" **General Charts 🧿**: Show the team's Aerial Dominance and Goal
 st.markdown(" **Defending Charts 🤚**: Various interesting charts to show just how good the team is at defending")
 st.markdown(" **Creating Charts 🪄**: Shows how effective the selected team is at crossing in-plan and from set-pieces")
 st.markdown(" **Scoring Charts ⚽**: Various charts showing the goal threat the team possesses, including an Interactive Shot Map!")
+st.markdown(" **Last Match ⏮️**: Analyze Shot Maps, Match Momentum and Pass Maps from the last game!")
 st.markdown("""---""")
 
 
@@ -236,7 +241,8 @@ if st.session_state.proper_team_update:
         st.session_state['active_tab'] = 'Radar Charts'
     # tabs = st.tabs(["Radar Charts", "General Charts", "Defending Charts"])
 
-    tab_options = ['Radar Charts 🌐', 'General Charts 🧿', 'Defending Charts 🤚', 'Creating Charts 🪄', 'Scoring Charts ⚽']
+    tab_options = ['Radar Charts 🌐', 'General Charts 🧿', 'Defending Charts 🤚', 'Creating Charts 🪄', 'Scoring Charts ⚽',
+                   'Last Match ⏮️']
     st.session_state['active_tab'] = st.radio("Select a tab:", tab_options, horizontal=True)
 
     if st.session_state['active_tab'] == tab_options[0]:
@@ -535,6 +541,10 @@ if st.session_state.proper_team_update:
                 df_shots_last_5_matches_filt = df_shots_last_5_matches[df_shots_last_5_matches['SEASON'] == st.session_state.season]
                 df_shots_last_5_matches_filt = df_shots_last_5_matches_filt[df_shots_last_5_matches_filt['COMPETITION_ACRONYM'] == st.session_state.competition]
                 df_shots_last_5_matches_filt = df_shots_last_5_matches_filt[df_shots_last_5_matches_filt['TEAM_NAME'] == st.session_state.team_name]
+                last5_GWs = df_shots_last_5_matches_filt[['GAMEWEEK']].drop_duplicates().sort_values(by="GAMEWEEK")[-5:]
+                # last5_GWs = df_shots_last_5_matches_filt[['GAMEWEEK']].drop_duplicates().sort_values(by="DATE_TIME")[-5:]
+                df_shots_last_5_matches_filt = df_shots_last_5_matches_filt.merge(last5_GWs, on="GAMEWEEK")
+
 
                 df_shots_last_5_matches_filt['norm_start_x'] = df_shots_last_5_matches_filt['START_X'] / 120
                 df_shots_last_5_matches_filt['norm_start_y'] = df_shots_last_5_matches_filt['START_Y'] / 80
@@ -559,6 +569,121 @@ if st.session_state.proper_team_update:
                 st.caption("Shot locatios in the last 5 games.")
                 st.plotly_chart(fig_shot_map, use_container_width=True)
                 
+    elif st.session_state['active_tab'] == tab_options[5]:
+        col1, col2 = st.columns([1, 1])
+
+        df_last_matches = fetch_data(cursor, "SELECT * FROM LAST_MATCHES")
+        df_last_matches = df_last_matches[df_last_matches['SEASON'] == st.session_state.season]
+        df_last_matches = df_last_matches[df_last_matches['COMPETITION_ACRONYM'] == st.session_state.competition]    
+        df_match_oi = df_last_matches[(df_last_matches['HOME_TEAM_NAME'] == st.session_state.team_name) | 
+                                      (df_last_matches['AWAY_TEAM_NAME'] == st.session_state.team_name)]  
+        match_oi = df_match_oi['MATCH_ID'].iloc[0]
+
+        df_events = fetch_data(cursor_1, f"SELECT * FROM EVENTS_SPADL WHERE MATCH_ID = '{match_oi}'")
+        df_player_match = fetch_data(cursor_1, f"SELECT * FROM PLAYER_MATCH WHERE MATCH_ID = '{match_oi}'")
+
+        df_events = df_events.merge(df_player_match[['PLAYER_WS_ID', 'PLAYER_FBREF_NAME', 'MATCH_ID']], on=['PLAYER_WS_ID', 'MATCH_ID'])
+        df_events = df_events.merge(team_names[['TEAM_NAME', 'TEAM_FBREF_ID']], on="TEAM_FBREF_ID")
+
+        df_successful_events = df_events[df_events['RESULT_ID'] == 1]
+
+        df_successful_in_play_events = df_successful_events[df_successful_events['TYPE_NAME'].isin(['pass', 
+                                                                'dribble', 'clearance', 'cross'])]
+        df_successful_set_piece_events = df_successful_events[df_successful_events['TYPE_NAME'].isin(['throw_in', 'freekick_short',
+                                                        'corner_short','goalkick', 'corner_crossed', 'freekick_crossed'])]
+        
+        in_play_xT = xT_generator(df_successful_in_play_events, (16, 12))
+        set_piece_xT = xT_generator(df_successful_set_piece_events, (16, 12))
+        all_xT = in_play_xT.append(set_piece_xT)
+
+        df_goals = fetch_data(cursor_1, f"SELECT * FROM SHOT_EVENTS WHERE MATCH_ID = '{match_oi}' AND OUTCOME = 'Goal'")
+        df_goals = df_events.merge(df_goals[['MATCH_ID', 'ACTION_ID']], on=['MATCH_ID', 'ACTION_ID'], how='inner')
+
+        df_shots_fbref = fetch_data(cursor_1, f"SELECT * FROM SHOT_EVENTS WHERE MATCH_ID = '{match_oi}'")
+
+        df_events = df_events.sort_values(['PERIOD_ID','NEW_TIME_SECONDS', 'ORIGINAL_EVENT_ID']).reset_index(drop=True)
+        df_events.loc[df_events['PERIOD_ID'] == 2, 'NEW_TIME_SECONDS'] = df_events.loc[df_events['PERIOD_ID'] == 2, 'TIME_SECONDS'] + (45 * 60)
+
+        # df_cards = fetch_data(cursor_1, "SELECT * FROM CARDS WHERE MATCH_ID = 1729243")
+        # df_subs = fetch_data(cursor_1, "SELECT * FROM SUBS WHERE MATCH_ID = 1729243")
+
+        teamIds = list(df_match_oi[['HOME_TEAM_ID', 'AWAY_TEAM_ID']].iloc[0])
+
+        ws_match_oi = df_match_oi['WS_MATCH_ID'].iloc[0]
+
+        df_cards = fetch_data(cursor_1, f"SELECT * FROM CARDS WHERE WS_MATCH_ID = '{ws_match_oi}'")
+        df_subs = fetch_data(cursor_1, f"SELECT * FROM SUBS WHERE WS_MATCH_ID = '{ws_match_oi}'")
+
+        teamid_selected = team_names[team_names['TEAM_NAME'] ==st.session_state.team_name]['TEAM_FBREF_ID'].iloc[0]
+        pass_map_dict = rest_dict_pass_map(teamIds, df_events, team_names, df_cards, df_subs)
+
+        max_mins = (df_events['NEW_TIME_SECONDS'].max()//60)+1
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            with st.expander("**MATCH MOMENTUM**- Momentum plot of "+ st.session_state.team_name + "'s last match"):
+                fig_match_momentum = plot_match_momentum(all_xT, df_match_oi, df_goals)
+                st.pyplot(fig_match_momentum, use_container_width=True)
+        
+        with col2:
+            with st.expander("**PASS MAP**- "+ st.session_state.team_name + "'s Pass Map from their last match"):
+                fig_single_passmap = plot_single_passmap(df_player_match, pass_map_dict, df_match_oi, df_events, teamid_selected)
+                st.pyplot(fig_single_passmap, use_container_width=True)
+        
+        col3, col4, col5 = st.columns([1,5,1])
+
+        with col4:
+            with st.expander("**PASS MAP COMPARISON**- "+ st.session_state.team_name + "'s and Opponent's Pass Maps compared from the last match"):
+                fig_double_passmap = plot_double_passmap(df_player_match, pass_map_dict, df_match_oi, df_events, teamIds)
+                st.pyplot(fig_double_passmap, use_container_width=True)
+
+        col6, col7, col8 = st.columns([1, 18, 1]) 
+
+        with col7:
+            with st.expander("**SHOT MAP**- All shot locations by "+ st.session_state.team_name + " in their last match"):
+                df_shots_last_match_filt = df_shots_last_5_matches[df_shots_last_5_matches['SEASON'] == st.session_state.season]
+                df_shots_last_match_filt = df_shots_last_match_filt[df_shots_last_match_filt['COMPETITION_ACRONYM'] == st.session_state.competition]
+                df_shots_last_match_filt = df_shots_last_match_filt[df_shots_last_match_filt['TEAM_NAME'] == st.session_state.team_name]
+                # df_shots_last_match_filt['DATE_TIME'] = pd.datetime(df_shots_last_match_filt['DATE_TIME'])
+                last_GW = df_shots_last_match_filt[['GAMEWEEK']].drop_duplicates().sort_values(by="GAMEWEEK")[-1:]
+                # last_GW = df_shots_last_match_filt[['GAMEWEEK']].drop_duplicates().sort_values(by="DATE_TIME")[-1:]
+                df_shots_last_match_filt = df_shots_last_match_filt.merge(last_GW, on="GAMEWEEK")
+
+                df_shots_last_match_filt['norm_start_x'] = df_shots_last_match_filt['START_X'] / 120
+                df_shots_last_match_filt['norm_start_y'] = df_shots_last_match_filt['START_Y'] / 80
+
+                max_size = 5
+                min_size = 2
+
+                xg_scaled = (df_shots_last_match_filt['XG'] - df_shots_last_match_filt['XG'].min()) / (df_shots_last_match_filt['XG'].max() - df_shots_last_match_filt['XG'].min())
+                df_shots_last_match_filt['xG_size'] = xg_scaled * (max_size - min_size) + min_size
+
+                summary_data = df_shots_last_match_filt['OUTCOME'].value_counts().reset_index()
+                summary_data.columns = ['Outcome', 'Count']
+
+                total_xg = df_shots_last_match_filt['XG'].sum()
+                Goals = df_shots_last_match_filt['OUTCOME'].value_counts()['Goal']
+                Attempts = df_shots_last_match_filt.shape[0]
+                with_feet = df_shots_last_match_filt['BODY_PART'].str.contains('Foot', na=False).sum()
+                with_head = df_shots_last_match_filt['BODY_PART'].value_counts()['Head']
+                direct_set_pieces = df_shots_last_match_filt['NOTES'].str.contains('Free kick', na=False).sum()
+
+                fig_shot_map = plot_shot_data(df_shots_last_match_filt, total_xg, Goals, Attempts, with_feet, with_head, direct_set_pieces)
+                st.caption("Shot locatios in the last 5 games.")
+                st.plotly_chart(fig_shot_map, use_container_width=True)
+            
+
+        col9, col10, col11 = st.columns([1, 8, 1]) 
+
+        with col10:
+            with st.expander("**xG MATCH STORY**- "+ st.session_state.team_name + "'s and Opponent's cumulative xG in their last match"):
+                xg_vline = (df_events[df_events['PERIOD_ID'] == 1]['NEW_TIME_SECONDS'].max() // 60)+1
+                df_shots_ws = df_events[df_events['TYPE_NAME'].str.contains('shot', case=False, na=False)]
+                df_shots = df_shots_ws.merge(df_shots_fbref[['MATCH_ID', 'ACTION_ID', 'XG', 'OUTCOME']],on=['MATCH_ID', 'ACTION_ID'],
+                                             how='left')
+                fig_xg_match_story = plot_xg_match_story(df_shots, df_goals, df_match_oi, xg_vline, max_mins)
+                st.pyplot(fig_xg_match_story, use_container_width=True)
 
 else:
     # st.warning('Please press "Load Teams" after changing the Competition or the Season.')

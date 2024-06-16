@@ -1,244 +1,44 @@
 league,season,game,jersey_number,player,team,is_starter,position,minutes_played
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,30,Dean Henderson,Crystal Palace,True,GK,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,3,Tyrick Mitchell,Crystal Palace,True,WB,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,9,Jordan Ayew,Crystal Palace,True,AM,72
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,10,Eberechi Eze,Crystal Palace,True,AM,82
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,12,Daniel Muñoz,Crystal Palace,True,WB,89
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,14,Jean-Philippe Mateta,Crystal Palace,True,FW,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,16,Joachim Andersen,Crystal Palace,True,CB,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,17,Nathaniel Clyne,Crystal Palace,True,CB,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,19,Will Hughes,Crystal Palace,True,CM,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,20,Adam Wharton,Crystal Palace,True,CM,82
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,26,Chris Richards,Crystal Palace,True,CB,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,31,Remi Matthews,Crystal Palace,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,2,Joel Ward,Crystal Palace,False,WB,1
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,5,James Tomkins,Crystal Palace,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,7,Michael Olise,Crystal Palace,False,AM,18
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,15,Jeffrey Schlupp,Crystal Palace,False,AM,8
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,22,Odsonne Édouard,Crystal Palace,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,29,Naouirou Ahamada,Crystal Palace,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,44,Jaïro Riedewald,Crystal Palace,False,CM,8
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,52,David Ozoh,Crystal Palace,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,1,Martin Dúbravka,Newcastle United,True,GK,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,5,Fabian Schär,Newcastle United,True,CB,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,10,Anthony Gordon,Newcastle United,True,AM,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,14,Alexander Isak,Newcastle United,True,FW,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,15,Harvey Barnes,Newcastle United,True,AM,64
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,17,Emil Krafth,Newcastle United,True,CB,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,23,Jacob Murphy,Newcastle United,True,WB,64
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,32,Elliot Anderson,Newcastle United,True,WB,89
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,33,Dan Burn,Newcastle United,True,CB,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,36,Sean Longstaff,Newcastle United,True,CM,89
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,39,Bruno Guimarães,Newcastle United,True,CM,90
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,18,Loris Karius,Newcastle United,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,3,Paul Dummett,Newcastle United,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,9,Callum Wilson,Newcastle United,False,AM,26
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,11,Matt Ritchie,Newcastle United,False,WB,1
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,20,Lewis Hall,Newcastle United,False,WB,26
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,21,Valentino Livramento,Newcastle United,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,40,Joe White,Newcastle United,False,CM,1
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,54,Alex Murphy,Newcastle United,False,,0
-ENG-Premier League,2324,2024-04-24 Crystal Palace-Newcastle Utd,63,Ben Parkinson,Newcastle United,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,1,Jordan Pickford,Everton,True,GK,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,6,James Tarkowski,Everton,True,CB,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,7,Dwight McNeil,Everton,True,LM,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,9,Dominic Calvert-Lewin,Everton,True,FW,89
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,11,Jack Harrison,Everton,True,RM,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,16,Abdoulaye Doucouré,Everton,True,FW,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,19,Vitaliy Mykolenko,Everton,True,LB,45
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,22,Ben Godfrey,Everton,True,RB,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,27,Idrissa Gana Gueye,Everton,True,CM,74
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,32,Jarrad Branthwaite,Everton,True,CB,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,37,James Garner,Everton,True,CM,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,12,João Virgínia,Everton,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,5,Michael Keane,Everton,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,8,Amadou Onana,Everton,False,CM,16
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,10,Arnaut Danjuma,Everton,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,18,Ashley Young,Everton,False,LB,45
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,21,André Gomes,Everton,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,28,Youssef Chermiti,Everton,False,FW,1
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,51,Lewis Warrington,Everton,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,58,Mackenzie Hunt,Everton,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,1,Alisson,Liverpool,True,GK,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,4,Virgil van Dijk,Liverpool,True,CB,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,5,Ibrahima Konaté,Liverpool,True,CB,62
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,7,Luis Díaz,Liverpool,True,LW,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,8,Dominik Szoboszlai,Liverpool,True,RM,62
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,9,Darwin Núñez,Liverpool,True,FW,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,10,Alexis Mac Allister,Liverpool,True,CM,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,11,Mohamed Salah,Liverpool,True,RW,90
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,17,Curtis Jones,Liverpool,True,LM,62
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,26,Andrew Robertson,Liverpool,True,LB,83
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,66,Trent Alexander-Arnold,Liverpool,True,RB,83
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,62,Caoimhín Kelleher,Liverpool,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,2,Joe Gomez,Liverpool,False,RB,7
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,3,Wataru Endo,Liverpool,False,RM,28
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,19,Harvey Elliott,Liverpool,False,LM,28
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,21,Kostas Tsimikas,Liverpool,False,LB,7
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,38,Ryan Gravenberch,Liverpool,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,42,Bobby Clark,Liverpool,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,76,Jayden Danns,Liverpool,False,,0
-ENG-Premier League,2324,2024-04-24 Everton-Liverpool,78,Jarell Quansah,Liverpool,False,CB,28
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,23,Jason Steele,Brighton & Hove Albion,True,GK,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,5,Lewis Dunk,Brighton & Hove Albion,True,CB,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,9,João Pedro,Brighton & Hove Albion,True,"LW,AM",90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,13,Pascal Groß,Brighton & Hove Albion,True,"AM,DM",90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,14,Adam Lallana,Brighton & Hove Albion,True,RW,45
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,15,Jakub Moder,Brighton & Hove Albion,True,DM,55
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,18,Danny Welbeck,Brighton & Hove Albion,True,FW,74
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,19,Valentín Barco,Brighton & Hove Albion,True,"LB,LW",90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,20,Carlos Baleba,Brighton & Hove Albion,True,DM,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,29,Jan Paul van Hecke,Brighton & Hove Albion,True,CB,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,34,Joël Veltman,Brighton & Hove Albion,True,RB,45
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,1,Bart Verbruggen,Brighton & Hove Albion,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,3,Igor,Brighton & Hove Albion,False,LB,35
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,4,Adam Webster,Brighton & Hove Albion,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,10,Julio Enciso,Brighton & Hove Albion,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,24,Simon Adingra,Brighton & Hove Albion,False,RW,45
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,31,Ansu Fati,Brighton & Hove Albion,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,40,Facundo Buonanotte,Brighton & Hove Albion,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,42,Odeluga Offiah,Brighton & Hove Albion,False,RB,45
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,55,Mark O'Mahony,Brighton & Hove Albion,False,FW,16
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,31,Ederson,Manchester City,True,GK,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,2,Kyle Walker,Manchester City,True,RB,78
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,6,Nathan Aké,Manchester City,True,CB,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,8,Mateo Kovačić,Manchester City,True,CM,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,16,Rodri,Manchester City,True,DM,78
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,17,Kevin De Bruyne,Manchester City,True,CM,71
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,19,Julián Álvarez,Manchester City,True,FW,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,20,Bernardo Silva,Manchester City,True,RM,77
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,24,Joško Gvardiol,Manchester City,True,LB,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,25,Manuel Akanji,Manchester City,True,CB,90
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,47,Phil Foden,Manchester City,True,LM,70
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,18,Stefan Ortega,Manchester City,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,3,Rúben Dias,Manchester City,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,5,John Stones,Manchester City,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,10,Jack Grealish,Manchester City,False,LM,20
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,11,Jeremy Doku,Manchester City,False,RM,13
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,21,Sergio Gómez,Manchester City,False,DM,12
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,27,Matheus Nunes,Manchester City,False,CM,19
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,52,Oscar Bobb,Manchester City,False,,0
-ENG-Premier League,2324,2024-04-25 Brighton-Manchester City,82,Rico Lewis,Manchester City,False,RB,12
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,24,André Onana,Manchester United,True,GK,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,5,Harry Maguire,Manchester United,True,CB,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,8,Bruno Fernandes,Manchester United,True,AM,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,11,Rasmus Højlund,Manchester United,True,FW,89
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,14,Christian Eriksen,Manchester United,True,DM,63
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,17,Alejandro Garnacho,Manchester United,True,LW,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,18,Casemiro,Manchester United,True,CB,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,20,Diogo Dalot,Manchester United,True,LB,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,21,Antony,Manchester United,True,RW,54
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,29,Aaron Wan-Bissaka,Manchester United,True,RB,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,37,Kobbie Mainoo,Manchester United,True,DM,89
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,1,Altay Bayındır,Manchester United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,4,Sofyan Amrabat,Manchester United,False,DM,1
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,16,Amad Diallo,Manchester United,False,RW,36
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,39,Scott McTominay,Manchester United,False,DM,27
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,62,Omari Forson,Manchester United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,70,Harry Amass,Manchester United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,75,Habeeb Ogunneye,Manchester United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,78,Louis Jackson,Manchester United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,84,Ethan Wheatley,Manchester United,False,FW,1
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,18,Wes Foderingham,Sheffield United,True,GK,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,5,Auston Trusty,Sheffield United,True,CB,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,8,Gustavo Hamer,Sheffield United,True,CM,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,10,Cameron Archer,Sheffield United,True,FW,61
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,11,Ben Brereton,Sheffield United,True,FW,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,15,Anel Ahmedhodžić,Sheffield United,True,CB,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,20,Jayden Bogle,Sheffield United,True,WB,77
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,23,Ben Osborn,Sheffield United,True,WB,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,24,Oliver Arblaster,Sheffield United,True,CM,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,30,Mason Holgate,Sheffield United,True,CB,90
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,35,Andre Brooks,Sheffield United,True,CM,45
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,13,Ivo Grbić,Sheffield United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,16,Oliver Norwood,Sheffield United,False,WB,13
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,21,Vinicius Souza,Sheffield United,False,CM,45
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,25,Anis Ben Slimane,Sheffield United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,27,Yasser Larouci,Sheffield United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,28,James Mcatee,Sheffield United,False,FW,25
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,29,Sam Curtis,Sheffield United,False,,0
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,32,William Osula,Sheffield United,False,FW,4
-ENG-Premier League,2324,2024-04-24 Manchester Utd-Sheffield Utd,44,Owen Hampson,Sheffield United,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,38,Yvon Mvogo,Lorient,True,GK,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,6,Imran Louza,Lorient,True,CM,67
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,12,Darlin Yongwa,Lorient,True,WB,60
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,14,Tiemoué Bakayoko,Lorient,True,CM,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,15,Julien Laporte,Lorient,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,21,Julien Ponceau,Lorient,True,AM,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,22,Eli Junior Kroupi,Lorient,True,FW,67
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,24,Gedeon Kalulu,Lorient,True,WB,78
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,32,Nathaniel Adjei,Lorient,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,44,Ayman Kari,Lorient,True,AM,60
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,95,Souleymane Touré,Lorient,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,1,Alfred Gomis,Lorient,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,3,Montassar Talbi,Lorient,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,5,Benjamin Mendy,Lorient,False,WB,30
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,7,Panos Katseris,Lorient,False,WB,12
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,9,Muhamad Bamba,Lorient,False,FW,23
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,10,Badredine Bouanani,Lorient,False,AM,30
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,19,Laurent Abergel,Lorient,False,CM,23
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,27,Tosin Aiyegun,Lorient,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,37,Théo Le Bris,Lorient,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,99,Gianluigi Donnarumma,Paris Saint-Germain,True,GK,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,7,Kylian Mbappé,Paris Saint-Germain,True,LW,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,8,Fabián Ruiz Peña,Paris Saint-Germain,True,"CM,LM",90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,9,Gonçalo Ramos,Paris Saint-Germain,True,FW,61
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,10,Ousmane Dembélé,Paris Saint-Germain,True,RW,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,19,Lee Kang-in,Paris Saint-Germain,True,LM,60
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,21,Lucas Hernández,Paris Saint-Germain,True,CB,63
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,25,Nuno Mendes,Paris Saint-Germain,True,LB,72
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,37,Milan Škriniar,Paris Saint-Germain,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,41,Senny Mayulu,Paris Saint-Germain,True,RM,60
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,42,Yoram Zague,Paris Saint-Germain,True,RB,90
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,1,Keylor Navas,Paris Saint-Germain,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,4,Manuel Ugarte Ribeiro,Paris Saint-Germain,False,CM,30
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,11,Marco Asensio,Paris Saint-Germain,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,15,Danilo Pereira,Paris Saint-Germain,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,23,Randal Kolo Muani,Paris Saint-Germain,False,FW,29
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,26,Nordi Mukiele,Paris Saint-Germain,False,CB,27
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,28,Carlos Soler,Paris Saint-Germain,False,RM,30
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,35,Lucas Beraldo,Paris Saint-Germain,False,,0
-FRA-Ligue 1,2324,2024-04-24 Lorient-Paris S-G,38,Ethan Mbappé,Paris Saint-Germain,False,LB,18
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,1,Radosław Majecki,Monaco,True,GK,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,2,Vanderson,Monaco,True,RB,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,3,Guillermo Maripán,Monaco,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,5,Thilo Kehrer,Monaco,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,6,Denis Zakaria,Monaco,True,CM,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,10,Wissam Ben Yedder,Monaco,True,FW,82
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,18,Takumi Minamino,Monaco,True,LM,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,19,Youssouf Fofana,Monaco,True,CM,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,21,Maghnes Akliouche,Monaco,True,RM,86
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,27,Krépin Diatta,Monaco,True,LB,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,29,Folarin Balogun,Monaco,True,FW,67
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,16,Philipp Köhn,Monaco,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,4,Mohamed Camara,Monaco,False,FW,8
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,12,Caio Henrique Oliveira Silva,Monaco,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,20,Kassoum Ouattara,Monaco,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,22,Mohammed Salisu,Monaco,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,36,Breel Embolo,Monaco,False,FW,23
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,37,Edan Diop,Monaco,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,42,Mamadou Coulibaly,Monaco,False,RM,4
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,88,Soungoutou Magassa,Monaco,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,30,Lucas Chevalier,Lille,True,GK,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,5,Gabriel Gudmundsson,Lille,True,RW,65
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,6,Nabil Bentaleb,Lille,True,CM,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,7,Hákon Arnar Haraldsson,Lille,True,LW,65
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,8,Angel Gomes,Lille,True,LM,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,9,Jonathan David,Lille,True,FW,65
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,15,Leny Yoro,Lille,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,18,Bafodé Diakité,Lille,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,21,Benjamin André,Lille,True,RM,56
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,22,Tiago santos,Lille,True,RB,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,31,Ismaily,Lille,True,LB,90
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,1,Vito Mannone,Lille,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,4,Alexsandro Ribeiro,Lille,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,10,Rémy Cabella,Lille,False,LW,25
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,12,Yusuf Yazıcı,Lille,False,FW,25
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,17,Ivan Cavaleiro,Lille,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,19,Tiago Fonseca Morais,Lille,False,,0
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,23,Edon Zhegrova,Lille,False,RW,25
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,32,Ayyoub Bouaddi,Lille,False,RM,34
-FRA-Ligue 1,2324,2024-04-24 Monaco-Lille,33,Vincent Burlet,Lille,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,33,Alexander Nübel,Stuttgart,True,GK,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,2,Waldemar Anton,Stuttgart,True,CB,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,6,Angelo Stiller,Stuttgart,True,DM,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,7,Maximilian Mittelstädt,Stuttgart,True,LB,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,8,Enzo Millot,Stuttgart,True,RW,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,9,Serhou Guirassy,Stuttgart,True,FW,84
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,16,Atakan Karazor,Stuttgart,True,DM,56
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,18,Jamie Leweling,Stuttgart,True,RB,56
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,21,Hiroki Ito,Stuttgart,True,CB,79
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,26,Deniz Undav,Stuttgart,True,"AM,FW",90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,27,Chris Führich,Stuttgart,True,LW,56
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,1,Fabian Bredlow,Stuttgart,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,42,Florian Schock,Stuttgart,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,5,Mahmoud Dahoud,Stuttgart,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,10,Jeong Woo-yeong,Stuttgart,False,DM,34
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,14,Silas Katompa,Stuttgart,False,LW,34
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,15,Pascal Stenzel,Stuttgart,False,RB,34
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,17,Genki Haraguchi,Stuttgart,False,AM,6
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,20,Leonidas Stergiou,Stuttgart,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,29,Anthony Rouault,Stuttgart,False,CB,11
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,1,Jonas Omlin,Mönchengladbach,True,GK,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,3,Ko Itakura,Mönchengladbach,True,CB,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,5,Marvin Friedrich,Mönchengladbach,True,CB,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,8,Julian Weigl,Mönchengladbach,True,DM,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,13,Jordan Pefok,Mönchengladbach,True,FW,79
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,14,Alassane Pléa,Mönchengladbach,True,"LM,LW",65
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,17,Manu Koné,Mönchengladbach,True,"CM,AM",79
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,18,Stefan Lainer,Mönchengladbach,True,RB,90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,19,Nathan N'Goumou,Mönchengladbach,True,"RM,RW",65
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,20,Luca Netz,Mönchengladbach,True,LB,78
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,27,Rocco Reitz,Mönchengladbach,True,"DM,CM",90
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,33,Moritz Nicolas,Mönchengladbach,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,2,Fabio Chiarodia,Mönchengladbach,False,LB,11
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,7,Patrick Herrmann,Mönchengladbach,False,"RW,LB",12
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,10,Florian Neuhaus,Mönchengladbach,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,26,Lukas Ullrich,Mönchengladbach,False,LW,25
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,29,Joe Scally,Mönchengladbach,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,30,Nico Elvedi,Mönchengladbach,False,,0
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,31,Tomáš Čvančara,Mönchengladbach,False,"RW,AM",25
+GER-Bundesliga,2324,2024-05-18 Stuttgart-Gladbach,49,Shiō Fukuda,Mönchengladbach,False,FW,11
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,40,Maduka Okoye,Udinese,True,GK,90
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,11,Walace,Udinese,True,"CM,DM",90
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,12,Hassane Kamara,Udinese,True,WB,69
@@ -255,154 +55,165 @@ ITA-Serie A,2324,2024-04-25 Udinese-Roma,93,Daniele Padelli,Udinese,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,2,Festy Ebosele,Udinese,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,6,Oier Zarraga,Udinese,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,7,Isaac Success,Udinese,False,,0
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,9,Keinan Davis,Udinese,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,13,João Ferreira,Udinese,False,WB,21
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,16,Antonio Tikvić,Udinese,False,,0
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,22,Brenner,Udinese,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,27,Christian Kabasele,Udinese,False,CB,1
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,30,Lautaro Gianetti,Udinese,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,33,Jordan Zemura,Udinese,False,WB,21
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,99,Mile Svilar,Roma,True,GK,90
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,3,Dean Huijsen,Roma,True,CB,52
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,4,Bryan Cristante,Roma,True,"DM,CM",90
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,5,Obite N'Dicka,Roma,True,CB,90
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,14,Diego Llorente,Roma,True,CB,90
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,16,Leandro Paredes,Roma,True,DM,90
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,4,Bryan Cristante,Roma,True,DM,90
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,5,Obite N'Dicka,Roma,True,CB,71
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,14,Diego Llorente,Roma,True,CB,0
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,16,Leandro Paredes,Roma,True,DM,71
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,22,Houssem Aouar,Roma,True,DM,52
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,35,Tommaso Baldanzi,Roma,True,FW,90
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,59,Nicola Zalewski,Roma,True,WB,90
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,69,Angeliño,Roma,True,"WB,CB",90
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,90,Romelu Lukaku,Roma,True,FW,90
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,35,Tommaso Baldanzi,Roma,True,FW,71
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,59,Nicola Zalewski,Roma,True,WB,71
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,69,Angeliño,Roma,True,"WB,LW",90
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,90,Romelu Lukaku,Roma,True,FW,71
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,1,Rui Patrício,Roma,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,63,Pietro Boer,Roma,False,,0
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,2,Rick Karsdorp,Roma,False,"WB,CB",38
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,2,Rick Karsdorp,Roma,False,"RB,CB",18
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,6,Chris Smalling,Roma,False,,0
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,7,Lorenzo Pellegrini,Roma,False,,0
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,9,Tammy Abraham,Roma,False,,0
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,7,Lorenzo Pellegrini,Roma,False,DM,19
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,9,Tammy Abraham,Roma,False,FW,19
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,17,Sardar Azmoun,Roma,False,AM,19
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,19,Zeki Çelik,Roma,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,20,Renato Sanches,Roma,False,,0
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,21,Paulo Dybala,Roma,False,"AM,DM",38
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,23,Gianluca Mancini,Roma,False,,0
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,37,Leonardo Spinazzola,Roma,False,,0
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,21,Paulo Dybala,Roma,False,"RW,DM",38
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,23,Gianluca Mancini,Roma,False,CB,19
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,37,Leonardo Spinazzola,Roma,False,LB,19
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,43,Rasmus Kristensen,Roma,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,52,Edoardo Bove,Roma,False,,0
 ITA-Serie A,2324,2024-04-25 Udinese-Roma,67,João Costa,Roma,False,,0
-ITA-Serie A,2324,2024-04-25 Udinese-Roma,92,Stephan El Shaarawy,Roma,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,16,Pau López,Marseille,True,GK,90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,4,Samuel Gigot,Marseille,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,5,Leonardo Balerdi,Marseille,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,6,Ulisses Garcia,Marseille,True,"LB,CB",90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,7,Jonathan Clauss,Marseille,True,"WB,RB",64
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,10,Pierre-Emerick Aubameyang,Marseille,True,FW,90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,11,Amine Harit,Marseille,True,"CM,RM",64
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,14,Faris Pemi Moumbagna,Marseille,True,FW,44
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,19,Geoffrey Kondogbia,Marseille,True,CM,89
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,27,Jordan Veretout,Marseille,True,"CM,LM",89
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,44,Luis Henrique,Marseille,True,"WB,LM,RM",79
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,36,Rubén Blanco,Marseille,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,8,Azzedine Ounahi,Marseille,False,LM,1
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,17,Jean Onana,Marseille,False,CM,1
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,20,Joaquín Correa,Marseille,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,22,Pape Gueye,Marseille,False,CM,26
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,29,Iliman Ndiaye,Marseille,False,RM,11
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,42,Keyliane Abdallah,Marseille,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,49,Raimane Daou,Marseille,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,62,Michael Amir Murillo,Marseille,False,RB,26
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,1,Marcin Bułka,Nice,True,GK,90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,4,Dante,Nice,True,CB,90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,6,Jean-Clair Todibo,Nice,True,"CB,RB",90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,7,Jeremie Boga,Nice,True,"LW,LM",90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,8,Pablo Rosario,Nice,True,"CM,CB",90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,9,Terem Moffi,Nice,True,FW,56
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,11,Morgan Sanson,Nice,True,RM,64
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,19,Khéphren Thuram,Nice,True,"LM,CM",90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,25,Mohamed Ali Cho,Nice,True,"RW,RM",81
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,26,Melvin Bard,Nice,True,LB,90
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,33,Antoine Mendy,Nice,True,RB,64
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,31,Maxime Dupé,Nice,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,15,Romain Perraud,Nice,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,18,Alexis Claude-Maurice,Nice,False,RM,9
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,24,Gaëtan Laborde,Nice,False,"FW,RM",26
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,27,Aliou Badara Baldé,Nice,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,28,Hicham Boudaoui,Nice,False,"CM,RB",26
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,29,Evann Guessand,Nice,False,FW,34
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,32,Tom Louchet,Nice,False,,0
-FRA-Ligue 1,2324,2024-04-24 Marseille-Nice,55,Youssouf Ndayishimiye,Nice,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,1,José Sá,Wolverhampton Wanderers,True,GK,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,3,Rayan Aït-Nouri,Wolverhampton Wanderers,True,"LB,LM",90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,4,Santiago Bueno,Wolverhampton Wanderers,True,CB,45
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,5,Mario Lemina,Wolverhampton Wanderers,True,"CM,DM,CB",90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,8,João Gomes,Wolverhampton Wanderers,True,CM,63
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,11,Hwang Hee-chan,Wolverhampton Wanderers,True,FW,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,20,Tommy Doyle,Wolverhampton Wanderers,True,CM,54
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,21,Pablo Sarabia,Wolverhampton Wanderers,True,"RM,FW",63
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,22,Nélson Semedo,Wolverhampton Wanderers,True,"RB,CB",90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,23,Max Kilman,Wolverhampton Wanderers,True,CB,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,24,Toti Gomes,Wolverhampton Wanderers,True,"CB,LB",89
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,25,Daniel Bentley,Wolverhampton Wanderers,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,2,Matt Doherty,Wolverhampton Wanderers,False,"RB,RM",45
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,6,Boubacar Traoré,Wolverhampton Wanderers,False,CM,27
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,12,Matheus Cunha,Wolverhampton Wanderers,False,"LM,FW",36
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,17,Hugo Bueno,Wolverhampton Wanderers,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,37,Fletcher Holman,Wolverhampton Wanderers,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,61,Wesley Okoduwa,Wolverhampton Wanderers,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,62,Tawanda Chirewa,Wolverhampton Wanderers,False,"RM,CM",27
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,63,Nathan Fraser,Wolverhampton Wanderers,False,"LM,CB",1
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,42,Mark Travers,Bournemouth,True,GK,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,3,Milos Kerkez,Bournemouth,True,LB,78
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,4,Lewis Cook,Bournemouth,True,DM,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,9,Dominic Solanke,Bournemouth,True,FW,86
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,10,Ryan Christie,Bournemouth,True,DM,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,14,Alex Scott,Bournemouth,True,AM,80
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,15,Adam Smith,Bournemouth,True,RB,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,19,Justin Kluivert,Bournemouth,True,LW,73
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,24,Antoine Semenyo,Bournemouth,True,RW,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,25,Marcos Senesi,Bournemouth,True,CB,86
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,27,Illia Zabarnyi,Bournemouth,True,CB,90
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,1,Neto,Bournemouth,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,5,Lloyd Kelly,Bournemouth,False,LB,10
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,11,Dango Ouattara,Bournemouth,False,LW,17
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,23,James Hill,Bournemouth,False,CB,4
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,26,Enes Ünal,Bournemouth,False,FW,4
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,29,Philip Billing,Bournemouth,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,37,Max Aarons,Bournemouth,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,49,Dominic Sadi,Bournemouth,False,,0
-ENG-Premier League,2324,2024-04-24 Wolves-Bournemouth,50,Michael DaCosta,Bournemouth,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,22,David Raya,Arsenal,True,GK,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,2,William Saliba,Arsenal,True,CB,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,4,Ben White,Arsenal,True,RB,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,5,Thomas Partey,Arsenal,True,CM,71
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,6,Gabriel Magalhães,Arsenal,True,CB,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,7,Bukayo Saka,Arsenal,True,RW,81
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,8,Martin Ødegaard,Arsenal,True,RM,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,18,Takehiro Tomiyasu,Arsenal,True,LB,71
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,19,Leandro Trossard,Arsenal,True,LW,71
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,29,Kai Havertz,Arsenal,True,FW,71
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,41,Declan Rice,Arsenal,True,LM,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,1,Aaron Ramsdale,Arsenal,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,9,Gabriel Jesus,Arsenal,False,FW,19
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,10,Emile Smith Rowe,Arsenal,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,11,Gabriel Martinelli,Arsenal,False,LW,19
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,14,Eddie Nketiah,Arsenal,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,15,Jakub Kiwior,Arsenal,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,20,Jorginho,Arsenal,False,CM,19
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,21,Fabio Vieira,Arsenal,False,RW,9
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,35,Oleksandr Zinchenko,Arsenal,False,LB,19
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,28,Đorđe Petrović,Chelsea,True,GK,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,2,Axel Disasi,Chelsea,True,CB,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,3,Marc Cucurella,Chelsea,True,"LB,LM",90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,5,Benoît Badiashile,Chelsea,True,CB,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,8,Enzo Fernández,Chelsea,True,DM,66
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,10,Mykhailo Mudryk,Chelsea,True,LW,66
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,11,Noni Madueke,Chelsea,True,RW,78
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,15,Nicolas Jackson,Chelsea,True,FW,90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,23,Conor Gallagher,Chelsea,True,"AM,CM",90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,25,Moisés Caicedo,Chelsea,True,"DM,CM",90
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,42,Alfie Gilchrist,Chelsea,True,"RB,RM",78
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,13,Marcus Bettinelli,Chelsea,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,6,Thiago Silva,Chelsea,False,CB,12
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,7,Raheem Sterling,Chelsea,False,"LM,LW",24
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,14,Trevoh Chalobah,Chelsea,False,"RB,CB",24
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,17,Carney Chukwuemeka,Chelsea,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,31,Cesare Casadei,Chelsea,False,RM,12
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,36,Deivid Washington,Chelsea,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,49,Jimi Tauriainen,Chelsea,False,,0
-ENG-Premier League,2324,2024-04-23 Arsenal-Chelsea,78,Kiano Dyer,Chelsea,False,,0
+ITA-Serie A,2324,2024-04-25 Udinese-Roma,92,Stephan El Shaarawy,Roma,False,RB,1
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,38,Yvon Mvogo,Lorient,True,GK,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,3,Montassar Talbi,Lorient,True,CB,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,5,Benjamin Mendy,Lorient,True,WB,19
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,7,Panos Katseris,Lorient,True,WB,55
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,9,Mohamed Bamba,Lorient,True,AM,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,10,Badredine Bouanani,Lorient,True,AM,56
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,13,Formose Mendy,Lorient,True,CB,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,15,Julien Laporte,Lorient,True,CB,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,19,Laurent Abergel,Lorient,True,CM,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,21,Julien Ponceau,Lorient,True,CM,77
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,27,Tosin Aiyegun,Lorient,True,FW,55
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,94,Dominique Youfeigane,Lorient,False,,0
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,4,Loris Mouyokolo,Lorient,False,,0
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,6,Imran Louza,Lorient,False,"AM,CM",34
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,11,Bamba Dieng,Lorient,False,FW,35
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,12,Darlin Yongwa,Lorient,False,WB,71
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,14,Tiemoué Bakayoko,Lorient,False,,0
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,22,Eli Junior Kroupi,Lorient,False,AM,13
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,24,Gedeon Kalulu,Lorient,False,WB,35
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,37,Théo Le Bris,Lorient,False,,0
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,99,Mory Diaw,Clermont Foot,True,GK,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,3,Neto Borges,Clermont Foot,True,LB,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,4,Chrislain Matsima,Clermont Foot,True,CB,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,7,Yohann Magnin,Clermont Foot,True,"DM,CM",80
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,11,Jim Allevinah,Clermont Foot,True,"FW,RM",74
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,17,Andy Pelmard,Clermont Foot,True,CB,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,18,Elba Rashani,Clermont Foot,True,"LW,LM",90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,25,Johan Gastien,Clermont Foot,True,DM,58
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,26,Alan Virginius,Clermont Foot,True,"RW,FW",81
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,29,Ilhan Fakili,Clermont Foot,True,AM,58
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,97,Jérémy Jacquet,Clermont Foot,True,RB,90
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,1,Massamba Ndiaye,Clermont Foot,False,,0
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,2,Mehdi Zeffane,Clermont Foot,False,,0
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,6,Habib Keita,Clermont Foot,False,CM,32
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,8,Bilal Boutobba,Clermont Foot,False,,0
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,9,Komnen Andrić,Clermont Foot,False,"FW,CM",10
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,19,Mohamed Bouchenna,Clermont Foot,False,"CM,RM",16
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,21,Florent Ogier,Clermont Foot,False,CB,32
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,22,Yoël Armougom,Clermont Foot,False,,0
+FRA-Ligue 1,2324,2024-05-19 Lorient-Clermont Foot,91,Jérémie Bela,Clermont Foot,False,RM,9
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,1,Emiliano Martínez,Aston Villa,True,GK,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,3,Diego Carlos,Aston Villa,True,CB,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,4,Ezri Konsa,Aston Villa,True,RB,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,6,Douglas Luiz,Aston Villa,True,DM,79
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,7,John McGinn,Aston Villa,True,"LW,DM",90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,8,Youri Tielemans,Aston Villa,True,DM,64
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,11,Ollie Watkins,Aston Villa,True,FW,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,12,Lucas Digne,Aston Villa,True,LB,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,14,Pau Torres,Aston Villa,True,CB,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,19,Moussa Diaby,Aston Villa,True,AM,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,31,Leon Bailey,Aston Villa,True,RW,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,25,Robin Olsen,Aston Villa,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,16,Calum Chambers,Aston Villa,False,DM,11
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,17,Clément Lenglet,Aston Villa,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,22,Nicolò Zaniolo,Aston Villa,False,LW,14
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,24,Jhon Durán,Aston Villa,False,LW,12
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,29,Kaine Kesler-Hayden,Aston Villa,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,47,Tim Iroegbunam,Aston Villa,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,69,Finley Munroe,Aston Villa,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,71,Omari Kellyman,Aston Villa,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,1,Alisson,Liverpool,True,GK,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,2,Joe Gomez,Liverpool,True,LB,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,3,Wataru Endo,Liverpool,True,CM,75
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,4,Virgil van Dijk,Liverpool,True,CB,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,7,Luis Díaz,Liverpool,True,LW,75
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,10,Alexis Mac Allister,Liverpool,True,LM,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,11,Mohamed Salah,Liverpool,True,RW,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,18,Cody Gakpo,Liverpool,True,FW,74
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,19,Harvey Elliott,Liverpool,True,RM,74
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,66,Trent Alexander-Arnold,Liverpool,True,RB,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,78,Jarell Quansah,Liverpool,True,CB,90
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,62,Caoimhín Kelleher,Liverpool,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,5,Ibrahima Konaté,Liverpool,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,8,Dominik Szoboszlai,Liverpool,False,CM,15
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,9,Darwin Núñez,Liverpool,False,FW,16
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,17,Curtis Jones,Liverpool,False,LW,15
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,21,Kostas Tsimikas,Liverpool,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,38,Ryan Gravenberch,Liverpool,False,RM,16
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,43,Stefan Bajcetic,Liverpool,False,,0
+ENG-Premier League,2324,2024-05-13 Aston Villa-Liverpool,84,Conor Bradley,Liverpool,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,1,Pietro Terracciano,Fiorentina,True,GK,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,4,Nikola Milenković,Fiorentina,True,CB,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,6,Arthur Melo,Fiorentina,True,DM,79
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,10,Nicolás González,Fiorentina,True,RW,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,17,Gaetano Castrovilli,Fiorentina,True,LW,73
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,18,M'Bala Nzola,Fiorentina,True,FW,60
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,28,Lucas Martínez Quarta,Fiorentina,True,CB,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,33,Michael Kayode,Fiorentina,True,RB,79
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,38,Rolando Mandragora,Fiorentina,True,DM,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,65,Fabiano Parisi,Fiorentina,True,LB,79
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,72,Antonín Barák,Fiorentina,True,AM,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,30,Tommaso Martinelli,Fiorentina,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,53,Oliver Christensen,Fiorentina,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,2,Dodô,Fiorentina,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,3,Cristiano Biraghi,Fiorentina,False,LB,11
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,5,Giacomo Bonaventura,Fiorentina,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,8,Maxime Lopez,Fiorentina,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,9,Lucas Beltrán,Fiorentina,False,LW,17
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,16,Luca Ranieri,Fiorentina,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,19,Gino Infantino,Fiorentina,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,22,Davide Faraoni,Fiorentina,False,RB,11
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,32,Alfred Duncan,Fiorentina,False,DM,11
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,37,Pietro Comuzzo,Fiorentina,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,99,Christian Kouamé,Fiorentina,False,FW,30
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,16,Michele Di Gregorio,Monza,True,GK,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,4,Armando Izzo,Monza,True,CB,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,11,Milan Đurić,Monza,True,FW,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,19,Samuele Birindelli,Monza,True,"RB,WB",63
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,20,Alessio Zerbin,Monza,True,"WB,LM",90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,22,Pablo Marí,Monza,True,CB,72
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,28,Andrea Colpani,Monza,True,"RM,AM",81
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,32,Matteo Pessina,Monza,True,"CM,AM",90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,38,Warren Bondo,Monza,True,CM,90
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,47,Dany Mota,Monza,True,"FW,AM",63
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,77,Giorgos Kyriakopoulos,Monza,True,LB,45
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,23,Alessandro Sorrentino,Monza,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,66,Stefano Gori,Monza,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,2,Giulio Donati,Monza,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,5,Luca Caldirola,Monza,False,CB,45
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,6,Roberto Gagliardini,Monza,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,8,Jean-Daniel Akpa-Akpro,Monza,False,CM,27
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,9,Lorenzo Colombo,Monza,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,10,Gianluca Caprari,Monza,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,13,Pedro Pereira,Monza,False,WB,27
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,21,Valentin Carboni,Monza,False,AM,9
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,33,Danilo D'Ambrosio,Monza,False,CB,18
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,61,Andrea Ferraris,Monza,False,,0
+ITA-Serie A,2324,2024-05-13 Fiorentina-Monza,80,Samuele Vignato,Monza,False,,0
