@@ -1180,7 +1180,7 @@ def plot_double_passmap(df_player_match, res_dict, df_match_oi, df_events, teamI
     team_colors = ["white", "yellow"]
 
     ax[0].set_title('PASS MAP COMPARISON', color='gold', fontsize=8, fontname='Roboto', loc='left')
-    fig.text(0.082, 0.865, f'{df_match_oi['HOME_TEAM_NAME'].iloc[0]} vs {df_match_oi['AWAY_TEAM_NAME'].iloc[0]}, {datetime_obj}', 
+    fig.text(0.082, 0.865, f"{df_match_oi['HOME_TEAM_NAME'].iloc[0]} vs {df_match_oi['AWAY_TEAM_NAME'].iloc[0]}, {datetime_obj}", 
              color='grey', fontsize=5, fontname='Roboto')
 
     for i, teamid in enumerate([teamId_home, teamId_away]):    
