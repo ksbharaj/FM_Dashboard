@@ -594,7 +594,7 @@ if st.session_state.proper_team_update:
         
         in_play_xT = xT_generator(df_successful_in_play_events, (16, 12))
         set_piece_xT = xT_generator(df_successful_set_piece_events, (16, 12))
-        all_xT = in_play_xT.append(set_piece_xT)
+        all_xT = pd.concat([in_play_xT, set_piece_xT])
 
         df_goals = fetch_data(cursor_1, f"SELECT * FROM SHOT_EVENTS WHERE MATCH_ID = '{match_oi}' AND OUTCOME = 'Goal'")
         df_goals = df_events.merge(df_goals[['MATCH_ID', 'ACTION_ID']], on=['MATCH_ID', 'ACTION_ID'], how='inner')
