@@ -529,7 +529,7 @@ if st.session_state.proper_team_update:
                                                         "High no. of set piece goals<br>Low no. of set piece goals conceded",
                                                         "High no. of set piece goals<br>High no. of set piece goals conceded",
                                                         "orange", "red", "green", "orange")
-                st.caption("Gives a comparison of " + st.session_state.team_name + "'s gaosl from set pieces vs goals conceded from set pieces in the " + 
+                st.caption("Gives a comparison of " + st.session_state.team_name + "'s goals from set pieces vs goals conceded from set pieces in the " + 
                             st.session_state.competition + " in the " + season_selected + " season")
                 st.plotly_chart(fig_goals_set_piece, use_container_width=True)
         
