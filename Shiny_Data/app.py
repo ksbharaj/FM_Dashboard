@@ -166,9 +166,9 @@ st.markdown("""---""")
 # Section: Streamlit's Sidebar
 # ==================================================================
 if 'competition' not in st.session_state:
-    st.session_state.competition = "EPL"
+    st.session_state.competition = "Serie A"
     st.session_state.season = 2324
-    st.session_state.team_name = "Arsenal"
+    st.session_state.team_name = "Atalanta"
     st.session_state.proper_team_update = True
 
 with st.sidebar:   
