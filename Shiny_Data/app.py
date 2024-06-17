@@ -321,7 +321,7 @@ if st.session_state.proper_team_update:
                 filtered_defending = team_defending_chart[team_defending_chart['SEASON'] == st.session_state.season]
                 filtered_defending = filtered_defending[filtered_defending['COMPETITION_ACRONYM'] == st.session_state.competition]
                 fig_team_defending = create_FM_team_scatter_chart(filtered_defending, 'DEFENDING', st.session_state.team_name, 
-                                                                'CLEARANCES PER GAME', 'BLOCKS PER GAME', 1., 9.5, 29.5, 6.5, 15, 
+                                                                'CLEARANCES PER GAME', 'BLOCKS PER GAME', 1., 9.5, 29.5, 6.5, 15.5, 
                                                                     "Fewer blocks<br>Fewer Clearances", "Fewer blocks<br>Lots of Clearances",
                                                                     "Lots of blocks<br>Fewer Clearances", "Fewer blocks<br>Lots of Clearances", 
                                                                     "red", "orange", "orange", "green")
@@ -346,7 +346,7 @@ if st.session_state.proper_team_update:
             with st.expander("**DEFENSIVE EFFICIENCY**- shot rate conceded by "+ st.session_state.team_name + " and how well opponents convert against them"):
                 fig_team_defensive_efficiency = create_FM_team_scatter_chart(filtered_defending, 'DEFENSIVE EFFICIENCY', st.session_state.team_name, 
                                                                 'OPPOSITION CONVERSION RATE (%)', 'SHOTS FACED PER GAME',
-                                                                    0.65, 7, 16, 5.5, 18, "Quiet defence<br>Impenetrable defence", 
+                                                                    0.65, 7, 16, 5.5, 19, "Quiet defence<br>Impenetrable defence", 
                                                                     "Quiet defence<br>Leaky defence", "Busy defence<br>Impenetrable defence", 
                                                                     "Busy defence<br>Leaky defence", "green", "orange", "orange", "red")
                 st.caption("Shows " + st.session_state.team_name + "'s position relative to the other teams in the " + 
@@ -356,7 +356,7 @@ if st.session_state.proper_team_update:
         with col4:
             with st.expander("**GOALKEEPING**- goals conceded by "+ st.session_state.team_name + " vs the shots faced per game"):
                 fig_team_goalkeeping = create_FM_team_scatter_chart(filtered_defending, 'GOALKEEPING', st.session_state.team_name, 'SHOTS FACED PER GAME', 
-                                    'CONCEDED PER GAME', 0.45, 6, 18, 0.5, 2.75, "Impenetrable defence<br>Quiet defence", 
+                                    'CONCEDED PER GAME', 0.45, 6, 18, 0.5, 2.8, "Impenetrable defence<br>Quiet defence", 
                                     "Impenetrable defence<br>Busy defence", "Leaky defence<br>Quiet defence", "Leaky defence<br>Busy defence", 
                                     "green", "orange", "orange", "red")
                 st.caption("Shows " + st.session_state.team_name + "'s position relative to the other teams in the " + 
@@ -367,7 +367,7 @@ if st.session_state.proper_team_update:
         with col5:
             with st.expander("**TACKLING**- Tackles attempted per game by "+ st.session_state.team_name + " and their tackle win ratio"):
                 fig_team_tackling = create_FM_team_scatter_chart(filtered_defending, 'TACKLING', st.session_state.team_name, 'TACKLES WON RATIO (%)', 
-                                                                'TACKLES ATTEMPTED PER GAME', 0.6, 52, 66, 11, 24, 
+                                                                'TACKLES ATTEMPTED PER GAME', 0.6, 52, 67, 11, 24, 
                                                                     "Fewer Duels<br>Poor Dueling", "Fewer Duels<br>Strong Dueling",
                                                                     "Lots of Duels<br>Poor Dueling", "Lots of Duels<br>Strong Dueling", "red", 
                                                                     "orange", "orange", "green")
