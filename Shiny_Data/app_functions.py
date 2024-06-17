@@ -968,7 +968,7 @@ def plot_single_passmap(df_player_match, res_dict, df_match_oi, df_events, teami
         spine.set_edgecolor('#2B2B2B')
 
     ax.set_title('PASS MAP', color='gold', fontsize=8, fontname='Roboto', loc='left')
-    fig.text(0.12, 0.88, f'{df_match_oi['HOME_TEAM_NAME'].iloc[0]} vs {df_match_oi['AWAY_TEAM_NAME'].iloc[0]}, {datetime_obj}', 
+    fig.text(0.12, 0.88, f"{df_match_oi['HOME_TEAM_NAME'].iloc[0]} vs {df_match_oi['AWAY_TEAM_NAME'].iloc[0]}, {datetime_obj}", 
              color='white', fontsize=5, fontname='Roboto')
 
     #define dataframes
