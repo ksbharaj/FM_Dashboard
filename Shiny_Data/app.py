@@ -147,8 +147,6 @@ y_max_goal_output = round((team_goal_output['NON PENALTY EXPECTED GOALS PER GAME
 # Section: Streamlit app creation
 # ==================================================================
 
-
-
 ## Streamlit App's Title 
 st.title('Team Analytics')
 st.subheader("Hey! Analyze football data from the top 5 leagues in the last 3 seasons here! (Inspired by Football Manager 24)")
@@ -213,7 +211,7 @@ with st.sidebar:
         if submit_comp_season:
             st.session_state.competition = competition_selected
             st.session_state.season = filtered_season
-            st.session_state.team_name = valid_team_names[0]
+            st.session_state.team_name = valid_team_names[1]
             st.session_state.proper_team_update = True
 
     
@@ -255,18 +253,18 @@ if st.session_state.proper_team_update:
                                             st.session_state.competition, "Standard Radar Chart") 
             st.caption("Comparison of Standard Stats between " + st.session_state.team_name + " (Golden) and " + st.session_state.competition + 
                        "'s league average in the " + season_selected + " season (Grey)")
-            st.plotly_chart(fig_standard, use_container_width=False)  # Set to True to use the full width of the column
+            st.plotly_chart(fig_standard, use_container_width=False, config={'displayModeBar': False})  # Set to True to use the full width of the column
 
         # Use the second column for the Attacking and Defending Radar Charts
         with col2:
             fig_attacking = create_radar_chart(st.session_state.season, st.session_state.team_name, attacking_radar_chart_data, 
                                             st.session_state.competition, "Attacking Radar Chart", 420, 350, label_spread=3)
             st.caption("Here, we focus on the Attacking Stats (Top) and Defending Stats (Bottom)")
-            st.plotly_chart(fig_attacking, use_container_width=False)  # Set to True to use the full width of the column
+            st.plotly_chart(fig_attacking, use_container_width=False, config={'displayModeBar': False})  # Set to True to use the full width of the column
 
             fig_defending = create_radar_chart(st.session_state.season, st.session_state.team_name, defending_radar_chart_data, 
                                             st.session_state.competition, "Defending Radar Chart", 420, 350, label_spread=3)
-            st.plotly_chart(fig_defending, use_container_width=False)  # Set to True to use the full width of the column
+            st.plotly_chart(fig_defending, use_container_width=False, config={'displayModeBar': False})  # Set to True to use the full width of the column
 
     elif st.session_state['active_tab'] == tab_options[1]:
         col1, col2 = st.columns([1, 1])  # Adjust the ratio if needed
@@ -567,7 +565,7 @@ if st.session_state.proper_team_update:
 
                 fig_shot_map = plot_shot_data(df_shots_last_5_matches_filt, total_xg, Goals, Attempts, with_feet, with_head, direct_set_pieces)
                 st.caption("Shot locatios in the last 5 games.")
-                st.plotly_chart(fig_shot_map, use_container_width=True)
+                st.plotly_chart(fig_shot_map, use_container_width=True, config={'displayModeBar': False, 'doubleClick': 'reset'})
                 
     elif st.session_state['active_tab'] == tab_options[5]:
         col1, col2 = st.columns([1, 1])
@@ -663,15 +661,27 @@ if st.session_state.proper_team_update:
                 summary_data.columns = ['Outcome', 'Count']
 
                 total_xg = df_shots_last_match_filt['XG'].sum()
-                Goals = df_shots_last_match_filt['OUTCOME'].value_counts()['Goal']
+                try:
+                    Goals = df_shots_last_match_filt['OUTCOME'].value_counts()['Goal']
+                except:
+                    Goals = 0
                 Attempts = df_shots_last_match_filt.shape[0]
-                with_feet = df_shots_last_match_filt['BODY_PART'].str.contains('Foot', na=False).sum()
-                with_head = df_shots_last_match_filt['BODY_PART'].value_counts()['Head']
-                direct_set_pieces = df_shots_last_match_filt['NOTES'].str.contains('Free kick', na=False).sum()
+                try:
+                    with_feet = df_shots_last_match_filt['BODY_PART'].str.contains('Foot', na=False).sum()
+                except:
+                    with_feet = 0
+                try:
+                    with_head = df_shots_last_match_filt['BODY_PART'].value_counts()['Head']
+                except:
+                    with_head = 0
+                try:
+                    direct_set_pieces = df_shots_last_match_filt['NOTES'].str.contains('Free kick', na=False).sum()
+                except:
+                    direct_set_pieces = 0
 
                 fig_shot_map = plot_shot_data(df_shots_last_match_filt, total_xg, Goals, Attempts, with_feet, with_head, direct_set_pieces)
                 st.caption("Shot locatios in the last 5 games.")
-                st.plotly_chart(fig_shot_map, use_container_width=True)
+                st.plotly_chart(fig_shot_map, use_container_width=True, config={'displayModeBar': False, 'doubleClick': 'reset'})
             
 
         col9, col10, col11 = st.columns([1, 8, 1]) 

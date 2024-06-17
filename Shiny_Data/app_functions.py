@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
+import os
 
 import matplotlib.pyplot as plt
 from mplsoccer import Pitch, VerticalPitch
@@ -28,7 +29,7 @@ def get_snowflake_cursor(schema):
     try:
         SNOWFLAKE_PASSWORD = st.secrets["snowflake"]["password"]
     except:
-        SNOWFLAKE_PASSWORD = 'Snowfl@key0014'
+        SNOWFLAKE_PASSWORD = os.getenv('SNOWFLAKE_PASSWORD')
     conn = snowflake.connector.connect(
         user='karan14',
         password=SNOWFLAKE_PASSWORD,
@@ -471,6 +472,10 @@ def plot_defensive_actions(section_counts_percentage_filt):
 
     ax.set_ylim(bottom=-10)
 
+    plt.rcParams['axes.facecolor'] = '#2B2B2B'
+    plt.rcParams['figure.facecolor'] = '#2B2B2B'
+    plt.rcParams['savefig.facecolor'] = '#2B2B2B'
+
     plt.title('DEFENSIVE ACTIONS', color='gold', fontsize=20, fontname='Roboto', loc='left')
 
     return fig
@@ -533,6 +538,10 @@ def create_set_piece_first_contacts_plot(def_set_piece_chart):
         head_length=1.5,  # Length of the arrow head
         color='lightgrey'  # Light grey color
     ))
+
+    plt.rcParams['axes.facecolor'] = '#2B2B2B'
+    plt.rcParams['figure.facecolor'] = '#2B2B2B'
+    plt.rcParams['savefig.facecolor'] = '#2B2B2B'
 
     plt.title('SET PIECE FIRST CONTACTS - OWN BOX', color='gold', fontsize=20, fontname='Roboto', loc='left')
 
@@ -676,6 +685,7 @@ def plot_shot_data(df_shots_last_5_matches, total_xg, Goals, Attempts, with_feet
             )
         }
     )
+    
 
     return fig
 
@@ -958,7 +968,8 @@ def plot_single_passmap(df_player_match, res_dict, df_match_oi, df_events, teami
         spine.set_edgecolor('#2B2B2B')
 
     ax.set_title('PASS MAP', color='gold', fontsize=8, fontname='Roboto', loc='left')
-    fig.text(0.12, 0.88, f'{team1} vs {team2}, {datetime_obj}', color='white', fontsize=5, fontname='Roboto')
+    fig.text(0.12, 0.88, f'{df_match_oi['HOME_TEAM_NAME'].iloc[0]} vs {df_match_oi['AWAY_TEAM_NAME'].iloc[0]}, {datetime_obj}', 
+             color='white', fontsize=5, fontname='Roboto')
 
     #define dataframes
     position = res_dict[teamid_selected]['player_position']
