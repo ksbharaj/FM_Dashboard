@@ -151,7 +151,7 @@ y_max_goal_output = round((team_goal_output['NON PENALTY EXPECTED GOALS PER GAME
 st.title('Team Analytics')
 st.subheader("Hey! Analyze football data from the top 5 leagues in the last 3 seasons here! (Inspired by Football Manager 24)")
 st.subheader("**Select the ***Competition***, ***Season*** and ***Team*** of from the sidebar. Then select from any one of the Radio Buttons:**")
-st.markdown(" **Radar Charts 🌐**: Help summarize the team's statistics in relation to the league' average for that season")
+st.markdown(" **Radar Charts 🌐**: Help summarize the team's statistics in relation to the league average for that season")
 st.markdown(" **General Charts 🧿**: Show the team's Aerial Dominance and Goal Output against all other teams in the league. Also shows a personal favourite- the xPts table (or Justice table)")
 st.markdown(" **Defending Charts 🤚**: Various interesting charts to show just how good the team is at defending")
 st.markdown(" **Creating Charts 🪄**: Shows how effective the selected team is at crossing in-plan and from set-pieces")
@@ -487,7 +487,7 @@ if st.session_state.proper_team_update:
         
         col3, col4 = st.columns([1, 1])
         with col3:
-            with st.expander("**SHOOTING**- shows how aggresive "+ st.session_state.team_name + "'s shooting is vs the quality of their shots"):
+            with st.expander("**SHOOTING**- shows how aggressive "+ st.session_state.team_name + "'s shooting is vs the quality of their shots"):
                 filt_shooting_chart = shooting_chart[shooting_chart['SEASON'] == st.session_state.season]
                 filt_shooting_chart = filt_shooting_chart[filt_shooting_chart['COMPETITION_ACRONYM'] == st.session_state.competition]
 
