@@ -21,7 +21,7 @@ from app_functions import create_radar_chart, create_FM_team_scatter_chart, plot
 st.set_page_config(layout="centered")
 css='''
     <style>
-        section.main > div {max-width:84rem}
+        section.main > div {max-width:85rem}
     </style>
     '''
 st.markdown(css, unsafe_allow_html=True)
